@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "Gotham";
+  src: url('fonts/GothamBold.ttf') format('ttf');
+}
+
+body{
+	font-family: 'Gotham', sans-serif;
+}
+
+body, html, .container-fluid {
+     height: 100%;
+}
+
+.col {
+	min-height: 500px;
+	background-size: cover;
+}
+
+
+.logo{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	display:block;
+	width:80px;
+}
+
+#home-row{
+	height:100%; 
+	display:block;
+}
+
+#explore {
+	background: url('/img/left-background-grayscale.jpg') no-repeat center left fixed; 
+	height:100%;
+	width:50%;
+	padding:0;
+	float:left;
+	transition: background-image 0.5s ease;
+}
+
+#engage {
+	background: url('/img/right-background-grayscale.jpg') no-repeat center right fixed; 
+	height:100%;
+	width:50%;
+	padding:0;
+	float:left;
+	transition: background-image 0.5s ease;
+}
+
+#engage:hover{
+	background-image: url('/img/right-background.jpg'); 
+	cursor:pointer;
+}
+
+#explore:hover{
+	background-image: url('/img/left-background.jpg'); 
+	cursor: pointer;
+}
+
+.top-home-row {
+	height:75%;
+}
+
+.bottom-home-row {
+	height:25%;
+	font-size:4em;
+}
+
+.remove-15-row {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+.remove-15-padding {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+.nav-container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	height:20%;
+}
+
+.engage-text{
+	position:absolute;
+	right:0;
+}
+
+.red-line{
+	display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #c13158;
+    margin: 1em 0;
+    padding: 0; 
+    width:90px;
+}
+
+.rl-container{
+	width:20%;
+}
+
+.enx-container{
+	width:80%;
+}
+
+.explore-text {
+	padding-left: 1em !important;
+	padding-bottom:0.15em;
+}
+
+.engage-text{
+	padding-right: 1em !important;
+	padding-bottom:0.15em;
+}
+
+.social-container, .contact-container{
+	margin-top:2em;
+}
+
+.social-container{
+	padding-left: 2em !important;
+}
+
+.contact-container{
+	padding-right:2em !important;
+}
+
+.text-link{
+    color: #c13158;
+    display: inline-block;
+    text-decoration: none !important;
+    border: 1px solid #c13158;
+    font-family: "Gotham", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 0.8em;
+    padding-bottom: 0.3em;
+}
+
+.text-link:hover{
+	color: #c13158;
+}
+
+.engage-link, .explore-link {
+	font-family: "Gotham",  sans-serif;
+	color: #fff;
+	font-weight:700;
+}
+
+.social-container img {
+	margin-right:0.6em;
+	height:25px;
+}
+
