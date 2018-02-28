@@ -1,10 +1,16 @@
 @font-face {
   font-family: "Gotham";
-  src: url('fonts/GothamBold.ttf') format('ttf');
+  src: url('fonts/Gotham-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url('fonts/Gotham-Bold.woff') format('woff');
 }
 
 body{
 	font-family: 'Gotham', sans-serif;
+	overflow-x: hidden;
 }
 
 body, html, .container-fluid {
@@ -50,12 +56,10 @@ body, html, .container-fluid {
 
 #engage:hover{
 	background-image: url('/img/right-background.jpg'); 
-	cursor:pointer;
 }
 
 #explore:hover{
 	background-image: url('/img/left-background.jpg'); 
-	cursor: pointer;
 }
 
 .top-home-row {
@@ -63,7 +67,7 @@ body, html, .container-fluid {
 }
 
 .bottom-home-row {
-	height:25%;
+	height:100%;
 	font-size:4em;
 }
 
@@ -95,7 +99,7 @@ body, html, .container-fluid {
 	display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #c13158;
+    border-top: 1px solid #fe2246;
     margin: 1em 0;
     padding: 0; 
     width:90px;
@@ -110,12 +114,12 @@ body, html, .container-fluid {
 }
 
 .explore-text {
-	padding-left: 1em !important;
+	padding-left: 22% !important;
 	padding-bottom:0.15em;
 }
 
 .engage-text{
-	padding-right: 1em !important;
+	padding-right: 0.5em !important;
 	padding-bottom:0.15em;
 }
 
@@ -132,10 +136,10 @@ body, html, .container-fluid {
 }
 
 .text-link{
-    color: #c13158;
+    color: #fe2246;
     display: inline-block;
     text-decoration: none !important;
-    border: 1px solid #c13158;
+    border: 1px solid #fe2246;
     font-family: "Gotham", sans-serif;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -147,13 +151,15 @@ body, html, .container-fluid {
 }
 
 .text-link:hover{
-	color: #c13158;
+	color: #fe2246;
 }
 
 .engage-link, .explore-link {
 	font-family: "Gotham",  sans-serif;
 	color: #fff;
-	font-weight:700;
+	font-weight:740;
+	letter-spacing: 0.1em;
+    font-size: 0.9em;
 }
 
 .social-container img {
@@ -161,3 +167,106 @@ body, html, .container-fluid {
 	height:25px;
 }
 
+.contact-slide{
+	background: rgb(60, 60, 60);
+	background: rgba(32, 32, 32, 0.9);
+	border-left: 1px solid #fe2246;
+	width:30% !important;
+	height:100%;
+	z-index:2;
+	position:absolute !important;
+	right:-1000px; /* Start way far away and later recalculate it to be -20% away */
+	color: #fff;
+	padding-top:4em;
+	padding-left:3em !important;
+	font-weight:bold;
+}
+
+.contact-slide input, .contact-slide textarea {
+	background-color: #35363b;
+	border: 0;
+	padding:0.4em;
+	font-weight: bold;
+	display: block;
+	margin-bottom: 1.8em;
+	width:90%;
+}
+
+.contact-slide ul li {
+	margin-bottom: 0.4em;
+	font-size:1.05em;
+}
+
+#bottom-row{
+	position: absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index: 1;
+	height:20%;
+}
+.explore-row:hover, .engage-row:hover{
+	cursor:pointer;
+}
+
+.contact-x{
+	position: absolute;
+	top:1.3em;
+	right:1.3em;
+	width:1.3em;
+	height:1.3em;
+	cursor:pointer;
+}
+
+#contact-form {
+	margin-top:2em;
+}
+
+.message-box{
+	height:10em;
+	resize: none;
+}
+
+#contact-submit {
+	background-color: #fe2246;
+	color:#fff;
+	font-size: 1em;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	font-weight:normal;
+	width:25%;
+}
+
+.redl{
+	border-top:1px solid #fe2246;
+	position:absolute !important;
+	height: 73%;
+	bottom:0;
+	width:12% !important;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	color:#fff;
+}
+
+.redl-active {
+    left: 1.2em;
+    width: 4% !important;
+    border-left: 1px solid #fe2246;
+    top:80%;
+}
+
+.rot-text-container{
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform-origin: left top 0;
+    font-size: 0.34em;
+    letter-spacing: 0.1em;
+    padding-left: 0.5em;
+    margin-left: 1.6em;
+    display: none;
+    width:6em;
+
+}

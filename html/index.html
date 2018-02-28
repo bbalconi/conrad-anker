@@ -12,9 +12,28 @@
 		<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 		<script type="text/javascript">
-			$(document).ready(function() {
-				$("#engage").click(function() {
+			function loadExploreContent() {
+				$(".row").insertAfter("#home-row");
+
+			}
+
+			function initialzieContactPanel() {
+				$("#contact-link").click(function() {
+					var currWidth = $(".contact-slide").width();
+
+					$(".contact-slide").css({"right": (0 - currWidth - 30) + "px"});
+					$(".contact-slide").animate({right: "0px"}, 500);
+				});
+
+				$(".contact-x").click(function() {
+					$(".contact-slide").animate({right: "-1000px"}, 1000);
+				});
+			}	
+
+			function initializePanelClicks() {
+				$(".engage-row").click(function() {
 					$("#explore").animate({width: "0%"}, 500);
+					$(".explore-row").fadeOut();
 					$("#engage").animate({width: "100%"}, 500, function() {
 						$("#explore").css({height: "0"});
 						$("#explore").hide();
@@ -23,14 +42,24 @@
 					$("#engage").css({"background-image": "url('/img/right-background.jpg')"});
 				});
 
-				$("#explore").click(function() {
+				$(".explore-row").click(function() {
 					$("#engage").animate({width: "0%"}, 500);
+					$(".engage-row").fadeOut();
 					$("#explore").animate({width: "100%"}, 500, function() {
 						$("#engage").css({height: "0"});
 						$("#engage").hide();
+						loadExploreContent();
 					});
+
+					$("#explore-rot-text").fadeIn();
+					$(".explore-row .redl").addClass("redl-active");
 					$("#explore").css({"background-image": "url('/img/left-background.jpg')"});
 				});
+			}
+
+			$(document).ready(function() {
+				initializePanelClicks();
+				initialzieContactPanel();
 			});
 		</script>
 	</head>
@@ -50,17 +79,51 @@
 					</a>
 				</div>
 				<div class="col text-right contact-container">
-					<a class="text-link" href="#">CONTACT</a>
+					<a id="contact-link" class="text-link" href="#">CONTACT</a>
 				</div>
+
 
 			</div>
 
 			<div class="row" id="home-row">
 				<div class="col" id="explore">
 					<div class="row top-home-row remove-15-row"></div>
-					<div class="row bottom-home-row remove-15-row align-items-center">
-						<div class="col-sm-2 remove-15-row remove-15-padding">
-							<hr class="red-line">
+					
+				</div>
+				<div class="col" id="engage">
+					<div class="row top-home-row remove-15-row"></div>
+					
+				</div>
+
+				<div class="col contact-slide">
+					<img class="contact-x" src="img/x-close.png">
+
+					<h1 class="contact-title" style="margin-bottom:1.2em;">Contact</h1>
+
+					<ul>
+						<li type="circle">Speaking Engagement</li>
+						<li>Endorsement</li>
+						<li>General Inquiry</li>
+					</ul>
+
+					<form id="contact-form">
+						<input type="text" name="email" id="contact-email" placeholder="Your email"/>
+						<input type="text" name="subject" id="contact-subject" placeholder="Subject"/>
+						<textarea name="message" class="message-box"></textarea>
+					</form>
+
+					<input type="submit" id="contact-submit" value="SEND"/>
+				</div>
+			</div>
+
+			<div class="row" id="bottom-row">
+				<div class="col">
+					<div class="row bottom-home-row remove-15-row explore-row">
+						<div class="col-sm-2 remove-15-row remove-15-padding redl">
+							<div id="explore-rot-text" class="rot-text-container">
+								Scroll &rarr;
+							</div>
+
 						</div>
 
 						<div class="col-sm-10 explore-text align-items-center">
@@ -68,10 +131,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" id="engage">
-					<div class="row top-home-row remove-15-row"></div>
-					<div class="row bottom-home-row remove-15-row align-items-center">
-						<div class="col-sm-10 text-right engage-text align-items-center">
+
+				<div class="col">
+					<div class="row bottom-home-row remove-15-row engage-row">
+						<div class="col-sm-10 text-right engage-text">
 							<span class="engage-link">ENGAGE</span>
 						</div>
 
