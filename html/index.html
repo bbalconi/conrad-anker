@@ -5,17 +5,13 @@
 		<title>Conrad Anker</title>
 		<link rel="stylesheet" href="css/styles.css" type="text/css">
 		<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.typekit.net/elp6ayx.css">
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"</script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 		<script type="text/javascript">
-			function loadExploreContent() {
-				$(".row").insertAfter("#home-row");
-
-			}
 
 			function initialzieContactPanel() {
 				$("#contact-link").click(function() {
@@ -48,7 +44,7 @@
 					$("#explore").animate({width: "100%"}, 500, function() {
 						$("#engage").css({height: "0"});
 						$("#engage").hide();
-						loadExploreContent();
+						$("body").css("overflow-y", "scroll");
 					});
 
 					$("#explore-rot-text").fadeIn();
@@ -57,9 +53,35 @@
 				});
 			}
 
+			function stickyOutline() {
+				var topOffset = $(".outline-contain").offset().top;
+				$(window).on("scroll", function() {
+					if(window.pageYOffset >= topOffset) {
+						$(".outline-contain").addClass("sticky-outline");
+					} else {
+						$(".outline-contain").removeClass("sticky-outline");
+					}
+
+					if(window.pageYOffset < $(".whitebg").offset().top - 50) {
+						$(".oi-active").css({color: "#fff"});
+					} else if(window.pageYOffset >= $(".graybg").offset().top - 50) {
+						$(".oi-active").css({color: "#fff"});
+					} else if(window.pageYOffset >= $(".whitebg").offset().top - 50) {
+						$(".oi-active").css({color: "#333"});
+					}
+				});
+			}
+
 			$(document).ready(function() {
 				initializePanelClicks();
 				initialzieContactPanel();
+				stickyOutline();
+
+				$(window).on('beforeunload', function(){
+				    $(window).scrollTop(0);
+				});
+
+				//$(window).scrollTop(0);
 			});
 		</script>
 	</head>
@@ -144,6 +166,255 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="row content-2">
+				<div class="col-sm-2">
+					<div class="outline-contain">
+						<div class="outline-item">
+							<div class="circle-item circle-active"></div>
+							<span class="outline-item-text oi-active">ABOUT</span>
+						</div>
+
+						<div class="outline-item">
+							<div class="circle-item"></div>
+							<span class="outline-item-text">ACHIEVEMENTS</span>
+						</div>
+
+						<div class="outline-item">
+							<div class="circle-item"></div>
+							<span class="outline-item-text">EXPEDITIONS</span>
+						</div>
+
+						<div class="outline-item">
+							<div class="circle-item"></div>
+							<span class="outline-item-text">HISTORY</span>
+						</div>
+
+						<div class="outline-item">
+							<div class="circle-item"></div>
+							<span class="outline-item-text">TOOLS</span>
+						</div>
+
+						<div class="outline-item">
+							<div class="circle-item"></div>
+							<span class="outline-item-text">PRESS</span>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-10">
+					<h1 style="margin-top: 1.2em;">Find Alpine Adventure</h1>
+					<p>
+						Conrad Anker is a climber’s climber, at home on a faraway alpine wall or the sparkling ice of his home canyon, Hyalite, located in the Gallatin Range of southwestern Montana. Over decades in the mountains, he has come to value the rarified air of Antarctica, the Himalaya and Montana equally; inspired by the value of immersion in other ecosystems and cultures, he’s become more fully enmeshed in both the physical and communal landscape of his hometown of Bozeman. Conrad came to climbing by way of his family, learning a deep appreciation for the outdoors from his California childhood, an appreciation and respect that has deepened as climbing took him around the world.
+					</p>
+					<p>
+						Conrad is still climbing at full throttle. The master of technical mountaineering and Captain of The North Face Global Athlete Team has over 30 years of experience under his belt, yet is still chasing first ascents. In 2011, he summited the Shark’s Fin, one of the last unclimbed Himalayan peaks, and in 2012, led an expedition to recreate the historic 1963 American Mount Everest Expedition. He’s a visionary, a champion for the environment, a pioneer and the best comrade you’ll find at 25,000 feet—he’s dedicated every ounce of his being to this life. Legendary doesn’t even begin to describe him.
+					</p>
+					<p>
+						<a href="#" class="red-arrow-link">DOWNLOAD FULL CONRAD BIO &rarr;</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="row content-2 whitebg">
+				<div class="col-sm-2">
+					
+
+				</div>
+
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col">
+							<img src="img/achievements1.jpeg" class="achievements-1">
+							<div class="shift-text-content">
+								<h1 class="ac-h1">Achievements</h1>
+								<ul class="in-content-ul">
+									<li>First ascent of the Shark’s Fin on Meru</li>
+									<li>Mallory and Irvine Research Expedition, Everest</li>
+									<li>First ascent of Rakekniven Peak, Queen Maud Land, Antarctica</li>
+									<li>First ascent of the East Face of Vinson Massif, Ellsworth Mountains, Antarctica</li>
+									<li>Stump/Anker Route, Streaked Wall, VI 5.11 A4 4/90 fa Zion, Utah</li>
+									<li>Winner of the 2015 Sundance US Documentary Audience Award</li>
+									<li>Honorary PHD from University of Utah</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col">
+							<img src="img/achievements2.jpeg" class="achievements-2">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row graybg content-2">
+				<div class="col-sm-2">
+
+				</div>
+
+				<div class="col-sm-10">
+					<div class="row expedition-intro-row">
+						<div class="col top-row-watch">
+							<h2>Recent Expeditions</h2>
+							<h1 class="modify-bp">Watch Conrad</h1>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
+							</p>
+						</div>
+					</div>
+
+					<div class="row vertical-align">
+						<div class="col expedition-info v-center">
+							<div class="v-center">
+								<h2 style="color:#fff !important;">Expedition Antartica</h2>
+								<p>
+									Facing extreme and challenging conditions, the goal of this month-long expedition is to reach as many summits of the Wolf’s Jaw massif as possible.
+								</p>
+							</div>
+						</div>
+
+						<div class="col">
+							<img src="img/antartica-expedition.png">
+						</div>
+					</div>
+
+					<div class="row vertical-align">
+						<div class="col">
+							<img src="img/antartica-expedition.png">
+						</div>
+
+						<div class="col expedition-info v-center">
+							<div class="v-center">
+								<h2 style="color:#fff !important;">Meru</h2>
+								<p>
+									After suffering dramatic setbacks in their lives, three close friends who are among the world’s best professional climbers battle their complicated pasts, inner demons and nature’s harshest elements in an attempt to confront the Shark’s Fin on Mount Meru, the most technically complicated and dangerous peak in the Himalayas, one that has never been scaled to completion.
+								</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row vertical-align">
+						<div class="col expedition-info v-center">
+							<div class="v-center">
+								<h2 style="color:#fff !important;">Always Above Us</h2>
+								<p>
+									Leading the life of a climber involves a tremendous amount of sacrifice and hardship, but for team athletes Conrad Anker and Kris Erickson, there's no living without it. 
+								</p>
+							</div>
+						</div>
+
+						<div class="col">
+							<img src="img/antartica-expedition.png">
+						</div>
+					</div>
+
+					<div class="row vertical-align">
+						<div class="col">
+							<img src="img/antartica-expedition.png">
+						</div>
+
+						<div class="col expedition-info v-center">
+							<div class="v-center">
+								<h2 style="color:#fff !important;">National Parks Adventure</h2>
+								<p>
+									Narrated by Academy Award winner Robert Redford, National Parks Adventure takes audiences on the ultimate off-trail adventure into the nation’s awe-inspiring great outdoors and untamed wilderness.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row history content-2">
+				<div class="col-sm-2"></div>
+
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col">
+							<h1 class="modify-bp">History</h1>
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col-sm-9">
+							<div class="history-content">
+								<h2 style="color:#fff !important;">Everest Expedition 2012</h2>
+								<p style="width:71% !important;">
+									To climb the West Ridge and the Southeast Ridge of Mount Everest in an expedition supported by National Geographic, The North Face, and Montana State University. Team members will measure the summit, conduct groundbreaking geological research and work with The Mayo Clinic to conduct tests on high-altitude human physiology.
+								</p>
+								<p>
+									<a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+									<a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+								</p>
+
+							</div>
+						</div>
+
+						<div class="col-sm-3 remove-15-padding">
+							<div class="history-menu">
+								<div class="history-menu-item">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>Everest Expedition 2012</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="history-menu-item">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>Shark’s Fin Meru 2011, Garwhal Himal, India</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="history-menu-item">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>Everest Extreme Ice Survey</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="history-menu-item">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>Shark’s Fin, Meru 2009</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="history-menu-item">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>Everest Tibet Side 2007, Chomolungma</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 
