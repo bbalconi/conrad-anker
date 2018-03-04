@@ -1,73 +1,146 @@
-{#
- # Layout template
- # ---------------
- #
- # This template defines your site’s global layout. It can be
- # “extended” by other templates to fill in the gaps.
- #
- # See Twig’s Template Inheritance documentation for more details:
- # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
- #}
-
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-<head>
-	<meta charset="utf-8" />
-	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
-	<link rel="home" href="{{ siteUrl }}" />
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block pageTitle %}{% endblock %} | Conrad Anker</title>
+		<link rel="stylesheet" href="/css/styles.css" type="text/css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.typekit.net/elp6ayx.css">
 
-	<style type="text/css">
-		body { margin: 50px; font-family: sans-serif; background: #fff; }
-		#container { margin: 0 auto; width: 700px;
-			-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-			        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-		}
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-		#header, #footer { display: block; color: #fff; background: #da5a47; }
-		#header a, #footer a { color: #fff; }
-		#header { border-radius: 7px 7px 0 0; padding: 25px; }
-		#header:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
-		#header a { text-decoration: none; }
-		#header h1 { float: left; margin: 0; font-weight: normal; font-size: 30px; line-height: 1; }
-		#header nav { display: block; float: right; }
-		#header nav ul { margin: 0; list-style-type: none; }
-		#header nav ul li { float: left; margin-left: 20px; }
-		#header nav ul li a { display: block; margin-top: 4px; line-height: 22px; }
-		#header nav ul li a:hover,
-		#header nav ul li a.active { border-bottom: 2px solid #fff; }
-		#header nav ul li a.active { cursor: default; }
+		<script type="text/javascript">
 
-		#content { display: block; padding: 25px; background: #fff; }
-		#content h1 { margin-top: 0; font-size: 35px; font-weight: bold; }
-		#content a { color: #da5a47; text-decoration: none; }
-		#content a:hover { text-decoration: underline; }
+			function initialzieContactPanel() {
+				$("#contact-link").click(function() {
+					var currWidth = $(".contact-slide").width();
 
-		#footer { border-radius: 0 0 7px 7px; padding: 15px; font-size: 12px; text-align: center; }
-	</style>
-</head>
+					$(".contact-slide").css({"right": (0 - currWidth - 30) + "px"});
+					$(".contact-slide").animate({right: "0px"}, 500);
+				});
 
-<body>
-	<div id="container">
-		<header id="header">
-			<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
+				$(".contact-x").click(function() {
+					$(".contact-slide").animate({right: "-1000px"}, 1000);
+				});
+			}	
 
-			<nav>
-				<ul>
-					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
-				</ul>
-			</nav>
-		</header>
+			function initializePanelClicks() {
+				$(".engage-row").click(function() {
+					$("#explore").animate({width: "0%"}, 500);
+					$(".explore-row").fadeOut();
+					$("#engage").animate({width: "100%"}, 500, function() {
+						$("#explore").css({height: "0"});
+						$("#explore").hide();
+					});
 
-		<main id="content" role="main">
-			{% block content %}
-				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-			{% endblock %}
-		</main>
+					$("#engage").css({"background-image": "url('/img/right-background.jpg')"});
+				});
 
-		<footer id="footer">
-			Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://craftcms.com">Craft</a>
-		</footer>
-	</div>
-</body>
+				$(".explore-row").click(function() {
+					$("#engage").animate({width: "0%"}, 500);
+					$(".engage-row").fadeOut();
+					$("#explore").animate({width: "100%"}, 500, function() {
+						$("#engage").css({height: "0"});
+						$("#engage").hide();
+						$("body").css("overflow-y", "scroll");
+					});
+
+					$("#explore-rot-text").fadeIn();
+					$(".explore-row .redl").addClass("redl-active");
+					$("#explore").css({"background-image": "url('/img/left-background.jpg')"});
+				});
+			}
+
+			function clearActive() {
+				var currActive = $(".oi-active");
+				currActive.removeClass("oi-active");
+				currActive.removeClass("oi-active-light");
+				currActive.removeClass("oi-active-dark");
+
+				var currCircle = $(".circle-active");
+				currCircle.removeClass("circle-active");
+			}
+
+			function stickyOutline() {
+				var topOffset = $(".outline-contain").offset().top;
+				$(window).on("scroll", function() {
+					if(window.pageYOffset >= topOffset) {
+						$(".outline-contain").addClass("sticky-outline");
+					} else {
+						$(".outline-contain").removeClass("sticky-outline");
+					}
+
+					if(window.pageYOffset < $("#row2").offset().top - 50) {
+						clearActive();
+						$("#about-outline .circle-item").addClass("circle-active");
+						$("#about-outline .outline-item-text").addClass("oi-active");
+						$("#about-outline .outline-item-text").addClass("oi-active-light");
+					} else if(window.pageYOffset >= $("#row6").offset().top - 50) {
+						clearActive();
+						$("#press-outline .circle-item").addClass("circle-active");
+						$("#press-outline .outline-item-text").addClass("oi-active");
+						$("#press-outline .outline-item-text").addClass("oi-active-light");
+					} else if(window.pageYOffset >= $("#row5").offset().top - 50) {
+						clearActive();
+						$("#tools-outline .circle-item").addClass("circle-active");
+						$("#tools-outline .outline-item-text").addClass("oi-active");
+						$("#tools-outline .outline-item-text").addClass("oi-active-dark");
+					} else if(window.pageYOffset >= $("#row4").offset().top - 50) {
+						clearActive();
+						$("#history-outline .circle-item").addClass("circle-active");
+						$("#history-outline .outline-item-text").addClass("oi-active");
+						$("#history-outline .outline-item-text").addClass("oi-active-light");
+					} else if(window.pageYOffset >= $("#row3").offset().top - 50) {
+						clearActive();
+						$("#expeditions-outline .circle-item").addClass("circle-active");
+						$("#expeditions-outline .outline-item-text").addClass("oi-active");
+						$("#expeditions-outline .outline-item-text").addClass("oi-active-light");
+					} else if(window.pageYOffset >= $("#row2").offset().top - 50) {
+						clearActive();
+						$("#achievements-outline .circle-item").addClass("circle-active");
+						$("#achievements-outline .outline-item-text").addClass("oi-active");
+						$("#achievements-outline .outline-item-text").addClass("oi-active-dark");
+					}
+				});
+			}
+
+			function initHistorySection() {
+				$(document).ready(function() {
+					$(".history-menu-item").click(function() {
+						var currentActive = $(".hm-active");
+						var currentDescription = $(".history-active");
+						currentActive.removeClass("hm-active");
+						currentDescription.removeClass("history-active");
+
+						$(this).addClass("hm-active");
+						var selectedIndex = $(".history-menu-item").index($(this));		
+						var newEventDescription = $(".history-content:eq(" + selectedIndex + ")");
+						newEventDescription.addClass("history-active");
+
+					});
+				});
+			}
+
+			$(document).ready(function() {
+				initializePanelClicks();
+				initialzieContactPanel();
+				stickyOutline();
+				initHistorySection();
+
+				$(window).on('beforeunload', function(){
+				    $(window).scrollTop(0);
+				});
+
+				//$(window).scrollTop(0);
+			});
+		</script>
+	</head>
+
+	<body>
+		{% block main %}
+		 
+		{% endblock %}
+	</body>
 </html>

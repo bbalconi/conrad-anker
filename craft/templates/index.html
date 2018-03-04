@@ -1,33 +1,475 @@
-{#
- # Homepage template
- # ---------------
- #
- # When this template gets loaded, it will be because someone has accessed
- # http://yoursite.com/ (without any URI). Craft checks to see if you have
- # a Single section set to be the Homepage (as you do, by default), and
- # loads the section’s Template (this file). A special ‘entry’ variable
- # will already be set for you, assigned to the Homepage entry.
- #
- # It's worth noting that even if you didn't have a Homepage Single section,
- # as long as this template remains at craft/templates/index.html, it
- # would still be the one to get loaded when accessing http://yoursite.com/,
- # albeit without an ‘entry’ variable already set for you.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
- #}
+{% extends "_layout.html" %}
 
-{% extends "_layout" %}
+{% block pageTitle %}Homepage{% endblock %}
 
-{% block content %}
-	<h1>{{ entry.title }}</h1>
+{% block main %}
 
-	{{ entry.body }}
+	<div class="container-fluid">
+		<div class="row nav-container remove-15-row">
+			<div class="col social-container">
+				<img src="img/social_instagram.png">
+				<img src="img/social_twitter.png">
+				<img src="img/social_facebook.png">
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
-{% endblock %}
+			</div>
+			<div class="col" align="center'">
+				<a href="/">
+					<img class="logo" src="img/logo.png">
+				</a>
+			</div>
+			<div class="col text-right contact-container">
+				<a id="contact-link" class="text-link" href="#">CONTACT</a>
+			</div>
+
+
+		</div>
+
+		<div class="row" id="home-row">
+			<div class="col" id="explore">
+				<div class="row top-home-row remove-15-row"></div>
+				
+			</div>
+			<div class="col" id="engage">
+				<div class="row top-home-row remove-15-row"></div>
+				
+			</div>
+
+			<div class="col contact-slide">
+				<img class="contact-x" src="img/x-close.png">
+
+				<h1 class="contact-title" style="margin-bottom:1.2em;">Contact</h1>
+
+				<ul>
+					<li type="circle">Speaking Engagement</li>
+					<li>Endorsement</li>
+					<li>General Inquiry</li>
+				</ul>
+
+				<form id="contact-form">
+					<input type="text" name="email" id="contact-email" placeholder="Your email"/>
+					<input type="text" name="subject" id="contact-subject" placeholder="Subject"/>
+					<textarea name="message" class="message-box"></textarea>
+				</form>
+
+				<input type="submit" id="contact-submit" value="SEND"/>
+			</div>
+		</div>
+
+		<div class="row" id="bottom-row">
+			<div class="col">
+				<div class="row bottom-home-row remove-15-row explore-row">
+					<div class="col-sm-2 remove-15-row remove-15-padding redl">
+						<div id="explore-rot-text" class="rot-text-container">
+							Scroll &rarr;
+						</div>
+
+					</div>
+
+					<div class="col-sm-10 explore-text align-items-center">
+						<span class="explore-link">EXPLORE</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="row bottom-home-row remove-15-row engage-row">
+					<div class="col-sm-10 text-right engage-text">
+						<span class="engage-link">ENGAGE</span>
+					</div>
+
+					<div class="col-sm-2 remove-15-row remove-15-padding">
+						<hr class="red-line" style="float:right;">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% set entry = craft.entries.section('explore').first() %}
+		<div class="row content-2"  id="row1">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-2">
+
+				<div class="outline-contain">
+					<div class="outline-item" id="about-outline">
+						<div class="circle-item circle-active"></div>
+						<span class="outline-item-text oi-active oi-active-light">ABOUT</span>
+					</div>
+
+					<div class="outline-item" id="achievements-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">ACHIEVEMENTS</span>
+					</div>
+
+					<div class="outline-item" id="expeditions-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">EXPEDITIONS</span>
+					</div>
+
+					<div class="outline-item" id="history-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">HISTORY</span>
+					</div>
+
+					<div class="outline-item" id="tools-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">TOOLS</span>
+					</div>
+
+					<div class="outline-item" id="press-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">PRESS</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<h1 style="margin-top: 1.2em;">Find Alpine Adventure</h1>
+				{{entry.findAlpineAdventureBodyCopy}}
+
+				<p>
+					<a href="#" class="red-arrow-link">DOWNLOAD FULL CONRAD BIO &rarr;</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="row content-2 whitebg" id="row2">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row">
+					<div class="col">
+						<img src="img/achievements1.jpeg" class="achievements-1">
+						<div class="shift-text-content">
+							<h1 class="ac-h1">Achievements</h1>
+							<div class="in-content-ul">
+								{{entry.achievements}}
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<img src="img/achievements2.jpeg" class="achievements-2">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row graybg content-2" id="row3">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row expedition-intro-row">
+					<div class="col top-row-watch">
+						<h2>Recent Expeditions</h2>
+						<h1 class="modify-bp">Watch Conrad</h1>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
+						</p>
+					</div>
+				</div>
+
+				{% for expedition in entry.recentExpeditions %}
+					{% if expedition.type == "rightSideThumbnail" %}
+						<div class="row vertical-align">
+							<div class="col expedition-info v-center">
+								<div class="v-center">
+									<h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
+									<p>
+										{{expedition.expeditionDescription}}
+									</p>
+
+									<p>
+										{% if expedition.learnMoreLink|length %}
+											<a href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+										{% endif %}
+
+										{% if expedition.purchaseLink|length %}
+											<a href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
+										{% endif %}
+									</p>
+								</div>
+							</div>
+
+							<div class="col">
+								{% set doc = expedition.thumbnailImage.first() %}
+	                            {% if doc %}
+									<img class="expedition-img" src="{{doc.url}}">
+	                            {% endif %}
+							</div>
+						</div>
+					{% endif %}
+
+					{% if expedition.type == "leftSideThumbnail" %}
+						<div class="row vertical-align">
+							<div class="col">
+								{% set doc = expedition.thumbnailImage.first() %}
+	                            {% if doc %}
+	                            	{% if expedition.videoLink|length %}
+	                            		<img class="video-overlay centered-image" src="img/playbutton.png">
+	                            	{% endif %}
+
+									<img class="expedition-img" src="{{doc.url}}">
+	                            {% endif %}
+							</div>
+
+							<div class="col expedition-info v-center">
+								<div class="v-center">
+									<h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
+									<p>
+										{{expedition.expeditionBody}}
+									</p>
+
+									<p>
+										{% if expedition.learnMoreLink|length %}
+											<a href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+										{% endif %}
+
+										{% if expedition.purchaseLink|length %}
+											<a href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
+										{% endif %}
+									</p>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+
+		{% set initialBackgroundImage = entry.history.first() %}
+		{% set doc = initialBackgroundImage.eventBackgroundImage.first() %}
+
+		<div class="row history content-2" id="row4" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{doc.url}}) no-repeat center left fixed;">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row">
+					<div class="col">
+						<h1 class="modify-bp">History</h1>
+					</div>
+				</div>
+
+
+				<div class="row vertical-align history-content-row">
+					<div class="col-sm-7">
+						{% for event in entry.history %}
+							<div class="history-content{% if loop.first %} history-active{% endif %}">
+								<h2 style="color:#fff !important;">{{event.nameOfEvent}}</h2>
+								<p style="width:71% !important;">
+									{{event.eventDescription}}
+								</p>
+								<p>
+									<a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+									<a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+								</p>
+
+							</div>
+
+						{% endfor %}
+					</div>
+
+					<div class="col-sm-5 remove-15-padding history-menu-contain">
+						<div class="history-menu">
+							{% for event in entry.history %}
+
+								<div class="history-menu-item{% if loop.first %} hm-active{% endif %}">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>{{event.nameOfEvent}}</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row tools content-2" id="row5">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row"></div>
+					<h1>Tools</h1>
+					<p>
+						{{entry.theGearRoomBody}}
+					</p>
+				<div class="row vertical-align">
+					<img src="img/tools.jpg">
+				</div>
+			</div>
+		</div>
+
+		<div class="row graybg content-2" id="row6">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row">
+					<h1 class="modify-bp">Press</h1>
+				</div>
+				<div class="row vertical-align">
+					<div class="col-sm-4 remove-15-padding">
+						<img src="img/cbs.png" class="news-image">
+					</div>
+
+					<div class="col-sm-8 expedition-info v-center">
+						<div class="v-center">
+							<h2 style="color:#fff !important;">CBS This Morning</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col press-scroller">
+						<div class="left-angle">L</div>
+						<div class="press-item">-</div>
+						<div class="press-item">-</div>
+						<div class="press-item">-</div>
+						<div class="right-angle">R</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row tw-row redl-float-contain" id="row7">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+		</div>
+
+		<div class="row tw-row vertical-align redl-float-contain" id="row8">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4 vertical-align">
+				<div class="tweet-content">
+					<span class="tw-date">12.02.18</span>
+					<span class="tw-handle">@conrad_anker</span>
+
+					<p class="tw-text">
+						Photo by @jimmy_chin 14 December 2017 :: Jimmy catches me ascending the second pitch of the final headwall on Ulvetanna, Queen Maud Land, Antarctica. The rock in this range is particularly abrasive. Perhaps it’s the atmospheric weathering of wind and temperature over tho...
+					</p>
+
+					<a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
+				</div>
+				<div class="img-mask">
+					<img src="img/tw-1.jpg">
+				</div>
+			</div>
+		</div>
+
+		<div class="row graybg content-2 logo-content redl-float-contain" id="row9">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-10 content-buffer" style="padding-right: 6em;">
+				<div class="row logo-row">
+					{% set counter = 0 %}
+					{% for company in companySponsors.sponsors %}
+						{% if counter < 4 %}
+							{% set doc = company.logo.first() %}
+	                        {% if doc %}
+								<div class="col-sm-3 logo-col vertical-align horiz-align">
+									<a href="{{company.urlToWebsite}}" target="_blank">
+										<img class="logo-img" src="{{doc.url}}">
+									</a>
+								</div>
+	                        {% endif %}
+                        {% endif %}
+                        {% set counter = counter + 1 %}
+					{% endfor %}
+				</div>
+
+				<div class="row logo-row">
+					{% set counter = 0 %}
+					{% for company in companySponsors.sponsors %}
+						{% if counter >= 4 %}
+							{% set doc = company.logo.first() %}
+	                        {% if doc %}
+								<div class="col-sm-3 logo-col vertical-align horiz-align">
+									<a href="{{company.urlToWebsite}}" target="_blank">
+										<img class="logo-img" src="{{doc.url}}">
+									</a>
+								</div>
+	                        {% endif %}
+                        {% endif %}
+                        {% set counter = counter + 1 %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<div class="row bottom-content"  id="row10">
+			<div class="col explore-bottom-col">
+				<div class="row"></div>
+				<div class="row" id="bottom-row" style="font-size:4em;">
+					<div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
+
+					<div class="col-sm-10 explore-text align-items-center pad-mod">
+						<span class="explore-link final-ex-en">EXPLORE</span>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col engage-bottom-col">
+				<img src="/img/engage-bottom.jpg" class="engage-bottom-img">
+				<div class="row"></div>
+				<div class="row" id="bottom-row" style="font-size:4em;">
+					<div class="col-sm-10 remove-15-row remove-15-padding">
+						<span class="explore-link final-ex-en pad-mod-2">ENGAGE</span>
+					</div>
+					<div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+ {% endblock %}

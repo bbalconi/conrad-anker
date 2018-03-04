@@ -1,423 +1,538 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Conrad Anker</title>
-		<link rel="stylesheet" href="css/styles.css" type="text/css">
-		<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.typekit.net/elp6ayx.css">
+{% extends "_layout.html" %}
 
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% block pageTitle %}Homepage{% endblock %}
 
-		<script type="text/javascript">
+{% block main %}
 
-			function initialzieContactPanel() {
-				$("#contact-link").click(function() {
-					var currWidth = $(".contact-slide").width();
-
-					$(".contact-slide").css({"right": (0 - currWidth - 30) + "px"});
-					$(".contact-slide").animate({right: "0px"}, 500);
-				});
-
-				$(".contact-x").click(function() {
-					$(".contact-slide").animate({right: "-1000px"}, 1000);
-				});
-			}	
-
-			function initializePanelClicks() {
-				$(".engage-row").click(function() {
-					$("#explore").animate({width: "0%"}, 500);
-					$(".explore-row").fadeOut();
-					$("#engage").animate({width: "100%"}, 500, function() {
-						$("#explore").css({height: "0"});
-						$("#explore").hide();
-					});
-
-					$("#engage").css({"background-image": "url('/img/right-background.jpg')"});
-				});
-
-				$(".explore-row").click(function() {
-					$("#engage").animate({width: "0%"}, 500);
-					$(".engage-row").fadeOut();
-					$("#explore").animate({width: "100%"}, 500, function() {
-						$("#engage").css({height: "0"});
-						$("#engage").hide();
-						$("body").css("overflow-y", "scroll");
-					});
-
-					$("#explore-rot-text").fadeIn();
-					$(".explore-row .redl").addClass("redl-active");
-					$("#explore").css({"background-image": "url('/img/left-background.jpg')"});
-				});
-			}
-
-			function stickyOutline() {
-				var topOffset = $(".outline-contain").offset().top;
-				$(window).on("scroll", function() {
-					if(window.pageYOffset >= topOffset) {
-						$(".outline-contain").addClass("sticky-outline");
-					} else {
-						$(".outline-contain").removeClass("sticky-outline");
-					}
-
-					if(window.pageYOffset < $(".whitebg").offset().top - 50) {
-						$(".oi-active").css({color: "#fff"});
-					} else if(window.pageYOffset >= $(".graybg").offset().top - 50) {
-						$(".oi-active").css({color: "#fff"});
-					} else if(window.pageYOffset >= $(".whitebg").offset().top - 50) {
-						$(".oi-active").css({color: "#333"});
-					}
-				});
-			}
-
-			$(document).ready(function() {
-				initializePanelClicks();
-				initialzieContactPanel();
-				stickyOutline();
-
-				$(window).on('beforeunload', function(){
-				    $(window).scrollTop(0);
-				});
-
-				//$(window).scrollTop(0);
-			});
-		</script>
-	</head>
-
-	<body>
-		<div class="container-fluid">
-			<div class="row nav-container remove-15-row">
-				<div class="col social-container">
-					<img src="img/social_instagram.png">
-					<img src="img/social_twitter.png">
-					<img src="img/social_facebook.png">
-
-				</div>
-				<div class="col" align="center'">
-					<a href="/">
-						<img class="logo" src="img/logo.png">
-					</a>
-				</div>
-				<div class="col text-right contact-container">
-					<a id="contact-link" class="text-link" href="#">CONTACT</a>
-				</div>
-
+	<div class="container-fluid">
+		<div class="row nav-container remove-15-row">
+			<div class="col social-container">
+				<img src="img/social_instagram.png">
+				<img src="img/social_twitter.png">
+				<img src="img/social_facebook.png">
 
 			</div>
-
-			<div class="row" id="home-row">
-				<div class="col" id="explore">
-					<div class="row top-home-row remove-15-row"></div>
-					
-				</div>
-				<div class="col" id="engage">
-					<div class="row top-home-row remove-15-row"></div>
-					
-				</div>
-
-				<div class="col contact-slide">
-					<img class="contact-x" src="img/x-close.png">
-
-					<h1 class="contact-title" style="margin-bottom:1.2em;">Contact</h1>
-
-					<ul>
-						<li type="circle">Speaking Engagement</li>
-						<li>Endorsement</li>
-						<li>General Inquiry</li>
-					</ul>
-
-					<form id="contact-form">
-						<input type="text" name="email" id="contact-email" placeholder="Your email"/>
-						<input type="text" name="subject" id="contact-subject" placeholder="Subject"/>
-						<textarea name="message" class="message-box"></textarea>
-					</form>
-
-					<input type="submit" id="contact-submit" value="SEND"/>
-				</div>
+			<div class="col" align="center'">
+				<a href="/">
+					<img class="logo" src="img/logo.png">
+				</a>
+			</div>
+			<div class="col text-right contact-container">
+				<a id="contact-link" class="text-link" href="#">CONTACT</a>
 			</div>
 
-			<div class="row" id="bottom-row">
-				<div class="col">
-					<div class="row bottom-home-row remove-15-row explore-row">
-						<div class="col-sm-2 remove-15-row remove-15-padding redl">
-							<div id="explore-rot-text" class="rot-text-container">
-								Scroll &rarr;
-							</div>
 
+		</div>
+
+		<div class="row" id="home-row">
+			<div class="col" id="explore">
+				<div class="row top-home-row remove-15-row"></div>
+				
+			</div>
+			<div class="col" id="engage">
+				<div class="row top-home-row remove-15-row"></div>
+				
+			</div>
+
+			<div class="col contact-slide">
+				<img class="contact-x" src="img/x-close.png">
+
+				<h1 class="contact-title" style="margin-bottom:1.2em;">Contact</h1>
+
+				<ul>
+					<li type="circle">Speaking Engagement</li>
+					<li>Endorsement</li>
+					<li>General Inquiry</li>
+				</ul>
+
+				<form id="contact-form">
+					<input type="text" name="email" id="contact-email" placeholder="Your email"/>
+					<input type="text" name="subject" id="contact-subject" placeholder="Subject"/>
+					<textarea name="message" class="message-box"></textarea>
+				</form>
+
+				<input type="submit" id="contact-submit" value="SEND"/>
+			</div>
+		</div>
+
+		<div class="row" id="bottom-row">
+			<div class="col">
+				<div class="row bottom-home-row remove-15-row explore-row">
+					<div class="col-sm-2 remove-15-row remove-15-padding redl">
+						<div id="explore-rot-text" class="rot-text-container">
+							Scroll &rarr;
 						</div>
 
-						<div class="col-sm-10 explore-text align-items-center">
-							<span class="explore-link">EXPLORE</span>
-						</div>
 					</div>
-				</div>
 
-				<div class="col">
-					<div class="row bottom-home-row remove-15-row engage-row">
-						<div class="col-sm-10 text-right engage-text">
-							<span class="engage-link">ENGAGE</span>
-						</div>
-
-						<div class="col-sm-2 remove-15-row remove-15-padding">
-							<hr class="red-line" style="float:right;">
-						</div>
+					<div class="col-sm-10 explore-text align-items-center">
+						<span class="explore-link">EXPLORE</span>
 					</div>
 				</div>
 			</div>
 
-			<div class="row content-2">
-				<div class="col-sm-2">
-					<div class="outline-contain">
-						<div class="outline-item">
-							<div class="circle-item circle-active"></div>
-							<span class="outline-item-text oi-active">ABOUT</span>
-						</div>
-
-						<div class="outline-item">
-							<div class="circle-item"></div>
-							<span class="outline-item-text">ACHIEVEMENTS</span>
-						</div>
-
-						<div class="outline-item">
-							<div class="circle-item"></div>
-							<span class="outline-item-text">EXPEDITIONS</span>
-						</div>
-
-						<div class="outline-item">
-							<div class="circle-item"></div>
-							<span class="outline-item-text">HISTORY</span>
-						</div>
-
-						<div class="outline-item">
-							<div class="circle-item"></div>
-							<span class="outline-item-text">TOOLS</span>
-						</div>
-
-						<div class="outline-item">
-							<div class="circle-item"></div>
-							<span class="outline-item-text">PRESS</span>
-						</div>
+			<div class="col">
+				<div class="row bottom-home-row remove-15-row engage-row">
+					<div class="col-sm-10 text-right engage-text">
+						<span class="engage-link">ENGAGE</span>
 					</div>
 
-				</div>
-
-				<div class="col-sm-10">
-					<h1 style="margin-top: 1.2em;">Find Alpine Adventure</h1>
-					<p>
-						Conrad Anker is a climber’s climber, at home on a faraway alpine wall or the sparkling ice of his home canyon, Hyalite, located in the Gallatin Range of southwestern Montana. Over decades in the mountains, he has come to value the rarified air of Antarctica, the Himalaya and Montana equally; inspired by the value of immersion in other ecosystems and cultures, he’s become more fully enmeshed in both the physical and communal landscape of his hometown of Bozeman. Conrad came to climbing by way of his family, learning a deep appreciation for the outdoors from his California childhood, an appreciation and respect that has deepened as climbing took him around the world.
-					</p>
-					<p>
-						Conrad is still climbing at full throttle. The master of technical mountaineering and Captain of The North Face Global Athlete Team has over 30 years of experience under his belt, yet is still chasing first ascents. In 2011, he summited the Shark’s Fin, one of the last unclimbed Himalayan peaks, and in 2012, led an expedition to recreate the historic 1963 American Mount Everest Expedition. He’s a visionary, a champion for the environment, a pioneer and the best comrade you’ll find at 25,000 feet—he’s dedicated every ounce of his being to this life. Legendary doesn’t even begin to describe him.
-					</p>
-					<p>
-						<a href="#" class="red-arrow-link">DOWNLOAD FULL CONRAD BIO &rarr;</a>
-					</p>
+					<div class="col-sm-2 remove-15-row remove-15-padding">
+						<hr class="red-line" style="float:right;">
+					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="row content-2 whitebg">
-				<div class="col-sm-2">
-					
+		{% set entry = craft.entries.section('explore').first() %}
+		<div class="row content-2"  id="row1">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
 
+			<div class="col-sm-2">
+
+				<div class="outline-contain">
+					<div class="outline-item" id="about-outline">
+						<div class="circle-item circle-active"></div>
+						<span class="outline-item-text oi-active oi-active-light">ABOUT</span>
+					</div>
+
+					<div class="outline-item" id="achievements-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">ACHIEVEMENTS</span>
+					</div>
+
+					<div class="outline-item" id="expeditions-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">EXPEDITIONS</span>
+					</div>
+
+					<div class="outline-item" id="history-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">HISTORY</span>
+					</div>
+
+					<div class="outline-item" id="tools-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">TOOLS</span>
+					</div>
+
+					<div class="outline-item" id="press-outline">
+						<div class="circle-item"></div>
+						<span class="outline-item-text">PRESS</span>
+					</div>
 				</div>
 
-				<div class="col-sm-10">
-					<div class="row">
-						<div class="col">
-							<img src="img/achievements1.jpeg" class="achievements-1">
-							<div class="shift-text-content">
-								<h1 class="ac-h1">Achievements</h1>
-								<ul class="in-content-ul">
-									<li>First ascent of the Shark’s Fin on Meru</li>
-									<li>Mallory and Irvine Research Expedition, Everest</li>
-									<li>First ascent of Rakekniven Peak, Queen Maud Land, Antarctica</li>
-									<li>First ascent of the East Face of Vinson Massif, Ellsworth Mountains, Antarctica</li>
-									<li>Stump/Anker Route, Streaked Wall, VI 5.11 A4 4/90 fa Zion, Utah</li>
-									<li>Winner of the 2015 Sundance US Documentary Audience Award</li>
-									<li>Honorary PHD from University of Utah</li>
-								</ul>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<h1 style="margin-top: 1.2em;">Find Alpine Adventure</h1>
+				{{entry.findAlpineAdventureBodyCopy}}
+
+				<p>
+					<a href="#" class="red-arrow-link">DOWNLOAD FULL CONRAD BIO &rarr;</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="row content-2 whitebg" id="row2">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row">
+					<div class="col">
+						<img src="img/achievements1.jpeg" class="achievements-1">
+						<div class="shift-text-content">
+							<h1 class="ac-h1">Achievements</h1>
+							<div class="in-content-ul">
+								{{entry.achievements}}
 							</div>
 						</div>
+					</div>
 
-						<div class="col">
-							<img src="img/achievements2.jpeg" class="achievements-2">
+					<div class="col">
+						<img src="img/achievements2.jpeg" class="achievements-2">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row graybg content-2" id="row3">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row expedition-intro-row">
+					<div class="col top-row-watch">
+						<h2>Recent Expeditions</h2>
+						<h1 class="modify-bp">Watch Conrad</h1>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
+						</p>
+					</div>
+				</div>
+
+				{% for expedition in entry.recentExpeditions %}
+					{% if expedition.type == "rightSideThumbnail" %}
+						<div class="row vertical-align">
+							<div class="col expedition-info v-center">
+								<div class="v-center">
+									<h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
+									<p>
+										{{expedition.expeditionDescription}}
+									</p>
+
+									<p>
+										{% if expedition.learnMoreLink|length %}
+											<a href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+										{% endif %}
+
+										{% if expedition.purchaseLink|length %}
+											<a href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
+										{% endif %}
+									</p>
+								</div>
+							</div>
+
+							<div class="col">
+								{% set doc = expedition.thumbnailImage.first() %}
+	                            {% if doc %}
+									<img class="expedition-img" src="{{doc.url}}">
+	                            {% endif %}
+							</div>
+						</div>
+					{% endif %}
+
+					{% if expedition.type == "leftSideThumbnail" %}
+						<div class="row vertical-align">
+							<div class="col">
+								{% set doc = expedition.thumbnailImage.first() %}
+	                            {% if doc %}
+	                            	{% if expedition.videoLink|length %}
+	                            		<img class="video-overlay centered-image" src="img/playbutton.png">
+	                            	{% endif %}
+
+									<img class="expedition-img" src="{{doc.url}}">
+	                            {% endif %}
+							</div>
+
+							<div class="col expedition-info v-center">
+								<div class="v-center">
+									<h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
+									<p>
+										{{expedition.expeditionBody}}
+									</p>
+
+									<p>
+										{% if expedition.learnMoreLink|length %}
+											<a href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+										{% endif %}
+
+										{% if expedition.purchaseLink|length %}
+											<a href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
+										{% endif %}
+									</p>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+
+			</div>
+		</div>
+
+		<div class="row history content-2" id="row4">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row">
+					<div class="col">
+						<h1 class="modify-bp">History</h1>
+					</div>
+				</div>
+
+				<div class="row vertical-align history-content-row">
+
+					<div class="col-sm-7">
+						<div class="history-content">
+							<h2 style="color:#fff !important;">Everest Expedition 2012</h2>
+							<p style="width:71% !important;">
+								To climb the West Ridge and the Southeast Ridge of Mount Everest in an expedition supported by National Geographic, The North Face, and Montana State University. Team members will measure the summit, conduct groundbreaking geological research and work with The Mayo Clinic to conduct tests on high-altitude human physiology.
+							</p>
+							<p>
+								<a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+								<a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+							</p>
+
+						</div>
+					</div>
+
+					<div class="col-sm-5 remove-15-padding history-menu-contain">
+						<div class="history-menu">
+							<div class="history-menu-item hm-active">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Everest Expedition 2012</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Shark’s Fin Meru 2011, Garwhal Himal, India</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Everest Extreme Ice Survey</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Shark’s Fin, Meru 2009</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Everest Tibet Side 2007, Chomolungma</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Everest 1999</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>The Khumbu Climbing School</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Vinson Massif, Antarctica</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>East Buttress of Middle Triple Peak</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Tibet’s Remote Chang Tang Plateau</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Baffin Island</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="history-menu-item">
+								<div class="row vertical-align">
+									<div class="col-sm-10 vcenter-text">
+										<span>Latok II</span>
+									</div>
+									<div class="col-sm-2">
+										<div class="history-menu-obj"></div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="row graybg content-2">
-				<div class="col-sm-2">
+		<div class="row tools content-2" id="row5">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
 
+			<div class="col-sm-10 content-buffer">
+				<div class="row"></div>
+					<h1>Tools</h1>
+					<p>
+						{{entry.theGearRoomBody}}
+					</p>
+				<div class="row vertical-align">
+					<img src="img/tools.jpg">
 				</div>
+			</div>
+		</div>
 
-				<div class="col-sm-10">
-					<div class="row expedition-intro-row">
-						<div class="col top-row-watch">
-							<h2>Recent Expeditions</h2>
-							<h1 class="modify-bp">Watch Conrad</h1>
+		<div class="row graybg content-2" id="row6">
+			<div class="col-sm-2 remove-15-row remove-15-padding">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row">
+					<h1 class="modify-bp">Press</h1>
+				</div>
+				<div class="row vertical-align">
+					<div class="col-sm-4 remove-15-padding">
+						<img src="img/cbs.png" class="news-image">
+					</div>
+
+					<div class="col-sm-8 expedition-info v-center">
+						<div class="v-center">
+							<h2 style="color:#fff !important;">CBS This Morning</h2>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
 							</p>
 						</div>
 					</div>
-
-					<div class="row vertical-align">
-						<div class="col expedition-info v-center">
-							<div class="v-center">
-								<h2 style="color:#fff !important;">Expedition Antartica</h2>
-								<p>
-									Facing extreme and challenging conditions, the goal of this month-long expedition is to reach as many summits of the Wolf’s Jaw massif as possible.
-								</p>
-							</div>
-						</div>
-
-						<div class="col">
-							<img src="img/antartica-expedition.png">
-						</div>
-					</div>
-
-					<div class="row vertical-align">
-						<div class="col">
-							<img src="img/antartica-expedition.png">
-						</div>
-
-						<div class="col expedition-info v-center">
-							<div class="v-center">
-								<h2 style="color:#fff !important;">Meru</h2>
-								<p>
-									After suffering dramatic setbacks in their lives, three close friends who are among the world’s best professional climbers battle their complicated pasts, inner demons and nature’s harshest elements in an attempt to confront the Shark’s Fin on Mount Meru, the most technically complicated and dangerous peak in the Himalayas, one that has never been scaled to completion.
-								</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="row vertical-align">
-						<div class="col expedition-info v-center">
-							<div class="v-center">
-								<h2 style="color:#fff !important;">Always Above Us</h2>
-								<p>
-									Leading the life of a climber involves a tremendous amount of sacrifice and hardship, but for team athletes Conrad Anker and Kris Erickson, there's no living without it. 
-								</p>
-							</div>
-						</div>
-
-						<div class="col">
-							<img src="img/antartica-expedition.png">
-						</div>
-					</div>
-
-					<div class="row vertical-align">
-						<div class="col">
-							<img src="img/antartica-expedition.png">
-						</div>
-
-						<div class="col expedition-info v-center">
-							<div class="v-center">
-								<h2 style="color:#fff !important;">National Parks Adventure</h2>
-								<p>
-									Narrated by Academy Award winner Robert Redford, National Parks Adventure takes audiences on the ultimate off-trail adventure into the nation’s awe-inspiring great outdoors and untamed wilderness.
-								</p>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="row history content-2">
-				<div class="col-sm-2"></div>
-
-				<div class="col-sm-10">
-					<div class="row">
-						<div class="col">
-							<h1 class="modify-bp">History</h1>
-						</div>
-					</div>
-
-					<div class="row">
-
-						<div class="col-sm-9">
-							<div class="history-content">
-								<h2 style="color:#fff !important;">Everest Expedition 2012</h2>
-								<p style="width:71% !important;">
-									To climb the West Ridge and the Southeast Ridge of Mount Everest in an expedition supported by National Geographic, The North Face, and Montana State University. Team members will measure the summit, conduct groundbreaking geological research and work with The Mayo Clinic to conduct tests on high-altitude human physiology.
-								</p>
-								<p>
-									<a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
-									<a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
-								</p>
-
-							</div>
-						</div>
-
-						<div class="col-sm-3 remove-15-padding">
-							<div class="history-menu">
-								<div class="history-menu-item">
-									<div class="row vertical-align">
-										<div class="col-sm-10 vcenter-text">
-											<span>Everest Expedition 2012</span>
-										</div>
-										<div class="col-sm-2">
-											<div class="history-menu-obj"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="history-menu-item">
-									<div class="row vertical-align">
-										<div class="col-sm-10 vcenter-text">
-											<span>Shark’s Fin Meru 2011, Garwhal Himal, India</span>
-										</div>
-										<div class="col-sm-2">
-											<div class="history-menu-obj"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="history-menu-item">
-									<div class="row vertical-align">
-										<div class="col-sm-10 vcenter-text">
-											<span>Everest Extreme Ice Survey</span>
-										</div>
-										<div class="col-sm-2">
-											<div class="history-menu-obj"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="history-menu-item">
-									<div class="row vertical-align">
-										<div class="col-sm-10 vcenter-text">
-											<span>Shark’s Fin, Meru 2009</span>
-										</div>
-										<div class="col-sm-2">
-											<div class="history-menu-obj"></div>
-										</div>
-									</div>
-								</div>
-
-								<div class="history-menu-item">
-									<div class="row vertical-align">
-										<div class="col-sm-10 vcenter-text">
-											<span>Everest Tibet Side 2007, Chomolungma</span>
-										</div>
-										<div class="col-sm-2">
-											<div class="history-menu-obj"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		<div class="row tw-row redl-float-contain" id="row7">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
 			</div>
 
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+		</div>
+
+		<div class="row tw-row vertical-align redl-float-contain" id="row8">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<img src="img/tw-1.jpg">
+			</div>
+			<div class="col-sm-4">
+				<div class="tweet-content">
+					<span class="tw-date">12.02.18</span>
+					<span class="tw-handle">@conrad_anker</span>
+
+					<p class="tw-text">
+						Photo by @jimmy_chin 14 December 2017 :: Jimmy catches me ascending the second pitch of the final headwall on Ulvetanna, Queen Maud Land, Antarctica. The rock in this range is particularly abrasive. Perhaps it’s the atmospheric weathering of wind and temperature over tho...
+					</p>
+
+					<a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
+				</div>
+				<div class="img-mask">
+					<img src="img/tw-1.jpg">
+				</div>
+			</div>
+		</div>
+
+		<div class="row graybg content-2 logo-content redl-float-contain" id="row9">
+			<div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+			</div>
+
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-10 content-buffer">
+				<div class="row logo-row">
+					{% for company in companySponsors.sponsors %}
+						{% set doc = company.logo.first() %}
+                        {% if doc %}
+							<div class="col-sm-3">
+								<a href="{{company.urlToWebsite}}">
+									<img class="centered-image logo-img" src="{{doc.url}}">
+								</a>
+							</div>
+                        {% endif %}
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row bottom-content"  id="row10">
+			<div class="col explore-bottom-col">
+				<img src="/img/explore-bottom.jpg" class="explore-bottom-img">
+			</div>
+			<div class="col engage-bottom-col">
+				<img src="/img/engage-bottom.jpg" class="engage-bottom-img">
+			</div>
 		</div>
 
 
-	
-	</body>
-</html>
+	</div>
+
+ {% endblock %}
