@@ -481,7 +481,7 @@ h2{
 	height: 80vh;
 }
 
-.history-content-row{
+.ttent-row{
 	padding-top:6em;
 	padding-bottom:6em;
 }
@@ -531,6 +531,7 @@ h2{
 
 .hm-active .history-menu-obj {
 	border-color: #fe2246 !important;
+	border-width: 2px !important;
 }
 
 .tools {
@@ -613,7 +614,15 @@ h2{
 .explore-bottom-col, .engage-bottom-col{
 	padding-left:0 !important;
 	padding-right: 0 !important;
+}
+
+.explore-bottom-col {
 	background-image: url('/img/explore-bottom.jpg');
+}
+}
+
+.engage-bottom-col {
+	background-image: url('/img/engage-bottom.jpg');
 }
 
 .explore-bottom-img, .engage-bottom-img{
@@ -695,4 +704,113 @@ h2{
 
 .logo-col {
 	text-align: center
+}
+
+.final-ex-en{
+	position: absolute;
+    top: -0.4em;
+}
+
+.redl-engage-bottom{
+	border-top:1px solid #fe2246;
+	height: 73%;
+	bottom:0;
+	width:12% !important;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	color:#fff;
+	top:27%;
+	bottom:0 !important;
+}
+
+.pad-mod {
+	padding-left: 5% !important;
+}
+
+.pad-mod-2{
+	position: absolute;
+    right: 0;
+    padding-right: 5% !important;
+}
+
+.horiz-align{
+	justify-content: center;
+}
+
+.history-active {
+	display:block !important;
+}
+
+.history-content{
+	display:none;
+}
+
+.history-content-row{
+	padding-top:5em;
+	height:30em !important;
+}
+
+.left-angle, .press-item, .right-angle {
+	float:left;
+	width:2.7em;
+	height: 2.7em;
+    cursor: pointer;
+}
+
+.press-item {
+	width: 2.7em;
+    display: inline-block;
+    border-top: 3px solid #999;
+    height: 3px;
+}
+
+.left-angle {
+	background: url('../img/leftarr.png');
+}
+
+.right-angle {
+	background: url('../img/rightarr.png');
+}
+
+.press-item-container{
+	width: 2.7em;
+	height: 2.45em;
+	float:left;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    cursor: pointer;
+}
+
+.press-item-active {
+    border-color: #fe2246;
+}
+
+.press-scroller{
+	text-align: center;
+}
+
+.press-scroller-container{
+	height:2.7em;
+	display: inline-block;
+}
+
+.inactive-press{
+	display:none !important;
+}
+
+.active-press{
+}
+
+.press-content {
+	height: 25em;
+}
+
+.modalCA{
+	position: absolute;
+	height:75vh;
+	width:60vw;
+	background-color:#333;
+	z-index:4;
 }

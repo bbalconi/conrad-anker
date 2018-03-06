@@ -3,8 +3,16 @@
 {% block pageTitle %}Homepage{% endblock %}
 
 {% block main %}
+	<div class="modalMask">
+			<div class="modalCA">
+				
+			</div>	
+		</div>
+	
 
 	<div class="container-fluid">
+		
+
 		<div class="row nav-container remove-15-row">
 			<div class="col social-container">
 				<img src="img/social_instagram.png">
@@ -201,6 +209,14 @@
 							<div class="col">
 								{% set doc = expedition.thumbnailImage.first() %}
 	                            {% if doc %}
+	                            	{% if expedition.videoLink|length %}
+	                            		<a data-toggle="modal" data-target="#exampleModal">
+	                            			<img class="video-overlay centered-image" src="img/playbutton.png">
+	                            		</a>
+	                            			
+	                            		
+	                            	{% endif %}
+
 									<img class="expedition-img" src="{{doc.url}}">
 	                            {% endif %}
 							</div>
@@ -328,29 +344,44 @@
 				<div class="row">
 					<h1 class="modify-bp">Press</h1>
 				</div>
-				<div class="row vertical-align">
-					<div class="col-sm-4 remove-15-padding">
-						<img src="img/cbs.png" class="news-image">
-					</div>
 
-					<div class="col-sm-8 expedition-info v-center">
-						<div class="v-center">
-							<h2 style="color:#fff !important;">CBS This Morning</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
-							</p>
+				{% for pressItem in entry.press %}
+					<div class="press-content row vertical-align{% if loop.first %} active-press{% else %} inactive-press{% endif%}">
+						<div class="col-sm-4 remove-15-padding">
+							<img src="img/cbs.png" class="news-image">
+						</div>
+
+						<div class="col-sm-8 expedition-info v-center">
+							<div class="v-center">
+								<h2 style="color:#fff !important;">{{pressItem.publication}}</h2>
+								<p>
+									<span style="font-weight:bold;">{{pressItem.articleTitle}}</span><br>
+									{{pressItem.description}}
+								</p>
+								<p>
+									<a href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
+				{% endfor %}
+
 
 				<div class="row">
-					<div class="col press-scroller">
-						<div class="left-angle">L</div>
-						<div class="press-item">-</div>
-						<div class="press-item">-</div>
-						<div class="press-item">-</div>
-						<div class="right-angle">R</div>
+					<div class="col-sm-11 press-scroller">
+						<div class="press-scroller-container">
+							<div class="left-angle"></div>
+
+							{% for pressItem in entry.press %}
+								<div class="press-item-container vertical-align">
+									<div class="press-item{% if loop.first %} press-item-active {% endif %}"></div>
+								</div>
+							{% endfor %}
+
+							<div class="right-angle"></div>
+						</div>
 					</div>
+					<div class="col-sm-1"></div>
 				</div>
 			</div>
 		</div>
@@ -471,5 +502,7 @@
 
 
 	</div>
+
+
 
  {% endblock %}

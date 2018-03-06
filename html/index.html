@@ -4,7 +4,14 @@
 
 {% block main %}
 
+	
+
 	<div class="container-fluid">
+		<div class="modalMask"></div>
+		<div class="modalCA">
+
+		</div>	
+
 		<div class="row nav-container remove-15-row">
 			<div class="col social-container">
 				<img src="img/social_instagram.png">
@@ -201,6 +208,14 @@
 							<div class="col">
 								{% set doc = expedition.thumbnailImage.first() %}
 	                            {% if doc %}
+	                            	{% if expedition.videoLink|length %}
+	                            		<a data-toggle="modal" data-target="#exampleModal">
+	                            			<img class="video-overlay centered-image" src="img/playbutton.png">
+	                            		</a>
+	                            			
+	                            		
+	                            	{% endif %}
+
 									<img class="expedition-img" src="{{doc.url}}">
 	                            {% endif %}
 							</div>
@@ -245,7 +260,10 @@
 			</div>
 		</div>
 
-		<div class="row history content-2" id="row4">
+		{% set initialBackgroundImage = entry.history.first() %}
+		{% set doc = initialBackgroundImage.eventBackgroundImage.first() %}
+
+		<div class="row history content-2" id="row4" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{doc.url}}) no-repeat center left fixed;">
 			<div class="col-sm-2 remove-15-row remove-15-padding">
 				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
 			</div>
@@ -257,155 +275,42 @@
 					</div>
 				</div>
 
+
 				<div class="row vertical-align history-content-row">
-
 					<div class="col-sm-7">
-						<div class="history-content">
-							<h2 style="color:#fff !important;">Everest Expedition 2012</h2>
-							<p style="width:71% !important;">
-								To climb the West Ridge and the Southeast Ridge of Mount Everest in an expedition supported by National Geographic, The North Face, and Montana State University. Team members will measure the summit, conduct groundbreaking geological research and work with The Mayo Clinic to conduct tests on high-altitude human physiology.
-							</p>
-							<p>
-								<a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
-								<a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
-							</p>
+						{% for event in entry.history %}
+							<div class="history-content{% if loop.first %} history-active{% endif %}">
+								<h2 style="color:#fff !important;">{{event.nameOfEvent}}</h2>
+								<p style="width:71% !important;">
+									{{event.eventDescription}}
+								</p>
+								<p>
+									<a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+									<a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+								</p>
 
-						</div>
+							</div>
+
+						{% endfor %}
 					</div>
 
 					<div class="col-sm-5 remove-15-padding history-menu-contain">
 						<div class="history-menu">
-							<div class="history-menu-item hm-active">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Everest Expedition 2012</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
+							{% for event in entry.history %}
 
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Shark’s Fin Meru 2011, Garwhal Himal, India</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
+								<div class="history-menu-item{% if loop.first %} hm-active{% endif %}">
+									<div class="row vertical-align">
+										<div class="col-sm-10 vcenter-text">
+											<span>{{event.nameOfEvent}}</span>
+										</div>
+										<div class="col-sm-2">
+											<div class="history-menu-obj"></div>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Everest Extreme Ice Survey</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
+							{% endfor %}
 
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Shark’s Fin, Meru 2009</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Everest Tibet Side 2007, Chomolungma</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Everest 1999</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>The Khumbu Climbing School</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Vinson Massif, Antarctica</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>East Buttress of Middle Triple Peak</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Tibet’s Remote Chang Tang Plateau</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Baffin Island</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="history-menu-item">
-								<div class="row vertical-align">
-									<div class="col-sm-10 vcenter-text">
-										<span>Latok II</span>
-									</div>
-									<div class="col-sm-2">
-										<div class="history-menu-obj"></div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -438,19 +343,44 @@
 				<div class="row">
 					<h1 class="modify-bp">Press</h1>
 				</div>
-				<div class="row vertical-align">
-					<div class="col-sm-4 remove-15-padding">
-						<img src="img/cbs.png" class="news-image">
-					</div>
 
-					<div class="col-sm-8 expedition-info v-center">
-						<div class="v-center">
-							<h2 style="color:#fff !important;">CBS This Morning</h2>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue consectetur nec in neque. 
-							</p>
+				{% for pressItem in entry.press %}
+					<div class="press-content row vertical-align{% if loop.first %} active-press{% else %} inactive-press{% endif%}">
+						<div class="col-sm-4 remove-15-padding">
+							<img src="img/cbs.png" class="news-image">
+						</div>
+
+						<div class="col-sm-8 expedition-info v-center">
+							<div class="v-center">
+								<h2 style="color:#fff !important;">{{pressItem.publication}}</h2>
+								<p>
+									<span style="font-weight:bold;">{{pressItem.articleTitle}}</span><br>
+									{{pressItem.description}}
+								</p>
+								<p>
+									<a href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
+								</p>
+							</div>
 						</div>
 					</div>
+				{% endfor %}
+
+
+				<div class="row">
+					<div class="col-sm-11 press-scroller">
+						<div class="press-scroller-container">
+							<div class="left-angle"></div>
+
+							{% for pressItem in entry.press %}
+								<div class="press-item-container vertical-align">
+									<div class="press-item{% if loop.first %} press-item-active {% endif %}"></div>
+								</div>
+							{% endfor %}
+
+							<div class="right-angle"></div>
+						</div>
+					</div>
+					<div class="col-sm-1"></div>
 				</div>
 			</div>
 		</div>
@@ -482,7 +412,7 @@
 			<div class="col-sm-4">
 				<img src="img/tw-1.jpg">
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-4 vertical-align">
 				<div class="tweet-content">
 					<span class="tw-date">12.02.18</span>
 					<span class="tw-handle">@conrad_anker</span>
@@ -506,33 +436,72 @@
 
 			<div class="col-sm-2"></div>
 
-			<div class="col-sm-10 content-buffer">
+			<div class="col-sm-10 content-buffer" style="padding-right: 6em;">
 				<div class="row logo-row">
+					{% set counter = 0 %}
 					{% for company in companySponsors.sponsors %}
-						{% set doc = company.logo.first() %}
-                        {% if doc %}
-							<div class="col-sm-3">
-								<a href="{{company.urlToWebsite}}">
-									<img class="centered-image logo-img" src="{{doc.url}}">
-								</a>
-							</div>
+						{% if counter < 4 %}
+							{% set doc = company.logo.first() %}
+	                        {% if doc %}
+								<div class="col-sm-3 logo-col vertical-align horiz-align">
+									<a href="{{company.urlToWebsite}}" target="_blank">
+										<img class="logo-img" src="{{doc.url}}">
+									</a>
+								</div>
+	                        {% endif %}
                         {% endif %}
+                        {% set counter = counter + 1 %}
 					{% endfor %}
+				</div>
 
+				<div class="row logo-row">
+					{% set counter = 0 %}
+					{% for company in companySponsors.sponsors %}
+						{% if counter >= 4 %}
+							{% set doc = company.logo.first() %}
+	                        {% if doc %}
+								<div class="col-sm-3 logo-col vertical-align horiz-align">
+									<a href="{{company.urlToWebsite}}" target="_blank">
+										<img class="logo-img" src="{{doc.url}}">
+									</a>
+								</div>
+	                        {% endif %}
+                        {% endif %}
+                        {% set counter = counter + 1 %}
+					{% endfor %}
 				</div>
 			</div>
 		</div>
 
 		<div class="row bottom-content"  id="row10">
 			<div class="col explore-bottom-col">
-				<img src="/img/explore-bottom.jpg" class="explore-bottom-img">
+				<div class="row"></div>
+				<div class="row" id="bottom-row" style="font-size:4em;">
+					<div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
+
+					<div class="col-sm-10 explore-text align-items-center pad-mod">
+						<span class="explore-link final-ex-en">EXPLORE</span>
+					</div>
+				</div>
 			</div>
+
+
 			<div class="col engage-bottom-col">
 				<img src="/img/engage-bottom.jpg" class="engage-bottom-img">
+				<div class="row"></div>
+				<div class="row" id="bottom-row" style="font-size:4em;">
+					<div class="col-sm-10 remove-15-row remove-15-padding">
+						<span class="explore-link final-ex-en pad-mod-2">ENGAGE</span>
+					</div>
+					<div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
+
+				</div>
 			</div>
 		</div>
 
 
 	</div>
+
+
 
  {% endblock %}

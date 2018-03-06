@@ -107,19 +107,75 @@
 			}
 
 			function initHistorySection() {
-				$(document).ready(function() {
-					$(".history-menu-item").click(function() {
-						var currentActive = $(".hm-active");
-						var currentDescription = $(".history-active");
-						currentActive.removeClass("hm-active");
-						currentDescription.removeClass("history-active");
+				$(".history-menu-item").click(function() {
+					var currentActive = $(".hm-active");
+					var currentDescription = $(".history-active");
+					currentActive.removeClass("hm-active");
+					currentDescription.removeClass("history-active");
 
-						$(this).addClass("hm-active");
-						var selectedIndex = $(".history-menu-item").index($(this));		
-						var newEventDescription = $(".history-content:eq(" + selectedIndex + ")");
-						newEventDescription.addClass("history-active");
+					$(this).addClass("hm-active");
+					var selectedIndex = $(".history-menu-item").index($(this));		
+					var newEventDescription = $(".history-content:eq(" + selectedIndex + ")");
+					newEventDescription.addClass("history-active");
 
-					});
+				});
+				
+			}
+
+			function pressChange(itemIdx) {
+				var currentActive = $(".active-press");
+				currentActive.removeClass("active-press");
+				currentActive.addClass("inactive-press");
+
+				var newItem = $(".press-content:eq(" + itemIdx + ")");
+				newItem.addClass("active-press");
+				newItem.removeClass("inactive-press");
+			}
+
+
+			function initPressScroller() {
+				$(".press-item-container").click(function() {
+					var currentActive = $(".press-item-active");
+					currentActive.removeClass("press-item-active");
+					var currentIndex = $(".press-item").index(currentActive);
+
+					var newIndex = $(".press-item-container").index(this);
+					$(this).find(".press-item").addClass("press-item-active");
+					pressChange(newIndex);
+				});
+
+				$(".left-angle").click(function() {
+					var currentActive = $(".press-item-active");
+					currentActive.removeClass("press-item-active");
+
+					var amountItems = $(".press-item-container").length;
+					var currentIndex = $(".press-item").index(currentActive);
+
+					var newIndex = amountItems - 1; //Start by assuming you are at the end.
+					if(currentIndex > 0) {
+						newIndex = currentIndex - 1;
+					}
+
+					var newPressItemContainer = $(".press-item-container:eq(" + newIndex + ")");
+					newPressItemContainer.find(".press-item").addClass("press-item-active");
+					pressChange(newIndex);
+				});
+
+				$(".right-angle").click(function() {
+					var currentActive = $(".press-item-active");
+					currentActive.removeClass("press-item-active");
+
+					var amountItems = $(".press-item-container").length;
+					var currentIndex = $(".press-item").index(currentActive);
+
+					var newIndex = 0; //Start by assuming you are at the start.
+					if(currentIndex < (amountItems - 1)) {
+						newIndex = currentIndex + 1;
+					}
+
+					var newPressItemContainer = $(".press-item-container:eq(" + newIndex + ")");
+					newPressItemContainer.find(".press-item").addClass("press-item-active");
+					pressChange(newIndex);
 				});
 			}
 
@@ -128,6 +184,7 @@
 				initialzieContactPanel();
 				stickyOutline();
 				initHistorySection();
+				initPressScroller();
 
 				$(window).on('beforeunload', function(){
 				    $(window).scrollTop(0);
