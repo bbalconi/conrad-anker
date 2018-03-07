@@ -263,6 +263,10 @@ body, html, .container-fluid {
 	bottom:0 !important;
 }
 
+.redl-e{
+	right:0;
+}
+
 .redl2{
 	border-left: 1px solid #fe2246;
 	height:100%;
@@ -467,6 +471,20 @@ h2{
 	padding-bottom: 6.5em;
 }
 
+.whiteEngageSection .col-sm-10 .row{
+	padding-bottom: 6.5em;
+}
+
+.whiteEngageSection p {
+	width:75% !important;
+}
+
+.whiteEngageSection img {
+	padding-right:3.3em;
+}
+
+
+
 .graybg p {
 	width:75% !important;
 }
@@ -659,6 +677,15 @@ h2{
 	z-index: 2;
 }
 
+.logo-overlay{
+	max-width: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-right: 0 !important;
+    max-height: 25%;
+}
+
 .lm-link{
 	display: inline-block;
 	margin-right:2em;
@@ -808,7 +835,7 @@ h2{
 }
 
 .modalCA{
-	position: relative;
+	position: fixed;
 	height:81vh;
 	width:60vw;
 	background-color:#181818;
@@ -821,17 +848,213 @@ h2{
 	margin-right: auto; 
 	margin-top: auto; 
 	margin-bottom: auto; 
-	display:block;
+	display:none;
 }
 
 .modalMask{
 	width:100%;
 	height: 100%;
-	position: absolute;
-	background-color:#000;
+	position: fixed;
+	background-color: rgba(0,0,0,.5);
 	z-index: 3;
 	top:0;
 	left:0;
 	display: none;
-	opacity:0.5;
+}
+
+.modalCA h1, .modalCA p{
+	z-index: 4;
+	color: #fff;
+}
+
+.modal-inner{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.modal-close{
+	position: absolute;
+	right:0;
+	top:-2em;
+	width: 1.3em;
+	height: 1.3em;
+	cursor: pointer;
+}
+
+.video-overlay{
+	cursor: pointer;
+}
+
+.modal-iframe-row{
+	margin-top:3em;
+	margin-bottom:3.5em;
+	text-align: center;
+	padding-left:30px;
+	padding-right:30px;
+}
+
+.modal-video-contain{
+	display: none;
+	text-align: left !important;
+}
+
+.modal-content-row{
+	width:100%;
+}
+
+.modal-content-col{
+	text-align: center;
+}
+
+.modal-content-contain{
+	width:800px !important;
+	display:none;
+}
+
+.modal-hr{
+	width:10%;
+	background-color: #fe2246;
+}
+
+.modal-contain-active{
+	display:inline-block !important;
+	text-align: left !important;
+}
+
+.modal-video-active{
+	display:inline-block !important;
+}
+
+.engage-link{
+	float:right;
+	padding-top:.21em;
+}
+
+.engage-experience{
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/img/engage-bg-exp.jpg') no-repeat center left fixed;
+	background-size: cover;
+	height: 70vh;
+}
+
+.whiteEngageSection{
+	background:#fff !important;
+	color: #000 !important;
+}
+
+.whiteEngageSection h2, .whiteEngageSection p {
+	color: #000 !important;
+}
+
+.speaking-div p{
+	color:#000 !important;
+	width: 85% !important;
+	font-size:1.7em;
+	font-weight:500;
+	margin-left: 0.5em;
+}
+
+.speech-img{
+	width: 100%;
+    height: 100%;
+    padding-right: 0 !important;
+}
+
+.speech-row{
+	position: absolute;
+    margin-top: 5em;
+    right: 2em;
+}
+
+.speech-content{
+	padding-bottom:7em;
+}
+
+.quote-content{
+	padding-top:23em;
+}
+
+.speech-mask{
+	background-color:#000;
+	opacity:0.6;
+	position: absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+
+}
+
+.testimonial-author, .testimonial-quote{
+	display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.testimonial-hr{
+	border-width: 2px !important;
+}
+
+.coordinates-copy{
+	color: #000 !important;
+}
+
+.coordinates-table{
+	margin-top:4em;
+	width:81%;
+	font-size:1.1em;
+}
+
+.coordinates-table tr{
+	border-bottom: 1px solid #707070;
+
+}
+
+.coordinates-table td {
+	padding-right:2.5em;
+	padding-top:1.2em;
+	padding-bottom: 1.2em;
+}
+
+.coordinates-heading{
+	font-weight: 500;
+	color: #A8A8A8;
+	font-size: .85em;
+}
+
+.team-headshot{
+	width:100%;
+	display: inline-block;
+	padding-right: 0 !important;
+}
+
+.team-row{
+	padding-top:4em;
+}
+
+.team-name, .team-position{
+	display:inline-block;
+	width:100%;
+	text-align: center;
+}
+
+.team-name{
+	font-weight: 500;
+    font-size: 1.35em;
+    padding-top: 1em;
+    padding-bottom: 0.15em;
+}
+
+.team-position {
+	color: #fe2246;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 0.95em;
+}
+
+.team-container{
+	text-align: center;
+	margin-right:3em !important;
 }

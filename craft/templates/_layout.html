@@ -33,8 +33,13 @@
 					$("#engage").animate({width: "100%"}, 500, function() {
 						$("#explore").css({height: "0"});
 						$("#explore").hide();
+						$(".exploreSection").hide();
+						$(".engageSection").show();
+						$("body").css("overflow-y", "scroll");
 					});
 
+					$("#engage-rot-text").fadeIn();
+					$(".engage-row .redl").addClass("redl-active");
 					$("#engage").css({"background-image": "url('/img/right-background.jpg')"});
 				});
 
@@ -44,6 +49,8 @@
 					$("#explore").animate({width: "100%"}, 500, function() {
 						$("#engage").css({height: "0"});
 						$("#engage").hide();
+						$(".engageSection").hide();
+						$(".exploreSection").show();
 						$("body").css("overflow-y", "scroll");
 					});
 
@@ -179,18 +186,30 @@
 				});
 			}
 
+			function initModal(videoId, h1, paragraph) {
+				$(".modify-bp").html(h1);
+				$(".modalCA").fadeIn();
+				$(".modalMask").fadeIn();
+			}
+
+			function modalPopover() {
+				$(".modal-close").click(function() {
+					$(".modalCA").fadeOut();
+					$(".modalMask").fadeOut();
+				});
+			}
+
 			$(document).ready(function() {
 				initializePanelClicks();
 				initialzieContactPanel();
 				stickyOutline();
 				initHistorySection();
 				initPressScroller();
+				modalPopover();
 
 				$(window).on('beforeunload', function(){
 				    $(window).scrollTop(0);
 				});
-
-				//$(window).scrollTop(0);
 			});
 		</script>
 	</head>
