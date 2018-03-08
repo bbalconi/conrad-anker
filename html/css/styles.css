@@ -8,6 +8,24 @@
   src: url('fonts/Gotham-Bold.woff') format('woff');
 }
 
+@media(max-width:768px) {
+	.redl, .float-redline, .redl2, .outline-contain{
+		display:none !important;
+	}
+
+	.explore-text {
+		padding-left:1em !important;
+		font-size: .6em !important;
+		position: absolute;
+		left:1em;
+	}
+
+	/*make a unversal width limiter class for selected cols 
+	.col {
+		min-width: 500px;
+	}*/
+}
+
 body{
 	font-family: 'proxima-nova', sans-serif;
 	overflow-x: hidden;
@@ -19,6 +37,8 @@ body{
 body, html, .container-fluid {
      height: 100%;
 }
+
+
 
 .col {
 	min-height: 500px;
@@ -677,13 +697,23 @@ h2{
 	z-index: 2;
 }
 
-.logo-overlay{
-	max-width: 50%;
+.logo-and-link-contain{
+	width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     padding-right: 0 !important;
-    max-height: 25%;
+    height: 100%;
+    text-align: center;
+    margin-top: 42%;
+    z-index: 10;
+}
+
+.logo-overlay{
+	display: inline-block;
+	max-width: 50%;
+    padding-right: 0 !important;
+    max-height: 18%;
 }
 
 .lm-link{
@@ -691,6 +721,24 @@ h2{
 	margin-right:2em;
 	position: relative;
 
+}
+
+.watch-speech{
+	display: inherit;
+    color: #fe2246 !important;
+    border-bottom: 1px solid;
+    border-color: #fe2246 !important;
+    margin-bottom: 2em;
+    display: inline-block;
+    font-weight: 500;
+    margin-top:1em;
+    cursor: pointer;
+}
+
+.watch-speech:hover{
+	color: #fe2246;
+	text-decoration: none;
+	border-color: #fe2246 !important;
 }
 
 .img-center {display: block; margin:0 auto;}
@@ -839,7 +887,7 @@ h2{
 	height:81vh;
 	width:60vw;
 	background-color:#181818;
-	z-index:4;
+	z-index:12;
 	left: 0; 
 	right: 0; 
 	top:0;
@@ -856,7 +904,7 @@ h2{
 	height: 100%;
 	position: fixed;
 	background-color: rgba(0,0,0,.5);
-	z-index: 3;
+	z-index: 11;
 	top:0;
 	left:0;
 	display: none;
@@ -865,6 +913,8 @@ h2{
 .modalCA h1, .modalCA p{
 	z-index: 4;
 	color: #fff;
+	text-align: left;
+	width:75%;
 }
 
 .modal-inner{
@@ -897,8 +947,9 @@ h2{
 }
 
 .modal-video-contain{
-	display: none;
+	display: inline-block;
 	text-align: left !important;
+	width:85% !important;
 }
 
 .modal-content-row{
@@ -910,8 +961,8 @@ h2{
 }
 
 .modal-content-contain{
-	width:800px !important;
-	display:none;
+	width:85% !important;
+	display:inline-block;
 }
 
 .modal-hr{
@@ -999,6 +1050,7 @@ h2{
 
 .coordinates-copy{
 	color: #000 !important;
+	font-weight:500;
 }
 
 .coordinates-table{
