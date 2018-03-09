@@ -29,7 +29,9 @@
 			function initializePanelClicks() {
 				$(".engage-row").click(function() {
 					$("#explore").animate({width: "0%"}, 500);
-					$(".resize-bottom-explore").animate({width: "0%"}, 500);
+					$(".resize-bottom-explore").css({position: 'absolute'});
+					$(".resize-bottom-explore").animate({width: "0"}, 500);
+					$(".explore-text .redl-active").css({width: '0.5em !important'}, 500);
 					$(".explore-row").fadeOut();
 					$("#engage").animate({width: "100%"}, 500, function() {
 						$("#explore").css({height: "0"});
