@@ -8,11 +8,9 @@
   src: url('fonts/Gotham-Bold.woff') format('woff');
 }
 
-@media(max-width:768px) {
-	.redl, .float-redline, .redl2, .outline-contain{
-		display:none !important;
-	}
 
+
+@media(max-width:1096px) {
 	.explore-text {
 		padding-left:1em !important;
 		font-size: .6em !important;
@@ -20,10 +18,83 @@
 		left:1em;
 	}
 
+	.redl{
+		width:120px !important;
+		top: 31% !important;
+	}
+	.redl-active{
+		left:6em !important;
+	}
+
+	.rot-text-container{
+		font-size: 1em !important;
+	}
+
+	.nav-container{
+		background-color: #212322;
+		height:12% !important;
+		position: relative !important;
+		padding-left:0 !important;
+		padding-right: 0 !important;
+		margin-left:0 !important;
+		margin-right: 0 !important;
+	}
+
+	.social-container{
+		display:none;
+	}
+
+	.logo {
+		float:left;
+	}
+
+	#contact-link{
+		display: none;
+	}
+
+	#home-row{
+		display: none;
+	}
+
+	#mobileRow{
+		display: block;
+	}
+
+	#bottom-row{
+		display: none;
+	}
+
+	.explore-link{
+		font-size: 7em !important;
+		padding-left: 0.75em;
+	}
+
+	.container-fluid{
+		padding-left:0 !important;
+		padding-right: 0 !important;
+		margin-left:0 !important;
+		margin-right: 0 !important;
+	}
+
+	.mobile-nav-row{
+		position: absolute;
+    	bottom: 0;
+    	padding-bottom: 3em;
+	}
 	/*make a unversal width limiter class for selected cols 
 	.col {
 		min-width: 500px;
 	}*/
+}
+
+@media(min-width:1096px) {
+	.mobileRow{
+		display:none !important;
+	}
+
+	.redl{
+		width:12% !important;
+	}
 }
 
 body{
@@ -39,6 +110,29 @@ body, html, .container-fluid {
 }
 
 
+.mobileRow{
+	display:none;
+	height:88%;
+}
+
+.innerMobileRow{
+	height:50%;
+	width:100%;
+}
+
+#explore-mobile{
+	background: url('/img/left-background-grayscale.jpg'); 
+	background-size: cover;
+	width:100%;
+	height:100%;
+}
+
+#engage-mobile {
+	background: url('/img/right-background-grayscale.jpg'); 
+	background-size: cover;
+	width:100%;
+	height:100%;
+}
 
 .col {
 	min-height: 500px;
@@ -89,6 +183,10 @@ body, html, .container-fluid {
 
 .top-home-row {
 	height:75%;
+}
+
+.mobile-nav-row{
+	cursor: pointer;
 }
 
 .bottom-home-row {
@@ -273,7 +371,6 @@ body, html, .container-fluid {
 	position:absolute !important;
 	height: 73%;
 	bottom:0;
-	width:12% !important;
 	-webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;

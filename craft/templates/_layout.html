@@ -46,6 +46,17 @@
 					$("#engage").css({"background-image": "url('/img/right-background.jpg')"});
 				});
 
+				$("#engage-mobile-click").click(function() {
+					
+					$("#explore-rot-text-mobile").fadeIn();
+					$("#engage-mobile-click .redl").addClass("redl-active");
+					$("#engage-mobile-row").animate({height: "0%"}, 500);
+					$("#engage-mobile .redl").fadeOut();
+					$("#engage-mobile .explore-text").fadeOut(); 
+					$("#explore-mobile-row").animate({height: "100%"}, 500);
+					$("#explore-mobile").css({"background-image": "url('/img/left-background.jpg')"});
+				});
+
 				$(".explore-row").click(function() {
 					$("#engage").animate({width: "0%"}, 500);
 					$(".resize-bottom-engage").animate({width: "0%"}, 500);
