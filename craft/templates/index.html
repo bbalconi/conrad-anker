@@ -200,7 +200,7 @@
 
 			</div>
 
-			<div class="col-sm-10 content-buffer">
+			<div class="col-sm-10 content-buffer content-buffer-mobile">
 				<h1 style="margin-top: 1.2em;">Find Alpine Adventure</h1>
 				{{entry.findAlpineAdventureBodyCopy}}
 
@@ -215,10 +215,10 @@
 				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
 			</div>
 
-			<div class="col-sm-10 content-buffer">
+			<div class="col-sm-10 content-buffer-mobile">
 				<div class="row">
 					<div class="col">
-						<img src="img/achievements1.jpeg" class="achievements-1">
+						<img src="img/achievements1.jpeg" class="achievements-1 remove-mobile">
 						<div class="shift-text-content">
 							<h1 class="ac-h1">Achievements</h1>
 							<div class="in-content-ul">
@@ -227,19 +227,19 @@
 						</div>
 					</div>
 
-					<div class="col">
+					<div class="col remove-mobile">
 						<img src="img/achievements2.jpeg" class="achievements-2">
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="row graybg content-2 exploreSection" id="row3">
-			<div class="col-sm-2 remove-15-row remove-15-padding">
+		<div class="row graybg content-2 exploreSection mobilePadding" id="row3">
+			<div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
 				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
 			</div>
 
-			<div class="col-sm-10 content-buffer">
+			<div class="col-sm-10 content-buffer-fix">
 				<div class="row expedition-intro-row">
 					<div class="col top-row-watch">
 						<h2>Recent Expeditions</h2>
@@ -252,8 +252,23 @@
 
 				{% for expedition in entry.recentExpeditions %}
 					{% if expedition.type == "rightSideThumbnail" %}
-						<div class="row vertical-align">
-							<div class="col expedition-info v-center">
+						<div class="row vertical-align mobile-expedition-row">
+						<div class="col dropdown-col left-onlymobile">
+								{% set doc = expedition.thumbnailImage.first() %}
+	                            {% if doc %}
+	                            	{% if expedition.videoLink|length %}
+	                            		<a class="modal-init" onclick='initModal("{{expedition.videoLink}}", "{{expedition.nameOfExpedition}}", "{{expedition.expeditionDescription}}")'>
+	                            			<img class="video-overlay centered-image" src="img/playbutton.png">
+	                            		</a>
+	                            			
+	                            		
+	                            	{% endif %}
+
+									<img class="expedition-img" src="{{doc.url}}">
+	                            {% endif %}
+							</div>
+
+							<div class="col expedition-info v-center dropdown-col">
 								<div class="v-center">
 									<h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
 									<p>
@@ -272,7 +287,7 @@
 								</div>
 							</div>
 
-							<div class="col">
+							<div class="col dropdown-col left-notmobile">
 								{% set doc = expedition.thumbnailImage.first() %}
 	                            {% if doc %}
 	                            	{% if expedition.videoLink|length %}
@@ -290,8 +305,8 @@
 					{% endif %}
 
 					{% if expedition.type == "leftSideThumbnail" %}
-						<div class="row vertical-align">
-							<div class="col">
+						<div class="row vertical-align mobile-expedition-row">
+							<div class="col dropdown-col">
 								{% set doc = expedition.thumbnailImage.first() %}
 	                            {% if doc %}
 	                            	{% if expedition.videoLink|length %}
@@ -304,7 +319,7 @@
 	                            {% endif %}
 							</div>
 
-							<div class="col expedition-info v-center">
+							<div class="col expedition-info v-center dropdown-col">
 								<div class="v-center">
 									<h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
 									<p>
@@ -332,21 +347,26 @@
 		{% set initialBackgroundImage = entry.history.first() %}
 		{% set doc = initialBackgroundImage.eventBackgroundImage.first() %}
 
-		<div class="row history content-2 exploreSection" id="row4" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{doc.url}}) no-repeat center left fixed;">
-			<div class="col-sm-2 remove-15-row remove-15-padding">
+		<div class="row history content-2 exploreSection historyMobile" id="row4" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{doc.url}}) no-repeat center left fixed;">
+			<div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
 				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
 			</div>
 
-			<div class="col-sm-10 content-buffer">
+			<div class="col-sm-10 content-buffer history-col-mobile">
 				<div class="row">
 					<div class="col">
 						<h1 class="modify-bp">History</h1>
+						<select class="historySelect">
+							{% for event in entry.history %}
+							<option value="{{event.nameOfEvent}}">{{event.nameOfEvent}}</option>
+							{% endfor %}
+						</select>
 					</div>
 				</div>
 
 
 				<div class="row vertical-align history-content-row">
-					<div class="col-sm-7">
+					<div class="col-sm-7 history-body">
 						{% for event in entry.history %}
 							<div class="history-content{% if loop.first %} history-active{% endif %}">
 								<h2 style="color:#fff !important;">{{event.nameOfEvent}}</h2>
@@ -387,13 +407,13 @@
 		</div>
 
 		<div class="row tools content-2 exploreSection" id="row5">
-			<div class="col-sm-2 remove-15-row remove-15-padding">
+			<div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
 				<div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
 			</div>
 
-			<div class="col-sm-10 content-buffer">
+			<div class="col-sm-10 content-buffer-fix">
 				<div class="row"></div>
-					<h1>Tools</h1>
+					<h1 class="mobileh1">Tools</h1>
 					<p>
 						{{entry.theGearRoomBody}}
 					</p>

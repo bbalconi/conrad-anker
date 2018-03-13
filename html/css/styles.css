@@ -18,12 +18,115 @@
 		left:1em;
 	}
 
+	.mobileh1{
+		margin-left: 0.9em;
+	}
+
+	.remove-mobile{
+		display: none !important;
+	}
+
+	.historySelect{
+		display: block !important;
+	}
+
+	.dropdown-col{
+		min-width:450px;
+	}
+
+	.history-content-row{
+		padding-top: 0 !important;
+	}
+
+	.content-buffer-fix{
+		margin-left: 0em;
+		max-width: 100% !important;
+	    width: 100% !important;
+	    flex: 100% !important;
+		padding-top:5.5em;
+		padding-bottom: 0 !important;
+	}
+
+	.historyMobile{
+	    padding-left: 3em;
+	}
+
+	.graybg img {
+		padding-right:0 !important;
+	}
+
+	.history-col-mobile{
+	    padding-left: 3em;
+    	padding-right: 3em;
+	    max-width: 100% !important;
+		width: 100% !important;
+		flex: 100% !important;
+	}
+
+	.expedition-info{
+		padding-top: 4em;
+	    padding-left: 4em !important;
+	    padding-right: 4em !important;
+	}
+
+	.history-menu-contain{
+		display:none;
+	}
+
+
+	.mobile-expedition-row{
+		padding-bottom: 4em;
+	}
+
+	.content-buffer-mobile{
+		margin-left: -3em;
+		padding-top:5.5em;
+		padding-bottom: 5.5em;
+	}
+
+	.history-body{
+	    width: 100% !important;
+	    max-width: 100% !important;
+	    flex: 100% !important;
+	}
+
+	.mobile-expedition-img{
+		padding-right: 0;
+	}
+
+	.mobileSide{
+		display:none;
+	}
+
+	.mobilePadding{
+		padding-left:0px !important;
+		padding-right:0px !important;
+	}
+
+	.content-2 p {
+		width: 85% !important;
+		font-size: 1.03em !important;
+	}
+
+	.left-notmobile{
+		display:none;
+	}
+
+	.left-onlymobile{
+		display:block !important;
+	}
+
+
 	.redl{
 		width:120px !important;
 		top: 31% !important;
 	}
 	.redl-active{
 		left:6em !important;
+	}
+
+	.float-redline, .outline-contain, .redl2{
+		display:none !important;
 	}
 
 	.rot-text-container{
@@ -38,6 +141,7 @@
 		padding-right: 0 !important;
 		margin-left:0 !important;
 		margin-right: 0 !important;
+		padding-bottom: 0.5em;
 	}
 
 	.social-container{
@@ -46,6 +150,8 @@
 
 	.logo {
 		float:left;
+		width:auto !important;
+		height:80%;
 	}
 
 	#contact-link{
@@ -53,7 +159,7 @@
 	}
 
 	#home-row{
-		display: none;
+		display: none !important;
 	}
 
 	#mobileRow{
@@ -109,11 +215,36 @@ body, html, .container-fluid {
      height: 100%;
 }
 
+.historySelect{
+	background: rgba(0,0,0,0);
+    color: #fe2246;
+    border: 0;
+    border-bottom: 1px solid;
+    font-weight: 500;
+    font-size: 1.3em;
+    margin-top: 1.2em;
+    display: none;
+}
 
 .mobileRow{
 	display:none;
 	height:88%;
 }
+
+.left-onlymobile{
+	display:none;
+}
+
+.content-buffer-mobile{
+	padding-top:5.5em;
+	padding-bottom: 5.5em;
+}
+
+.content-buffer-fix{
+	padding-top:5.5em;
+	padding-bottom: 5.5em;
+}
+
 
 .innerMobileRow{
 	height:50%;

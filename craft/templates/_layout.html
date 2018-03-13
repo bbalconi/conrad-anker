@@ -53,8 +53,12 @@
 					$("#engage-mobile-row").animate({height: "0%"}, 500);
 					$("#engage-mobile .redl").fadeOut();
 					$("#engage-mobile .explore-text").fadeOut(); 
-					$("#explore-mobile-row").animate({height: "100%"}, 500);
+					$("#explore-mobile-row").animate({height: "100%"}, 500, function() {
+						$(".engageSection").show();
+						$("body").css("overflow-y", "scroll");
+					});
 					$("#explore-mobile").css({"background-image": "url('/img/left-background.jpg')"});
+
 				});
 
 				$(".explore-row").click(function() {
