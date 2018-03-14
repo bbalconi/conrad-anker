@@ -8,14 +8,85 @@
   src: url('fonts/Gotham-Bold.woff') format('woff');
 }
 
+@media (max-height: 1096px) {
+	.press-full-container {
+	    height: 135vh;
+	}
+
+}
+
 
 
 @media(max-width:1096px) {
+	h1 {
+		font-size: 8vw !important;
+	}
+	h2 {
+		font-size: 6vw !important;
+	}
+
+	.mobileRow{
+		display:block !important;
+		height: 91vh !important;
+	}
+
 	.explore-text {
 		padding-left:1em !important;
 		font-size: .6em !important;
 		position: absolute;
 		left:1em;
+	}
+
+	.exp-mobile-col {
+		padding-left:0 !important;
+		padding-right: 0 !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	.in-content-ul {
+	    margin-left: 4vh !important;
+	    width: 84%;
+	}
+
+	.dl-bio{
+		display:none;
+	}
+
+	.shift-text-content {
+	    margin-left: 0em !important;
+	}
+
+	.graybg p {
+		width: 90% !important;
+	}
+
+	.logo-row{
+		max-width:100% !important;
+	}
+
+	.logo-col{
+		min-width:50% !important;
+	}
+
+	.history {
+		height: 120vh !important;
+	}
+
+	.history-row-mobile-2{
+		margin-bottom:2em;
+	}
+
+	.center-logos{
+		float:none;
+		margin:0 auto;
+		padding-right:0 !important;
+	}
+
+	.ps-outer-contain{
+		position: absolute;
+		bottom:2em;
+		width:90%;
 	}
 
 	.mobileh1{
@@ -30,8 +101,15 @@
 		display: block !important;
 	}
 
+	
+
 	.dropdown-col{
-		min-width:450px;
+		min-width:600px;
+	}
+
+	.mobile-press-width{
+		width:90%;
+		padding-bottom: 1.6em !important;
 	}
 
 	.history-content-row{
@@ -59,6 +137,12 @@
 	    padding-left: 3em;
     	padding-right: 3em;
 	    max-width: 100% !important;
+		width: 100% !important;
+		flex: 100% !important;
+	}
+
+	.flex-modify{
+		max-width: 100% !important;
 		width: 100% !important;
 		flex: 100% !important;
 	}
@@ -105,7 +189,16 @@
 
 	.content-2 p {
 		width: 85% !important;
-		font-size: 1.03em !important;
+		font-size: 5vw !important;
+		margin-left: 4vh !important;
+	}
+
+	.historySelect {
+		font-size: 5vw !important;
+	}
+
+	.in-content-ul{
+		font-size: 5vw !important;
 	}
 
 	.left-notmobile{
@@ -135,7 +228,7 @@
 
 	.nav-container{
 		background-color: #212322;
-		height:12% !important;
+		height:12vh !important;
 		position: relative !important;
 		padding-left:0 !important;
 		padding-right: 0 !important;
@@ -171,7 +264,7 @@
 	}
 
 	.explore-link{
-		font-size: 7em !important;
+		font-size: 10vw !important;
 		padding-left: 0.75em;
 	}
 
@@ -187,6 +280,15 @@
     	bottom: 0;
     	padding-bottom: 3em;
 	}
+
+	.mobile-press-info{
+		padding-left: 0 !important;
+    	padding-right: 0 !important;
+	}
+
+	.press-full-container{
+		height: 145vh;
+	}
 	/*make a unversal width limiter class for selected cols 
 	.col {
 		min-width: 500px;
@@ -195,7 +297,7 @@
 
 @media(min-width:1096px) {
 	.mobileRow{
-		display:none !important;
+		display:block !important;
 	}
 
 	.redl{
@@ -205,15 +307,14 @@
 
 body{
 	font-family: 'proxima-nova', sans-serif;
+	position:fixed;
 	overflow-x: hidden;
 	overflow-y: hidden;
+	width:101%;
 	height:auto;
-
+	background-color: #212322 !important;
 }
 
-body, html, .container-fluid {
-     height: 100%;
-}
 
 .historySelect{
 	background: rgba(0,0,0,0);
@@ -227,7 +328,7 @@ body, html, .container-fluid {
 }
 
 .mobileRow{
-	display:none;
+	display:none !important;
 	height:88%;
 }
 
@@ -280,7 +381,7 @@ body, html, .container-fluid {
 }
 
 #home-row{
-	height:100%; 
+	height:100vh; 
 	display:block;
 }
 
@@ -457,7 +558,7 @@ body, html, .container-fluid {
 
 #bottom-row{
 	position: absolute;
-	bottom:0;
+	top:80vh;
 	left:0;
 	right:0;
 	z-index: 1;
@@ -507,7 +608,7 @@ body, html, .container-fluid {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 	color:#fff;
-	top:27%;
+	    top: 6vh;
 	bottom:0 !important;
 }
 
@@ -1000,9 +1101,6 @@ h2{
 }
 
 .logo-img{
-	max-height: 10em;
-    width: auto !important;
-    max-width: 15.5em;
 }
 
 .logo-col {
@@ -1107,7 +1205,15 @@ h2{
 }
 
 .press-content {
-	height: 25em;
+}
+
+.cb-margin{
+	margin-left: 4em;
+}
+
+.press-modify{
+	padding-bottom: 2em !important;
+    margin-left: -15px !important;
 }
 
 .modalCA{
@@ -1266,6 +1372,10 @@ h2{
 
 }
 
+.history-p-width{
+	width:71% !important;
+}
+
 .testimonial-author, .testimonial-quote{
 	display: inline-block;
     width: 100%;
@@ -1338,3 +1448,16 @@ h2{
 	text-align: center;
 	margin-right:3em !important;
 }
+
+@media(max-width:1096px) {
+	.graybg p {
+		width: 90% !important;
+	}
+
+
+	.content2 p.history-p-width{
+		width:100% !important;
+	}
+}
+
+

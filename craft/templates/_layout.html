@@ -6,6 +6,8 @@
 		<link rel="stylesheet" href="/css/styles.css" type="text/css">
 		<link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.typekit.net/elp6ayx.css">
+		
+
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"</script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -38,6 +40,9 @@
 						$("#explore").hide();
 						$(".exploreSection").hide();
 						$(".engageSection").show();
+						$("body").css({position: "static"});
+						$("body").css({top: "0px"});
+						$("body").css({height: "0px"});
 						$("body").css("overflow-y", "scroll");
 					});
 
@@ -46,7 +51,7 @@
 					$("#engage").css({"background-image": "url('/img/right-background.jpg')"});
 				});
 
-				$("#engage-mobile-click").click(function() {
+				$("#explore-mobile-click").click(function() {
 					
 					$("#explore-rot-text-mobile").fadeIn();
 					$("#engage-mobile-click .redl").addClass("redl-active");
@@ -54,7 +59,10 @@
 					$("#engage-mobile .redl").fadeOut();
 					$("#engage-mobile .explore-text").fadeOut(); 
 					$("#explore-mobile-row").animate({height: "100%"}, 500, function() {
-						$(".engageSection").show();
+						$(".engageSection").hide();
+						$(".exploreSection").show();
+						
+						$("body").css({position: "static"});
 						$("body").css("overflow-y", "scroll");
 					});
 					$("#explore-mobile").css({"background-image": "url('/img/left-background.jpg')"});
@@ -70,6 +78,7 @@
 						$("#engage").hide();
 						$(".engageSection").hide();
 						$(".exploreSection").show();
+						$("body").css({position: "static"});
 						$("body").css("overflow-y", "scroll");
 					});
 
