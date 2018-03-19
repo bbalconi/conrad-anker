@@ -259,10 +259,6 @@
 		display: block;
 	}
 
-	#bottom-row{
-		display: none;
-	}
-
 	.explore-link{
 		font-size: 10vw !important;
 		padding-left: 0.75em;
@@ -558,7 +554,7 @@ body{
 
 #bottom-row{
 	position: absolute;
-	top:80vh;
+	top:30vh;
 	left:0;
 	right:0;
 	z-index: 1;
@@ -1459,5 +1455,3 @@ h2{
 		width:100% !important;
 	}
 }
-
-
