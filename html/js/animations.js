@@ -35,6 +35,24 @@ function initializePanelClicks() {
     $("#engage").css({ "background-image": "url('/img/right-background.jpg')" });
   });
 
+  $("#engage-mobile-click").click(function () {
+
+    $("#engage-rot-text-mobile").fadeIn();
+    $("#explore-mobile-click .redl").addClass("redl-active");
+    $("#explore-mobile-row").animate({ height: "0%" }, 500);
+    $("#explore-mobile .redl").fadeOut();
+    $("#explore-mobile .explore-text").fadeOut();
+    $("#engage-mobile-row").animate({ height: "100%" }, 500, function () {
+      $(".exploreSection").hide();
+      $(".engageSection").show();
+
+      $("body").css({ position: "static" });
+      $("body").css("overflow-y", "scroll");
+    });
+    $("#engage-mobile").css({ "background-image": "url('/img/right-background.jpg')" });
+
+  });
+
   $("#explore-mobile-click").click(function () {
 
     $("#explore-rot-text-mobile").fadeIn();
@@ -90,44 +108,81 @@ function stickyOutline() {
     } else {
       $(".outline-contain").removeClass("sticky-outline");
     }
-
-    if (window.pageYOffset < $("#row2").offset().top - 50) {
-      clearActive();
-      $("#about-outline .circle-item").addClass("circle-active");
-      $("#about-outline .outline-item-text").addClass("oi-active");
-      $("#about-outline .outline-item-text").addClass("oi-active-light");
-      $("#about2-outline .circle-item").addClass("circle-active");
-      $("#about2-outline .outline-item-text").addClass("oi-active");
-      $("#about2-outline .outline-item-text").addClass("oi-active-light");
-    } else if (window.pageYOffset >= $("#row2").offset().top - 50) {
-      clearActive();
-      $("#achievements-outline .circle-item").addClass("circle-active");
-      $("#achievements-outline .outline-item-text").addClass("oi-active");
-      $("#achievements-outline .outline-item-text").addClass("oi-active-dark");
-    } else if (window.pageYOffset >= $("#row3").offset().top - 50) {
-      clearActive();
-      $("#expeditions-outline .circle-item").addClass("circle-active");
-      $("#expeditions-outline .outline-item-text").addClass("oi-active");
-      $("#expeditions-outline .outline-item-text").addClass("oi-active-light");
-    } else if (window.pageYOffset >= $("#row4").offset().top - 50) {
-      clearActive();
-      $("#history-outline .circle-item").addClass("circle-active");
-      $("#history-outline .outline-item-text").addClass("oi-active");
-      $("#history-outline .outline-item-text").addClass("oi-active-light");
-    } else if (window.pageYOffset >= $("#row5").offset().top - 50) {
-      clearActive();
-      $("#tools-outline .circle-item").addClass("circle-active");
-      $("#tools-outline .outline-item-text").addClass("oi-active");
-      $("#tools-outline .outline-item-text").addClass("oi-active-dark");
-    } else if (window.pageYOffset >= $("#row6").offset().top - 50) {
-      clearActive();
-      $("#press-outline .circle-item").addClass("circle-active");
-      $("#press-outline .outline-item-text").addClass("oi-active");
-      $("#press-outline .outline-item-text").addClass("oi-active-light");
-    }
+     if ($("#row2").offset().top > 0) {
+       exploreHighlights();
+     } else {
+       engageHighlights();
+     }
   });
 }
 
+function exploreHighlights() {
+  if (window.pageYOffset < $("#row2").offset().top - 50) {
+    clearActive();
+    $("#about-outline .circle-item").addClass("circle-active");
+    $("#about-outline .outline-item-text").addClass("oi-active");
+    $("#about-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row6").offset().top - 50) {
+    clearActive();
+    $("#press-outline .circle-item").addClass("circle-active");
+    $("#press-outline .outline-item-text").addClass("oi-active");
+    $("#press-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row5").offset().top - 50) {
+    clearActive();
+    $("#tools-outline .circle-item").addClass("circle-active");
+    $("#tools-outline .outline-item-text").addClass("oi-active");
+    $("#tools-outline .outline-item-text").addClass("oi-active-dark");
+  } else if (window.pageYOffset >= $("#row4").offset().top - 50) {
+    clearActive();
+    $("#history-outline .circle-item").addClass("circle-active");
+    $("#history-outline .outline-item-text").addClass("oi-active");
+    $("#history-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row3").offset().top - 50) {
+    clearActive();
+    $("#expeditions-outline .circle-item").addClass("circle-active");
+    $("#expeditions-outline .outline-item-text").addClass("oi-active");
+    $("#expeditions-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row2").offset().top - 50) {
+    clearActive();
+    $("#achievements-outline .circle-item").addClass("circle-active");
+    $("#achievements-outline .outline-item-text").addClass("oi-active");
+    $("#achievements-outline .outline-item-text").addClass("oi-active-dark");
+  }  
+}
+
+function engageHighlights() {
+  if (window.pageYOffset < $("#row2a").offset().top - 50) {
+    clearActive();
+    $("#about2-outline .circle-item").addClass("circle-active");
+    $("#about2-outline .outline-item-text").addClass("oi-active");
+    $("#about2-outline .outline-item-text").addClass("oi-active-light");
+  }  else if (window.pageYOffset >= $("#row6a").offset().top - 50) {
+    clearActive();
+    $("#coordinates-outline .circle-item").addClass("circle-active");
+    $("#coordinates-outline .outline-item-text").addClass("oi-active");
+    $("#coordinates-outline .outline-item-text").addClass("oi-active-dark");
+  } else if (window.pageYOffset >= $("#row5a").offset().top - 50) {
+    clearActive();
+    $("#testimonials-outline .circle-item").addClass("circle-active");
+    $("#testimonials-outline .outline-item-text").addClass("oi-active");
+    $("#testimonials-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row4a").offset().top - 50) {
+    clearActive();
+    $("#filler-outline .circle-item").addClass("circle-active");
+    $("#filler-outline .outline-item-text").addClass("oi-active");
+    $("#filler-outline .outline-item-text").addClass("oi-active-dark");
+  } else if (window.pageYOffset >= $("#row3a").offset().top - 50) {
+    clearActive();
+    $("#speaking-outline .circle-item").addClass("circle-active");
+    $("#speaking-outline .outline-item-text").addClass("oi-active");
+    $("#speaking-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row2a").offset().top - 50) {
+    clearActive();
+    $("#advocacy-outline .circle-item").addClass("circle-active");
+    $("#advocacy-outline .outline-item-text").addClass("oi-active");
+    $("#advocacy-outline .outline-item-text").addClass("oi-active-dark");
+  }
+}
 
 function initHistorySection() {
   $(".history-menu-item").click(function () {
@@ -230,20 +285,52 @@ function modalPopover() {
 function instagramAjaxCall() {
   var instagramApiUrl = "https://api.instagram.com/v1/users/self/media/recent?access_token=5562156653.6593813.7563f42e72704bfc9f90c306f4b15c0e"
   $.get(instagramApiUrl, (data, status) => {
+    let createdTimeOfPost = parseInt(data.data[5].created_time);
+    let dateCreated = new Date(createdTimeOfPost*1000);
+    let day = dateCreated.getDate();
+    let month = dateCreated.getMonth() + 1;
+    let year = dateCreated.getFullYear().toString().substr(-2);
+    if (day < 10) {
+      day = "0" + day
+    }
+    let formattedDate = `${month}/${day}/${year}`
     if (status === "success")
-    console.log(data.data["0"].images.standard_resolution.url);
-    var firstRow = ""
+    var firstRow = "";
+    var secondRow = "";
+    var thirdRow = "";
     for (i = 0; i < 3; i++) {
       let imgUrl = data.data[i].images.standard_resolution.url;
-      var toAdd = `<div class="col-sm-4"><img src="${imgUrl}"></div>`;
+      var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});width:70vh;height:70vh;"></div>`;
       firstRow += toAdd
-      console.log(firstRow);
+    } for (i = 3; i < 5; i++) {
+      let imgUrl = data.data[i].images.standard_resolution.url;
+      var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;"></div>`;
+      secondRow += toAdd
+    } for (i = 5; i < 6; i++) {
+      let caption = data.data[i].caption.text
+      let imgUrl = data.data[i].images.standard_resolution.url;
+      var toAdd = 
+      `<div class="col-sm-4 instagram-pic" style="width:70vh;height:70vh;">
+        <div class="tweet-content">
+          <span class="tw-date">${formattedDate}</span>
+          <span class="tw-handle">@conrad_anker</span>
+          <p class="tw-text">${caption}</p> 
+          <a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
+        </div>
+          <div class="img-mask">
+            <img src=${imgUrl}>
+          </div>
+        </div>`;
+      thirdRow += toAdd
     }
     document.getElementById("engage-instagram").innerHTML = firstRow;
+    document.getElementById("engage-instagram-second-row").innerHTML = secondRow + thirdRow;
+    document.getElementById("explore-instagram").innerHTML = firstRow;
+    document.getElementById("explore-instagram-second-row").innerHTML = secondRow + thirdRow;
   })
 }
 
-$(document).ready(function () {
+$(document).ready(() => {
   instagramAjaxCall();
   initializePanelClicks();
   initializeContactPanel();
