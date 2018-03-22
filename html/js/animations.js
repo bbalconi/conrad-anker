@@ -306,27 +306,28 @@ function instagramAjaxCall() {
       let imgUrl = data.data[i].images.standard_resolution.url;
       var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;"></div>`;
       secondRow += toAdd
-    } for (i = 5; i < 6; i++) {
-      let caption = data.data[i].caption.text
-      let imgUrl = data.data[i].images.standard_resolution.url;
-      var toAdd = 
-      `<div class="col-sm-4 instagram-pic" style="width:70vh;height:70vh;">
-        <div class="tweet-content">
-          <span class="tw-date">${formattedDate}</span>
-          <span class="tw-handle">@conrad_anker</span>
-          <p class="tw-text">${caption}</p> 
-          <a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
-        </div>
-          <div class="img-mask">
-            <img src=${imgUrl}>
-          </div>
-        </div>`;
-      thirdRow += toAdd
     }
+    // } for (i = 5; i < 6; i++) {
+    //   let caption = data.data[i].caption.text
+    //   let imgUrl = data.data[i].images.standard_resolution.url;
+    //   var toAdd = 
+    //   `<div class="col-sm-4 instagram-pic" style="width:70vh;height:70vh;">
+    //     <div class="tweet-content">
+    //       <span class="tw-date">${formattedDate}</span>
+    //       <span class="tw-handle">@conrad_anker</span>
+    //       <p class="tw-text">${caption}</p> 
+    //       <a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
+    //     </div>
+    //       <div class="img-mask">
+    //         <img src=${imgUrl}>
+    //       </div>
+    //     </div>`;
+    //   thirdRow += toAdd
+    // }
     document.getElementById("engage-instagram").innerHTML = firstRow;
-    document.getElementById("engage-instagram-second-row").innerHTML = secondRow + thirdRow;
+    document.getElementById("engage-instagram-second-row").innerHTML = secondRow/* + thirdRow*/;
     document.getElementById("explore-instagram").innerHTML = firstRow;
-    document.getElementById("explore-instagram-second-row").innerHTML = secondRow + thirdRow;
+    document.getElementById("explore-instagram-second-row").innerHTML = secondRow/* + thirdRow*/;
   })
 }
 
