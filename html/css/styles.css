@@ -35,8 +35,16 @@ body{
 	height:88%;
 }
 
+.speech-flex{
+  display: flex;
+}
+
 .left-onlymobile{
 	display:none;
+}
+
+.quote-content-mobile{
+  display: none;
 }
 
 .content-buffer-mobile{
@@ -85,7 +93,7 @@ body{
 
 #home-row{
 	height:100vh; 
-	display:block;
+  display:block;
 }
 
 #explore {
@@ -109,11 +117,11 @@ body{
 }
 
 #engage:hover{
-	background-image: url('/img/right-background.jpg'); 
+  background-image: url('/img/right-background.jpg'); 
 }
 
 #explore:hover{
-	background-image: url('/img/left-background.jpg'); 
+  background-image: url('/img/left-background.jpg'); 
 }
 
 .top-home-row {
@@ -327,6 +335,10 @@ body{
 
 .redl-e{
 	right:0;
+}
+
+.col-sm-2.remove-15-row.remove-15-padding.redl2.mobileSide{
+  display: none;
 }
 
 .redl2{
@@ -696,16 +708,6 @@ h2{
 	padding-right: 0 !important;
 }
 
-.explore-bottom-col {
-  display: flex;
-  align-items: center;
-	background-image: url('/img/explore-bottom.jpg');
-}
-
-.engage-bottom-col {
-	background-image: url('/img/engage-bottom.jpg');
-}
-
 .explore-bottom-img, .engage-bottom-img{
 	width:100%;
 }
@@ -728,6 +730,15 @@ h2{
 .expedition-img {
 	width:100% !important;
 	position:relative;
+}
+
+.advocacy-img {
+	width:100% !important;
+	position:relative;
+}
+
+.advocacy-mobile{
+  display: none;
 }
 
 .video-overlay{
@@ -836,6 +847,10 @@ h2{
 	padding-left: 5% !important;
 }
 
+.web-coordinates-table{
+  display: none;
+}
+
 .pad-mod-2{
 	position: absolute;
     right: 0;
@@ -917,9 +932,11 @@ h2{
 	margin-left: 4em;
 }
 
-.instagram-image{
-  height: 100vh;
-  width: 70vh;
+.instagram-pic{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
 }
 
 #explore-instagram{
@@ -928,10 +945,26 @@ h2{
   flex-direction: row;
 }
 
+.history-menu-mobile{
+  display: none;
+}
+
 #explore-instagram-second-row{
   width:100%;
   display: flex;
   flex-direction: row;
+}
+
+#instagram-wrapper-mobile{
+  display: none;
+}
+
+#explore-instagram-mobile{
+  display: none;
+}
+
+#explore-instagram-second-row-mobile{
+  display: none;
 }
 
 #engage-instagram{
@@ -1122,7 +1155,8 @@ h2{
 
 .coordinates-copy{
 	color: #000 !important;
-	font-weight:500;
+  font-weight:500;
+  width: 85%;
 }
 
 .coordinates-table{
@@ -1334,7 +1368,7 @@ h2{
 
 	.history-menu-contain{
 		display:none;
-	}
+  }
 
 
 	.mobile-expedition-row{

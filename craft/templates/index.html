@@ -142,7 +142,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col resize-bottom-engage">
       <div class="row bottom-home-row remove-15-row engage-row">
 
@@ -389,128 +389,137 @@
             {% endfor %}
 
           </div>
+          <div class="history-menu-mobile">
+            <select class="mobile-history-select">
+              {% for event in entry.history %}
+              <option class="history-menu-item-mobile{% if loop.first %} hm-active{% endif %}">
+                <span>{{event.nameOfEvent}}></span>
+              </option>
+          </div>
+          {% endfor %}
+          </select>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="row tools content-2 exploreSection" id="row5">
-    <div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
-      <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
-    </div>
-
-    <div class="col-sm-10 content-buffer-fix">
-      <div class="row"></div>
-      <h1 class="mobileh1">Tools</h1>
-      <p>
-        {{entry.theGearRoomBody}}
-      </p>
-      <div class="row vertical-align remove-15-row remove-15-padding">
-        <img src="img/tools.jpg" style="max-width: 100%">
-      </div>
-    </div>
+<div class="row tools content-2 exploreSection" id="row5">
+  <div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
+    <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
 
-  <div class="row graybg content-2 exploreSection" id="row6">
-    <div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
-      <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
-    </div>
-
-    <div class="col-sm-10 content-buffer-fix">
-      <div class="row remove-15-padding remove-15-row press-modify">
-        <h1 class="modify-bp">Press</h1>
-      </div>
-
-      <div class="row remove-15-padding remove-15-row mobile-press-width">
-        {% for pressItem in entry.press %}
-        <div class="press-content row vertical-align{% if loop.first %} active-press{% else %} inactive-press{% endif%}">
-          <div class="col-sm-4 remove-15-padding dropdown-col flex-modify">
-            <img src="img/cbs.png" class="news-image">
-          </div>
-
-          <div class="col-sm-8 expedition-info v-center dropdown-col flex-modify mobile-press-info">
-            <div class="v-center">
-              <h2 style="color:#fff !important;">{{pressItem.publication}}</h2>
-              <p>
-                <span style="font-weight:bold;">{{pressItem.articleTitle}}</span>
-                <br> {{pressItem.description}}
-              </p>
-              <p>
-                <a href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-
-
-      <div class="remove-15-padding remove-15-row ps-outer-contain">
-        <div class="col-sm-11 press-scroller">
-          <div class="press-scroller-container">
-            <div class="left-angle"></div>
-
-            {% for pressItem in entry.press %}
-            <div class="press-item-container vertical-align">
-              <div class="press-item{% if loop.first %} press-item-active {% endif %}"></div>
-            </div>
-            {% endfor %}
-
-            <div class="right-angle"></div>
-          </div>
-        </div>
-        <div class="col-sm-1"></div>
-      </div>
+  <div class="col-sm-10 content-buffer-fix">
+    <div class="row"></div>
+    <h1 class="mobileh1">Tools</h1>
+    <p>
+      {{entry.theGearRoomBody}}
+    </p>
+    <div class="row vertical-align remove-15-row remove-15-padding">
+      <img src="img/tools.jpg" style="max-width: 100vw" id="tools-img">
     </div>
   </div>
+</div>
 
-  <div class="row tw-row redl-float-contain exploreSection">
-    <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
-      <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+<div class="row graybg content-2 exploreSection" id="row6">
+  <div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
+    <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+  </div>
+
+  <div class="col-sm-10 content-buffer-fix">
+    <div class="row remove-15-padding remove-15-row press-modify">
+      <h1 class="modify-bp">Press</h1>
     </div>
+
+    <div class="row remove-15-padding remove-15-row mobile-press-width">
+      {% for pressItem in entry.press %}
+      <div class="press-content row vertical-align{% if loop.first %} active-press{% else %} inactive-press{% endif%}">
+        <div class="col-sm-4 remove-15-padding dropdown-col flex-modify">
+          <img src="img/cbs.png" class="news-image">
+        </div>
+
+        <div class="col-sm-8 expedition-info v-center dropdown-col flex-modify mobile-press-info">
+          <div class="v-center">
+            <h2 style="color:#fff !important;">{{pressItem.publication}}</h2>
+            <p>
+              <span style="font-weight:bold;">{{pressItem.articleTitle}}</span>
+              <br> {{pressItem.description}}
+            </p>
+            <p>
+              <a href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+
+    <div class="remove-15-padding remove-15-row ps-outer-contain">
+      <div class="col-sm-11 press-scroller">
+        <div class="press-scroller-container">
+          <div class="left-angle"></div>
+
+          {% for pressItem in entry.press %}
+          <div class="press-item-container vertical-align">
+            <div class="press-item{% if loop.first %} press-item-active {% endif %}"></div>
+          </div>
+          {% endfor %}
+
+          <div class="right-angle"></div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
+</div>
+
+<div class="row tw-row redl-float-contain exploreSection">
+  <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+    <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+  </div>
+  <div class="instagram-wrapper">
     <div id="explore-instagram"></div>
-  </div>
-
-  <div class="row tw-row vertical-align redl-float-contain exploreSection">
-    <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
-      <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
-    </div>
     <div id="explore-instagram-second-row"></div>
+  </div>
+  <div class="instagram-wrapper-mobile">
+    <div id="explore-instagram-mobile"></div>
   </div>
 
   <div class="row graybg content-2 logo-content redl-float-contain exploreSection">
     <div class="col-sm-2 remove-15-row remove-15-padding float-redline mobileSide">
       <div class="col-sm-2 remove-15-row remove-15-padding redl2 mobileSide"></div>
     </div>
+  </div>
+  <div class="col-sm-2 mobileSide"></div>
 
-    <div class="col-sm-2 mobileSide"></div>
-
-    <div class="col-sm-10 content-buffer center-logos" style="padding-right: 6em;">
-      <div class="row logo-row">
-        {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter
-        < 4 %} {% set doc=company.logo.first() %} {% if doc %} <div class="col-sm-3 logo-col vertical-align horiz-align">
-          <a href="{{company.urlToWebsite}}" target="_blank">
-            <img class="logo-img" src="{{doc.url}}">
-          </a>
-      </div>
-      {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
-    </div>
-
+  <div class="col-sm-10 content-buffer center-logos" style="padding-right: 6em;">
     <div class="row logo-row">
-      {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter >= 4 %} {% set doc = company.logo.first()
-      %} {% if doc %}
-      <div class="col-sm-3 logo-col vertical-align horiz-align">
+      {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter
+      < 4 %} {% set doc=company.logo.first() %} {% if doc %} <div class="col-sm-3 logo-col vertical-align horiz-align">
         <a href="{{company.urlToWebsite}}" target="_blank">
           <img class="logo-img" src="{{doc.url}}">
         </a>
-      </div>
-      {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
     </div>
+    {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
   </div>
+
+  <div class="row logo-row">
+    {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter >= 4 %} {% set doc = company.logo.first()
+    %} {% if doc %}
+    <div class="col-sm-3 logo-col vertical-align horiz-align">
+      <a href="{{company.urlToWebsite}}" target="_blank">
+        <img class="logo-img" src="{{doc.url}}">
+      </a>
+    </div>
+    {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
+  </div>
+</div>
 </div>
 
 <div class="row bottom-content exploreSection" id="row10">
   <div class="col explore-bottom-col">
+    <img src="/img/explore-bottom.jpg" class="explore-bottom-img">
     <div class="row"></div>
     <div class="row" id="bottom-row" style="font-size:4em;">
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
@@ -538,7 +547,7 @@
 
 <!-- Engage section -->
 {% set entry = craft.entries.section('engage').first() %}
-<div class="row content-2 engageSection engage-experience">
+<div class="row content-2 engageSection engage-experience" id="row1a">
   <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
@@ -586,7 +595,7 @@
 </div>
 
 <div class="row whiteEngageSection content-2 engageSection" id="row2a">
-  <div class="col-sm-2 remove-15-row remove-15-padding">
+  <div class="col-sm-2 remove-15-row remove-15-padding advocacy-remove">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
 
@@ -601,7 +610,7 @@
     </div>
 
     {% for organization in entry.advocacyOrganizations %} {% if organization.type == "rightSideImage" %}
-    <div class="row vertical-align">
+    <div class="row vertical-align advocacy-web">
       <div class="col expedition-info v-center">
         <div class="v-center">
           <h2 style="color:#000000 !important;">{{organization.nameOfOrganization}}</h2>
@@ -617,21 +626,21 @@
         </div>
       </div>
 
-      <div class="col">
+      <div class="col advocacy-image-wrapper">
         {% set doc = organization.thumbnailImage.first() %} {% if doc %}
-        <img class="expedition-img" src="{{doc.url}}"> {% endif %}
+        <img class="advocacy-img" src="{{doc.url}}"> {% endif %}
       </div>
     </div>
     {% endif %} {% if organization.type == "leftSideImage" %}
-    <div class="row vertical-align">
-      <div class="col">
+    <div class="row vertical-align advocacy-web">
+      <div class="col advocacy-image-wrapper">
         {% set doc = organization.thumbnailImage.first() %} {% if doc %}
-        <img class="expedition-img" src="{{doc.url}}"> {% endif %}
+        <img class="advocacy-img" src="{{doc.url}}"> {% endif %}
       </div>
 
       <div class="col expedition-info v-center">
         <div class="v-center">
-          <h2 style="color:#fff !important;">{{organization.nameOfOrganization}}</h2>
+          <h2>{{organization.nameOfOrganization}}</h2>
           <p>
             {{organization.shortDescription}}
           </p>
@@ -644,7 +653,27 @@
         </div>
       </div>
     </div>
-    {% endif %} {% endfor %}
+    {% endif %} {% endfor %} {% for organization in entry.advocacyOrganizations %}
+    <div class="vertical-align advocacy-mobile">
+      <div class="col advocacy-image-wrapper">
+        {% set doc = organization.thumbnailImage.first() %} {% if doc %}
+        <img class="advocacy-img" src="{{doc.url}}"> {% endif %}</div>
+      <div class="col expedition-info v-center">
+        <div class="v-center">
+          <h2 style="color:#000000 !important;">{{organization.nameOfOrganization}}</h2>
+          <p>
+            {{organization.shortDescription}}
+          </p>
+
+          <p>
+            {% if organization.learnMoreLink|length %}
+            <a href="{{organization.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
 
   </div>
 </div>
@@ -656,28 +685,33 @@
 
   <div class="col-sm-2"></div>
 
-  <div class="col-sm-10 content-buffer" style="padding-right: 6em;">
-    <h1>Speaking</h1>
-    <p>
-      {{entry.speakingBodyCopy}}
-    </p>
+  <div class="col-sm-10 content-buffer speaking-body" style="padding-right: 6em;">
+    <div class="speaking-header">
+      <h1>Speaking</h1>
+    </div>
+    <div class="speaking-body-content">
+      <p>
+        {{entry.speakingBodyCopy}}
+      </p>
+    </div>
 
     <div class="row speech-row">
-      {% for speech in entry.speeches %}
-      <div class="col remove-15-row remove-15-padding">
-        {% set doc = speech.backgroundImage.first() %} {% set doc2 = speech.Logo.first() %} {% if doc %} {% if doc2 %}
-        <img src="{{doc.url}}" class="speech-img">
-        <div class="speech-mask"></div>
-        <div class="logo-and-link-contain">
-          <img src="{{doc2.url}}" class="logo-overlay"> {% if speech.youtubeLink|length %}
-          <br>
-          <a class="watch-speech" onclick='initModal("{{speech.youtubeLink}}", "", "")'>WATCH SPEECH</a>
-          {% endif %}
+      <div class="speech-flex">
+        {% for speech in entry.speeches %}
+        <div class="col remove-15-row remove-15-padding speech-container">
+          {% set doc = speech.backgroundImage.first() %} {% set doc2 = speech.Logo.first() %} {% if doc %} {% if doc2 %}
+          <img src="{{doc.url}}" class="speech-img">
+          <div class="speech-mask"></div>
+          <div class="logo-and-link-contain">
+            <img src="{{doc2.url}}" class="logo-overlay"> {% if speech.youtubeLink|length %}
+            <br>
+            <a class="watch-speech" onclick='initModal("{{speech.youtubeLink}}", "", "")'>WATCH SPEECH</a>
+            {% endif %}
+          </div>
+          {% endif %} {% endif %}
         </div>
-        {% endif %} {% endif %}
-
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
 
   </div>
@@ -705,6 +739,12 @@
       </div>
     </div>
   </div>
+  <div class="col-sm-10 content-buffer quote-content-mobile">
+    <div class="speaking-div">
+      {{entry.conradQuote}}
+    </div>
+    <img src="img/achievements1.jpeg" class="achievements-1">
+  </div>
 </div>
 
 <div class="row content-2 graybg engageSection engage-testimonials" id="row5a">
@@ -712,19 +752,21 @@
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
 
-  <div class="col-sm-10 content-buffer">
-    <div class="row">
+  <div class="col-sm-10 content-buffer testimonial-bottom">
+    <div class="row testimonial-header">
       <div class="col">
         <h1>Testimonials</h1>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row testimonial-row">
       {% for testimonial in entry.testimonials %}
       <div class="col">
         <span class="testimonial-author">{{testimonial.nameOfPerson}}</span>
         <hr class="modal-hr testimonial-hr">
-        <p class="testimonial-quote">{{testimonial.quote}}</p>
+        <div class="testimonial-quote">
+          <p class="testimonial-quote">{{testimonial.quote}}</p>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -732,7 +774,7 @@
 </div>
 
 <div class="row content-2 whitebg engageSection" id="row6a">
-  <div class="col-sm-2 remove-15-row remove-15-padding">
+  <div class="col-sm-2 remove-15-row remove-15-padding" id="coordinates-margin-remove">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
 
@@ -740,7 +782,7 @@
     <div class="row">
       <div class="col">
         <h1 class="ac-h1">Coordinates</h1>
-        <p class="coordinates-copy">
+        <p id="coordinates-copy">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque
           cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus
           vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue
@@ -764,9 +806,19 @@
           </tr>
           {% endfor %}
         </table>
+        <div class="web-coordinates-table">
+          <div class="table-bottom-border"></div>
+          {% for coordinate in entry.coordinates %}
+          <div class="event-date">{{coordinate.dateOfEvent}}</div>
+          <div class="event-title">{{coordinate.titleOfEvent}}</div>
+          <div class="event-location">{{coordinate.locationOfEvent}}</div>
+          <div class="table-bottom-border"></div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 
 <div class="row graybg content-2 logo-content redl-float-contain engageSection">
@@ -776,12 +828,13 @@
 
   <div class="col-sm-2"></div>
 
-  <div class="col-sm-10 content-buffer" style="padding-right: 6em;">
+  <div class="col-sm-10 content-buffer team-bottom-padding" style="padding-right: 6em;">
     <h1>Team</h1>
-    <p>
-      {{entry.teamBodyCopy}}
-    </p>
-
+    <div class="team-body-copy">
+      <p>
+        {{entry.teamBodyCopy}}
+      </p>
+    </div>
     <div class="row team-row">
       {% for teamMember in entry.teammates %}
       <div class="col remove-15-row remove-15-padding team-container">
@@ -802,49 +855,47 @@
   <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
-  <div id="engage-instagram"></div>
-</div>
-
-<div class="row tw-row vertical-align redl-float-contain engageSection">
-  <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
-    <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+  <div class="instagram-wrapper">
+    <div id="engage-instagram"></div>
+    <div id="engage-instagram-second-row"></div>
   </div>
-  <div id="engage-instagram-second-row"></div>
-</div>
-
-<div class="row graybg content-2 logo-content redl-float-contain engageSection">
-  <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
-    <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+  <div class="instagram-wrapper-mobile">
+    <div id="engage-instagram-mobile"></div>
   </div>
+  <div class="row graybg content-2 logo-content redl-float-contain engageSection">
+    <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
+      <div class="col-sm-2 remove-15-row remove-15-padding redl2 mobileSide"></div>
+    </div>
 
-  <div class="col-sm-2"></div>
+    <div class="col-sm-2"></div>
 
-  <div class="col-sm-10 content-buffer" style="padding-right: 6em;">
+    <div class="col-sm-10 content-buffer center-logos" style="padding-right: 6em;">
+      <div class="row logo-row">
+        {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter
+        < 4 %} {% set doc=company.logo.first() %} {% if doc %} <div class="col-sm-3 logo-col vertical-align horiz-align">
+          <a href="{{company.urlToWebsite}}" target="_blank">
+            <img class="logo-img" src="{{doc.url}}">
+          </a>
+      </div>
+      {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
+    </div>
+
     <div class="row logo-row">
-      {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter
-      < 4 %} {% set doc=company.logo.first() %} {% if doc %} <div class="col-sm-3 logo-col vertical-align horiz-align">
+      {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter >= 4 %} {% set doc = company.logo.first()
+      %} {% if doc %}
+      <div class="col-sm-3 logo-col vertical-align horiz-align">
         <a href="{{company.urlToWebsite}}" target="_blank">
           <img class="logo-img" src="{{doc.url}}">
         </a>
+      </div>
+      {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
     </div>
-    {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
   </div>
-
-  <div class="row logo-row">
-    {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter >= 4 %} {% set doc = company.logo.first()
-    %} {% if doc %}
-    <div class="col-sm-3 logo-col vertical-align horiz-align">
-      <a href="{{company.urlToWebsite}}" target="_blank">
-        <img class="logo-img" src="{{doc.url}}">
-      </a>
-    </div>
-    {% endif %} {% endif %} {% set counter = counter + 1 %} {% endfor %}
-  </div>
-</div>
 </div>
 
 <div class="row bottom-content engageSection">
   <div class="col explore-bottom-col">
+    <img src="/img/explore-bottom.jpg" class="explore-bottom-img">
     <div class="row"></div>
     <div class="row" id="bottom-row" style="font-size:4em;">
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>

@@ -36,7 +36,6 @@ function initializePanelClicks() {
   });
 
   $("#engage-mobile-click").click(function () {
-
     $("#engage-rot-text-mobile").fadeIn();
     $("#explore-mobile-click .redl").addClass("redl-active");
     $("#explore-mobile-row").animate({ height: "0%" }, 500);
@@ -45,7 +44,6 @@ function initializePanelClicks() {
     $("#engage-mobile-row").animate({ height: "100%" }, 500, function () {
       $(".exploreSection").hide();
       $(".engageSection").show();
-
       $("body").css({ position: "static" });
       $("body").css("overflow-y", "scroll");
     });
@@ -54,7 +52,6 @@ function initializePanelClicks() {
   });
 
   $("#explore-mobile-click").click(function () {
-
     $("#explore-rot-text-mobile").fadeIn();
     $("#engage-mobile-click .redl").addClass("redl-active");
     $("#engage-mobile-row").animate({ height: "0%" }, 500);
@@ -63,7 +60,6 @@ function initializePanelClicks() {
     $("#explore-mobile-row").animate({ height: "100%" }, 500, function () {
       $(".engageSection").hide();
       $(".exploreSection").show();
-
       $("body").css({ position: "static" });
       $("body").css("overflow-y", "scroll");
     });
@@ -108,11 +104,11 @@ function stickyOutline() {
     } else {
       $(".outline-contain").removeClass("sticky-outline");
     }
-     if ($("#row2").offset().top > 0) {
-       exploreHighlights();
-     } else {
-       engageHighlights();
-     }
+    if ($("#row2").offset().top > 0) {
+      exploreHighlights();
+    } else {
+      engageHighlights();
+    }
   });
 }
 
@@ -147,7 +143,7 @@ function exploreHighlights() {
     $("#achievements-outline .circle-item").addClass("circle-active");
     $("#achievements-outline .outline-item-text").addClass("oi-active");
     $("#achievements-outline .outline-item-text").addClass("oi-active-dark");
-  }  
+  }
 }
 
 function engageHighlights() {
@@ -156,7 +152,7 @@ function engageHighlights() {
     $("#about2-outline .circle-item").addClass("circle-active");
     $("#about2-outline .outline-item-text").addClass("oi-active");
     $("#about2-outline .outline-item-text").addClass("oi-active-light");
-  }  else if (window.pageYOffset >= $("#row6a").offset().top - 50) {
+  } else if (window.pageYOffset >= $("#row6a").offset().top - 50) {
     clearActive();
     $("#coordinates-outline .circle-item").addClass("circle-active");
     $("#coordinates-outline .outline-item-text").addClass("oi-active");
@@ -195,7 +191,6 @@ function initHistorySection() {
     var selectedIndex = $(".history-menu-item").index($(this));
     var newEventDescription = $(".history-content:eq(" + selectedIndex + ")");
     newEventDescription.addClass("history-active");
-
   });
 
 }
@@ -205,7 +200,7 @@ function pressChange(itemIdx) {
   currentActive.removeClass("active-press");
   currentActive.addClass("inactive-press");
 
-  var newItem = $(".press-content:eq(" + itemIdx + ")");
+  var newItem = $(`.press-content:eq("${itemIdx}")`);
   newItem.addClass("active-press");
   newItem.removeClass("inactive-press");
 }
@@ -285,50 +280,63 @@ function modalPopover() {
 function instagramAjaxCall() {
   var instagramApiUrl = "https://api.instagram.com/v1/users/self/media/recent?access_token=5562156653.6593813.7563f42e72704bfc9f90c306f4b15c0e"
   $.get(instagramApiUrl, (data, status) => {
-    let createdTimeOfPost = parseInt(data.data[5].created_time);
-    let dateCreated = new Date(createdTimeOfPost*1000);
-    let day = dateCreated.getDate();
-    let month = dateCreated.getMonth() + 1;
-    let year = dateCreated.getFullYear().toString().substr(-2);
-    if (day < 10) {
-      day = "0" + day
+    if (status === "success") {
+      instagramWebFormat(data);
+      instagramMobileFormat(data);
     }
-    let formattedDate = `${month}/${day}/${year}`
-    if (status === "success")
-    var firstRow = "";
-    var secondRow = "";
-    var thirdRow = "";
-    for (i = 0; i < 3; i++) {
-      let imgUrl = data.data[i].images.standard_resolution.url;
-      var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});width:70vh;height:70vh;"></div>`;
-      firstRow += toAdd
-    } for (i = 3; i < 5; i++) {
-      let imgUrl = data.data[i].images.standard_resolution.url;
-      var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;"></div>`;
-      secondRow += toAdd
-    }
-    // } for (i = 5; i < 6; i++) {
-    //   let caption = data.data[i].caption.text
-    //   let imgUrl = data.data[i].images.standard_resolution.url;
-    //   var toAdd = 
-    //   `<div class="col-sm-4 instagram-pic" style="width:70vh;height:70vh;">
-    //     <div class="tweet-content">
-    //       <span class="tw-date">${formattedDate}</span>
-    //       <span class="tw-handle">@conrad_anker</span>
-    //       <p class="tw-text">${caption}</p> 
-    //       <a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
-    //     </div>
-    //       <div class="img-mask">
-    //         <img src=${imgUrl}>
-    //       </div>
-    //     </div>`;
-    //   thirdRow += toAdd
-    // }
-    document.getElementById("engage-instagram").innerHTML = firstRow;
-    document.getElementById("engage-instagram-second-row").innerHTML = secondRow/* + thirdRow*/;
-    document.getElementById("explore-instagram").innerHTML = firstRow;
-    document.getElementById("explore-instagram-second-row").innerHTML = secondRow/* + thirdRow*/;
   })
+}
+
+function instagramWebFormat(data) {
+  let createdTimeOfPost = parseInt(data.data[5].created_time);
+  let dateCreated = new Date(createdTimeOfPost * 1000);
+  let day = dateCreated.getDate();
+  let month = dateCreated.getMonth() + 1;
+  let year = dateCreated.getFullYear().toString().substr(-2);
+  if (day < 10) {
+    day = "0" + day
+  }
+  let formattedDate = `${month}/${day}/${year}`
+  var firstRow = "";
+  var secondRow = "";
+  var thirdRow = "";
+  for (i = 0; i < 3; i++) {
+    let imgUrl = data.data[i].images.standard_resolution.url;
+    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});width:70vh;height:70vh;"></div>`;
+    firstRow += toAdd
+  } for (i = 3; i < 5; i++) {
+    let imgUrl = data.data[i].images.standard_resolution.url;
+    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;"></div>`;
+    secondRow += toAdd
+  } for (i = 5; i < 6; i++) {
+    let caption = data.data[i].caption.text
+    let imgUrl = data.data[i].images.standard_resolution.url;
+    var toAdd =
+      `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;">
+    <div class="tweet-content">
+      <span class="tw-date">${formattedDate}</span>
+      <span class="tw-handle">@conrad_anker</span>
+      <p class="tw-text">${caption}</p> 
+      <a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
+    </div> 
+    </div>`;
+    thirdRow += toAdd
+  }
+  document.getElementById("engage-instagram").innerHTML = firstRow;
+  document.getElementById("engage-instagram-second-row").innerHTML = secondRow;
+  document.getElementById("explore-instagram").innerHTML = firstRow;
+  document.getElementById("explore-instagram-second-row").innerHTML = secondRow;
+}
+
+function instagramMobileFormat(data) {
+  let content = "";
+  for (i = 0; i < 4; i++) {
+    let imgUrl = data.data[i].images.standard_resolution.url;
+    let toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});"></div>`;
+    content += toAdd
+  }
+  document.getElementById("explore-instagram-mobile").innerHTML = content;
+  document.getElementById("engage-instagram-mobile").innerHTML = content;
 }
 
 $(document).ready(() => {

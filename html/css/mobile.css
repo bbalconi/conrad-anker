@@ -1,4 +1,11 @@
 @media(min-width: 320px) and (max-width: 480px) {
+  html,body{
+    width: 100vw;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+  }
   h1{
     font-size: 6.5vw !important;
   }
@@ -19,6 +26,12 @@
     display:none;
   }
 
+  .logo-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
   .expedition-intro-row{
     padding-bottom: 1.5em !important;
   }
@@ -26,7 +39,6 @@
   .content-2 p{
     width: 85% !important;
     font-size: 3.75vw !important;
-    margin-left: 1vh !important;
   }
 
   .logo{
@@ -52,7 +64,7 @@
     width: 100vw !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    margin-left: -0.5em !important;
+    margin-left: -1em !important;
   }
 
   .float-redline{
@@ -78,12 +90,8 @@
     padding-left: 0;
   }
 
-  .ex-h2{
-    margin-left: -0.5em;
-  }
-
   .ac-h1{
-    margin-left: -1em;
+    margin-left: -3.5vh;
   }
 
   .history-menu-contain{
@@ -110,9 +118,8 @@
   }
 
   .content-buffer-fix{
-    padding-top: 1.5em;
-    margin-left: 7%;
-    padding-bottom: 0.5em;
+    padding-top: 2.5em;
+    padding-bottom: 0;
   }
 
   .history-row-mobile-2{
@@ -125,7 +132,9 @@
   }
 
   .v-center{
+    width: 95vw;
     margin-top: .75em;
+    padding-left: 2vh !important;
   }
 
   .nav-container{
@@ -147,6 +156,7 @@
 
   .row{
     margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .mobileSide{
@@ -155,6 +165,7 @@
 
   .explore-link{
     font-size: 10vw !important;
+    letter-spacing: 0.1em;
   }
 
   .mobile-expedition-row{
@@ -163,9 +174,6 @@
     width: 100%;
   }
 
-  .modify-bp{
-    margin-left: -0.3em;
-  }
 
   .ex-p{
     margin-left: -0.3em;
@@ -220,8 +228,11 @@
     display: none !important;
   }
 
+  .graybg img {
+    padding-right: 0;
+}
+
   .content-buffer-mobile{
-		margin-left: -1em;
 		padding-top:1.5em;
 		padding-bottom: 1.5em;
   }
@@ -251,8 +262,12 @@
   }
 
   .instagram-pic{
-    height: 33% !important;
-    width: 33% !important;
+    width: 50% !important;
+    height: 33vh !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
   }
 
   .tweet-content{
@@ -260,6 +275,342 @@
     color:#fff;
     padding:3em;
     font-weight: bold;
+  }
+
+  #row6{
+    height: 120vh !important;
+  }
+
+  .tw-row{
+    height: 131vh !important;
+    padding-top: 1em;
+  }
+
+  .expedition-intro-row{
+    margin-left: 5vh !important;
+  }
+
+  .expedition-img{
+    width: 100vw !important;
+  }
+
+  #tools-img{
+    margin-left: -3vh !important;
+  }
+
+  .press-item-container{
+    width: 1.5em !important;
+  }
+
+  .left-angle, .right-angle{
+    width: 3vw !important;
+    height: 3vh !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+  }
+
+  .right-angle{
+    max-width: 1.5em !important;
+    max-height: 1.5em !important;
+  }
+
+  .press-scroller{
+    width: 90vw !important;
+  }
+
+  .ps-outer-contain{
+    padding-top: 33em !important;
+  }
+
+  .tweet-content{
+    position: relative;
+    color:#fff;
+    padding:3em;
+    font-weight: bold;
+  }
+
+  .center-logos{
+    width: 90vw !important;
+    display: flex;
+    padding-right: 0 !important;
+    margin-left: 3vw !important;
+    padding-bottom: 1.5em !important;
+  }
+
+  .logo-col{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .logo-row:first-of-type{
+    margin-bottom:0 !important;
+  }
+
+  #bottom-row{
+    top: 15vh !important;
+  }
+
+  .explore-bottom-col {
+    width: 100% !important;
+    flex: 1;
+  }
+
+  .engage-bottom-col{
+    flex: 1;
+  }
+
+  .bottom-content{
+    height: 55vh;
+    flex-direction: column !important;
+  }
+
+  .instagram-wrapper{
+    display: none !important;
+  }
+
+  .instagram-wrapper-mobile{
+    display: flex;
+    width: 100vw;
+  }
+
+  #explore-instagram-mobile, #engage-instagram-mobile{
+    width: 100vw;
+    display: flex !important;
+    flex-wrap: wrap;
+    height: 66vh;
+  }
+
+  .press-item{
+    height: 4.4vh !important;
+    border-top: 2px solid #999 !important;
+  }
+
+  .press-item-active{
+    border-color: #fe2246 !important;
+  }
+
+  .history-menu{
+    display: none !important;
+  }
+
+  .history-menu-mobile{
+    display: flex !important;
+    border-bottom: red 1px solid;
+    width: 62vw;
+    margin-left: 4vw;
+  }
+
+  .history-menu-item-mobile{
+    width: 80vw;
+  }
+
+  .history-content-row{
+    width: 87vw !important;
+  }
+
+  .mobile-history-select{
+    color: #fe2246;
+    background: transparent;
+    border: transparent;
+  }
+
+  .team-row{
+      width: 95vw !important;
+      display: flex;
+      padding-right: 0 !important;
+      margin-left: -5vw !important;
+      padding-bottom: 1.5em !important;
+      padding-top: 5vh !important;
+  }
+
+  .team-container{
+    width: 50% !important;
+    margin-right: 1em !important;
+    margin-bottom: 5vh !important;
+  }
+
+  .team-name{
+    font-size: 0.75em !important;
+  }
+
+  .team-position{
+    letter-spacing: 0em;
+    font-size: 0.5em;
+  }
+
+  #row1a{
+    height: 85vh;
+  }
+
+  #row2a{
+    height: 210vh;
+  }
+
+  .coordinates-table{
+    display: none !important;
+  }
+
+  #row6a{
+    height: 100vh;
+  }
+
+  #coordinates-copy{
+    margin-left: -3vw !important;
+    width: 85vw !important;
+    color: black;
+  }
+
+  .web-coordinates-table{
+    display: block !important;
+  }
+
+  .table-bottom-border{
+    border-bottom: solid black 1px;
+    width: 85vw;
+    margin-left: -7vw;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+  }
+
+  .event-date{
+    font-size: 0.75rem;
+    color: red;
+  }
+
+  .event-title{
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+  .team-headshot{
+    width: 38vw !important;
+  }
+
+  .team-body-copy{
+    width: 85vw !important;
+    margin-left: -6vw !important;
+  }
+
+  .team-bottom-padding{
+    padding-bottom: 0 !important;
+  }
+
+  .testimonial-row{
+    display: block !important;
+    padding-bottom: 1.5em !important;
+  }
+
+  .testimonial-header{
+    padding-bottom: 2.5em !important;
+  }
+
+  .testimonial-author{
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .modal-hr{
+    width: 20% !important;
+  }
+
+  .testimonial-quote{
+    margin-left: -7vw;
+    margin-top: 0;
+    font-style: italic;
+    margin-bottom: 8vh;
+  }
+
+  .testimonial-bottom{
+    padding-bottom: 0 !important;
+    padding-top: 24vh;
+  }
+
+  .advocacy-remove{
+    display: none !important;
+  }
+
+  .advocacy-img{
+    width: 100vw !important;
+    padding-right: 0 !important;
+  }
+
+  .advocacy-image-wrapper{
+    width: 100vw;
+    padding-left: 0 !important;
+  }
+
+  .advocacy-web{
+    display: none !important;
+  }
+
+  .advocacy-mobile{
+    display: block !important;
+    padding-bottom: 2.5em !important;
+  }
+
+  .speaking-body{
+    padding-right: 0 !important;
+  }
+
+  .speaking-body-content{
+    margin-left: -5vh;
+  }
+
+  .speaking-header{
+    margin-left: -1vh;
+  }
+
+  .speech-row{
+    width: 100vw;
+    display: flex !important;
+    flex-wrap: wrap;
+    height: 66vh;
+    right: 0 !important;
+    margin-right: -5vw !important;
+    margin-top: 3em !important;
+  }
+
+  .speech-img{
+    padding-left: 0;
+    padding-right: 0;
+  
+  }
+
+  .speech-container{
+    width:50vw !important;
+    float: left;
+    height: 33vh !important;
+  }
+
+  #row3a{
+    height: 182vh !important;
+  }
+
+  .achievements-2{
+    display: none !important;
+  }
+
+  .quote-content{
+    display: none !important;
+  }
+
+  .quote-content-mobile{
+    display: block !important;
+  }
+
+  .achievements-1{
+    height: 33vh !important;
+    width: 100% !important;
+    margin-top: 8vh;
+  }
+  
+  #row4a{
+    height: 50vh;
   }
 }
 
