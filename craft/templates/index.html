@@ -207,7 +207,7 @@
       {{entry.findAlpineAdventureBodyCopy}}
 
       <p>
-        <a href="#" class="red-arrow-link dl-bio">DOWNLOAD FULL CONRAD BIO &rarr;</a>
+        <a target="_blank" href="#" class="red-arrow-link dl-bio">DOWNLOAD FULL CONRAD BIO &rarr;</a>
       </p>
     </div>
   </div>
@@ -278,9 +278,9 @@
 
             <p>
               {% if expedition.learnMoreLink|length %}
-              <a href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+              <a target="_blank" href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
               {% endif %} {% if expedition.purchaseLink|length %}
-              <a href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
+              <a target="_blank" href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
               {% endif %}
             </p>
           </div>
@@ -319,9 +319,9 @@
 
             <p>
               {% if expedition.learnMoreLink|length %}
-              <a href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+              <a target="_blank" href="{{expedition.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
               {% endif %} {% if expedition.purchaseLink|length %}
-              <a href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
+              <a target="_blank" href="{{expedition.purchaseLink}}" class="red-arrow-link">PURCHASE &rarr;</a>
               {% endif %}
             </p>
           </div>
@@ -362,8 +362,8 @@
               {{event.eventDescription}}
             </p>
             <p>
-              <a href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
-              <a href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+              <a target="_blank" href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+              <a target="_blank" href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
             </p>
 
           </div>
@@ -446,7 +446,7 @@
               <br> {{pressItem.description}}
             </p>
             <p>
-              <a href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
+              <a target="_blank" href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
             </p>
           </div>
         </div>
@@ -474,7 +474,7 @@
   </div>
 </div>
 
-<div class="row tw-row redl-float-contain exploreSection">
+<div class="row tw-row redl-float-contain exploreSection" id="row7">
   <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
@@ -525,7 +525,7 @@
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
 
       <div class="col-sm-10 explore-text align-items-center pad-mod">
-        <span class="explore-link final-ex-en pad-mod-left">EXPLORE</span>
+        <span class="explore-row-bottom explore-link final-ex-en pad-mod-left">EXPLORE</span>
       </div>
     </div>
   </div>
@@ -536,7 +536,7 @@
     <div class="row"></div>
     <div class="row" id="bottom-row" style="font-size:4em;">
       <div class="col-sm-10 remove-15-row remove-15-padding">
-        <span class="explore-link final-ex-en pad-mod-2">ENGAGE</span>
+        <span class="engage-row-bottom explore-link final-ex-en pad-mod-2">ENGAGE</span>
       </div>
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
 
@@ -584,12 +584,19 @@
         <div class="circle-item"></div>
         <span class="outline-item-text">COORDINATES</span>
       </div>
+
+      <div class="outline-item" id="team-outline">
+        <div class="circle-item"></div>
+        <span class="outline-item-text">TEAM</span>
+      </div>
     </div>
 
   </div>
 
   <div class="col-sm-10 content-buffer">
-    <h1 style="margin-top: 1.2em;">Be Good. Be Kind. Be Happy.</h1>
+    <div class="be-good">
+      <h1 style="margin-top: 1.2em;">Be Good. Be Kind. Be Happy.</h1>
+    </div>
     {{entry.beGoodBeKindBeHappyBodyCopy}}
   </div>
 </div>
@@ -620,7 +627,7 @@
 
           <p>
             {% if organization.learnMoreLink|length %}
-            <a href="{{organization.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+            <a href="{{organization.learnMoreLink}}" target="_blank" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
             {% endif %}
           </p>
         </div>
@@ -628,14 +635,14 @@
 
       <div class="col advocacy-image-wrapper">
         {% set doc = organization.thumbnailImage.first() %} {% if doc %}
-        <img class="advocacy-img" src="{{doc.url}}"> {% endif %}
+        <img class="advocacy-img-right" src="{{doc.url}}"> {% endif %}
       </div>
     </div>
     {% endif %} {% if organization.type == "leftSideImage" %}
     <div class="row vertical-align advocacy-web">
       <div class="col advocacy-image-wrapper">
         {% set doc = organization.thumbnailImage.first() %} {% if doc %}
-        <img class="advocacy-img" src="{{doc.url}}"> {% endif %}
+        <img class="advocacy-img-left" src="{{doc.url}}"> {% endif %}
       </div>
 
       <div class="col expedition-info v-center">
@@ -647,7 +654,7 @@
 
           <p>
             {% if organization.learnMoreLink|length %}
-            <a href="{{organization.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+            <a href="{{organization.learnMoreLink}}" target="_blank" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
             {% endif %}
           </p>
         </div>
@@ -667,7 +674,7 @@
 
           <p>
             {% if organization.learnMoreLink|length %}
-            <a href="{{organization.learnMoreLink}}" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
+            <a href="{{organization.learnMoreLink}}" target="_blank" class="red-arrow-link lm-link">LEARN MORE &rarr;</a>
             {% endif %}
           </p>
         </div>
@@ -692,6 +699,9 @@
     <div class="speaking-body-content">
       <p>
         {{entry.speakingBodyCopy}}
+      </p>
+      <p>
+        <a class="red-arrow-link lm-link" href="#" target="_blank" class="red-arrow-link lm-link">BOOK CONRAD &rarr;</a>
       </p>
     </div>
 
@@ -765,7 +775,7 @@
         <span class="testimonial-author">{{testimonial.nameOfPerson}}</span>
         <hr class="modal-hr testimonial-hr">
         <div class="testimonial-quote">
-          <p class="testimonial-quote">{{testimonial.quote}}</p>
+          <p>{{testimonial.quote}}</p>
         </div>
       </div>
       {% endfor %}
@@ -782,7 +792,7 @@
     <div class="row">
       <div class="col">
         <h1 class="ac-h1">Coordinates</h1>
-        <p id="coordinates-copy">
+        <p class="coordinates-copy">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque
           cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus
           vel nisi massa. Nunc placerat neque facilisis justo hendrerit consectetur. Pellentesque eu dolor vel felis congue
@@ -821,7 +831,7 @@
 
 </div>
 
-<div class="row graybg content-2 logo-content redl-float-contain engageSection">
+<div class="row graybg content-2 logo-content redl-float-contain engageSection" id="row7a">
   <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
@@ -851,7 +861,7 @@
   </div>
 </div>
 
-<div class="row tw-row redl-float-contain engageSection">
+<div class="row tw-row redl-float-contain engageSection" id="row8a">
   <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
@@ -892,7 +902,7 @@
     </div>
   </div>
 </div>
-
+</div>
 <div class="row bottom-content engageSection">
   <div class="col explore-bottom-col">
     <img src="/img/explore-bottom.jpg" class="explore-bottom-img">

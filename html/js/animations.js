@@ -12,6 +12,30 @@ function initializeContactPanel() {
   });
 }
 
+function hoverFix() {
+  $('#explore').hover(function() {
+    $('#explore').css('background-image', 'url(/img/left-background.jpg)');
+  }, function() {
+    $('#explore').css('background-image', 'url(/img/left-background-grayscale.jpg)');
+  });
+  $('.explore-row').hover(function() {
+    $('#explore').css('background-image', 'url(/img/left-background.jpg)');
+  }, function() {
+    $('#explore').css('background-image', 'url(/img/left-background-grayscale.jpg)');
+  });
+  $('#engage').hover(function() {
+    $('#engage').css('background-image', 'url(/img/right-background.jpg)');
+  }, function() {
+    $('#engage').css('background-image', 'url(/img/right-background-grayscale.jpg)');
+  });
+  $('.engage-row').hover(function() {
+    $('#engage').css('background-image', 'url(/img/right-background.jpg)');
+  }, function() {
+    $('#engage').css('background-image', 'url(/img/right-background-grayscale.jpg)');
+  });
+};
+
+
 function initializePanelClicks() {
   $(".engage-row").click(function () {
     $("#explore").animate({ width: "0%" }, 500);
@@ -34,6 +58,54 @@ function initializePanelClicks() {
     $(".engage-row .redl").addClass("redl-active");
     $("#engage").css({ "background-image": "url('/img/right-background.jpg')" });
   });
+
+    $(".engage-row-bottom").click(function () {
+    $("#explore").animate({ width: "0%" }, 500);
+    $(".resize-bottom-explore").css({ position: 'absolute' });
+    $(".resize-bottom-explore").animate({ width: "0" }, 500);
+    $(".explore-text .redl-active").css({ width: '0.5em !important' }, 500);
+    $(".explore-row").fadeOut();
+    $("#engage").animate({ width: "100%" }, 500, function () {
+      $("#explore").css({ height: "0" });
+      $("#explore").hide();
+      $(".exploreSection").hide();
+      $(".engageSection").show();
+      $("body").css({ position: "static" });
+      $("body").css({ top: "0px" });
+      $("body").css({ height: "0px" });
+      $("body").css("overflow-y", "scroll");
+    });
+
+    $("#engage-rot-text").fadeIn();
+    $(".engage-row .redl").addClass("redl-active");
+    $("#engage").css({ "background-image": "url('/img/right-background.jpg')" });
+  });
+
+
+  $(".explore-row").click(function () {
+    $("#engage").animate({ width: "0%" }, 500);
+    $(".resize-bottom-engage").animate({ width: "0%" }, 500);
+    $(".engage-row").fadeOut();
+    $("#explore").animate({ width: "100%" }, 500, function () {
+      $("#engage").css({ height: "0" });
+      $("#engage").hide();
+      $(".engageSection").hide();
+      $(".exploreSection").show();
+      $("body").css({ position: "static" });
+      $("body").css({ top: "0px" });
+      $("body").css({ height: "0px" });
+      $("body").css("overflow-y", "scroll");
+    });
+    $(".rot-text-container").fadeIn();
+    $(".explore-row .redl").addClass("redl-active");
+    $("#explore").css({ "background-image": "url('/img/left-background.jpg')" });
+  });
+
+  $('.explore-row-bottom').click(function(){
+    console.log('scroll')
+    $('html, body').animate({ scrollTop: 0 }, 600);
+    return false;
+ });
 
   $("#engage-mobile-click").click(function () {
     $("#engage-rot-text-mobile").fadeIn();
@@ -67,23 +139,6 @@ function initializePanelClicks() {
 
   });
 
-  $(".explore-row").click(function () {
-    $("#engage").animate({ width: "0%" }, 500);
-    $(".resize-bottom-engage").animate({ width: "0%" }, 500);
-    $(".engage-row").fadeOut();
-    $("#explore").animate({ width: "100%" }, 500, function () {
-      $("#engage").css({ height: "0" });
-      $("#engage").hide();
-      $(".engageSection").hide();
-      $(".exploreSection").show();
-      $("body").css({ position: "static" });
-      $("body").css("overflow-y", "scroll");
-    });
-
-    $("#explore-rot-text").fadeIn();
-    $(".explore-row .redl").addClass("redl-active");
-    $("#explore").css({ "background-image": "url('/img/left-background.jpg')" });
-  });
 }
 
 function clearActive() {
@@ -118,6 +173,8 @@ function exploreHighlights() {
     $("#about-outline .circle-item").addClass("circle-active");
     $("#about-outline .outline-item-text").addClass("oi-active");
     $("#about-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row7").offset().top - 50) {
+    clearActive();
   } else if (window.pageYOffset >= $("#row6").offset().top - 50) {
     clearActive();
     $("#press-outline .circle-item").addClass("circle-active");
@@ -152,6 +209,13 @@ function engageHighlights() {
     $("#about2-outline .circle-item").addClass("circle-active");
     $("#about2-outline .outline-item-text").addClass("oi-active");
     $("#about2-outline .outline-item-text").addClass("oi-active-light");
+  } else if (window.pageYOffset >= $("#row8a").offset().top - 50) {
+    clearActive();
+  } else if (window.pageYOffset >= $("#row7a").offset().top - 50) {
+    clearActive();
+    $("#team-outline .circle-item").addClass("circle-active");
+    $("#team-outline .outline-item-text").addClass("oi-active");
+    $("#team-outline .outline-item-text").addClass("oi-active-light");
   } else if (window.pageYOffset >= $("#row6a").offset().top - 50) {
     clearActive();
     $("#coordinates-outline .circle-item").addClass("circle-active");
@@ -280,6 +344,7 @@ function modalPopover() {
 function instagramAjaxCall() {
   var instagramApiUrl = "https://api.instagram.com/v1/users/self/media/recent?access_token=5562156653.6593813.7563f42e72704bfc9f90c306f4b15c0e"
   $.get(instagramApiUrl, (data, status) => {
+    console.log(data);
     if (status === "success") {
       instagramWebFormat(data);
       instagramMobileFormat(data);
@@ -302,30 +367,30 @@ function instagramWebFormat(data) {
   var thirdRow = "";
   for (i = 0; i < 3; i++) {
     let imgUrl = data.data[i].images.standard_resolution.url;
-    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});width:70vh;height:70vh;"></div>`;
+    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});width:33vw;height:58vh;"></div>`;
     firstRow += toAdd
   } for (i = 3; i < 5; i++) {
     let imgUrl = data.data[i].images.standard_resolution.url;
-    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;"></div>`;
+    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:33vw;height:58vh;"></div>`;
     secondRow += toAdd
   } for (i = 5; i < 6; i++) {
     let caption = data.data[i].caption.text
     let imgUrl = data.data[i].images.standard_resolution.url;
     var toAdd =
-      `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:70vh;height:70vh;">
+      `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:33vw;height:58vh;">
     <div class="tweet-content">
       <span class="tw-date">${formattedDate}</span>
       <span class="tw-handle">@conrad_anker</span>
       <p class="tw-text">${caption}</p> 
-      <a href="#" class="red-arrow-link">SEE MORE &rarr;</a>
+      <a target="_blank" href="https://www.instagram.com/conrad_anker/?hl=en" class="red-arrow-link">SEE MORE &rarr;</a>
     </div> 
     </div>`;
     thirdRow += toAdd
   }
   document.getElementById("engage-instagram").innerHTML = firstRow;
-  document.getElementById("engage-instagram-second-row").innerHTML = secondRow;
+  document.getElementById("engage-instagram-second-row").innerHTML = secondRow + thirdRow;
   document.getElementById("explore-instagram").innerHTML = firstRow;
-  document.getElementById("explore-instagram-second-row").innerHTML = secondRow;
+  document.getElementById("explore-instagram-second-row").innerHTML = secondRow + thirdRow;
 }
 
 function instagramMobileFormat(data) {
@@ -347,7 +412,7 @@ $(document).ready(() => {
   initHistorySection();
   initPressScroller();
   modalPopover();
-
+  hoverFix();
   $(window).on('beforeunload', function () {
     $(window).scrollTop(0);
   });

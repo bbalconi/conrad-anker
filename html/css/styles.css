@@ -120,9 +120,9 @@ body{
   background-image: url('/img/right-background.jpg'); 
 }
 
-#explore:hover{
+/* #explore:hover{
   background-image: url('/img/left-background.jpg'); 
-}
+} */
 
 .top-home-row {
 	height:75%;
@@ -153,7 +153,7 @@ body{
 	left: 0;
 	right: 0;
 	z-index: 1;
-	height:20%;
+	height:5vh;
 }
 
 .engage-text{
@@ -285,7 +285,12 @@ body{
 	z-index: 1;
 	height:20%;
 }
+
 .explore-row:hover, .engage-row:hover{
+	cursor:pointer;
+}
+
+.explore-row-bottom:hover, .engage-row-bottom:hover{
 	cursor:pointer;
 }
 
@@ -449,16 +454,36 @@ body{
     margin-bottom:1.15em;
 }
 
+.testimonial-header{
+  padding-bottom: 2.5em !important;
+}
+
+.testimonial-author{
+  margin-bottom: 2vh;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.testimonial-quote{
+  font-weight: 300;
+  margin-top: 0;
+  font-style: italic;
+  margin-bottom: 8vh;
+  margin-left: 0;
+}
+
 .red-arrow-link {
 	color: #fe2246;
 	font-weight: 540;
     word-spacing: 0.05em;
 }
 
-.red-arrow-link:hover{
+a.red-arrow-link:hover{
 	text-decoration: none;
 	color:#fe2246;
 }
+
 
 .whitebg{
 	background: #fff !important;
@@ -642,7 +667,8 @@ h2{
 }
 
 .news-image{
-	width:100%;
+  width:40vh;
+  height: auto;
 }
 
 .tw-row .col-sm-4 {
@@ -663,7 +689,7 @@ h2{
 }
 
 .tweet-content{
-	position: absolute;
+  height: 33vh;
 	color:#fff;
 	padding:3em;
 	font-weight: bold;
@@ -684,7 +710,9 @@ h2{
 }
 
 .tw-text{
-	margin-bottom:1.5em !important;
+  height: 25vh;
+  margin-bottom: 1.5em !important;
+  overflow: hidden;
 }
 
 .logo-row .col-sm-3 img {
@@ -712,6 +740,10 @@ h2{
 	width:100%;
 }
 
+.advocacy-right{
+  padding-right: 0 !important;
+}
+
 .float-redline {
 	position: absolute !important;
 	z-index: 2;
@@ -732,9 +764,17 @@ h2{
 	position:relative;
 }
 
-.advocacy-img {
+.advocacy-img-left {
 	width:100% !important;
-	position:relative;
+	position:relative;    margin-left: -3vw;
+  margin-left: -3vw;
+  padding-right: 0 !important
+}
+
+.advocacy-img-right {
+	width:100% !important;
+  position:relative;
+  padding-right: 0 !important;
 }
 
 .advocacy-mobile{
@@ -769,7 +809,6 @@ h2{
 	display: inline-block;
 	margin-right:2em;
 	position: relative;
-
 }
 
 .watch-speech{
@@ -926,6 +965,8 @@ h2{
 }
 
 .press-content {
+  width: 90vw;
+  height: 42vh;
 }
 
 .cb-margin{
@@ -937,6 +978,8 @@ h2{
   background-size: cover;
   background-position: center center;
   position: relative;
+  margin-left: none;
+  margin-right: none;
 }
 
 #explore-instagram{
@@ -1067,7 +1110,7 @@ h2{
 }
 
 .modal-hr{
-	width:10%;
+	width:13%;
 	background-color: #fe2246;
 }
 
@@ -1165,6 +1208,10 @@ h2{
 	font-size:1.1em;
 }
 
+.center-logos{
+  margin-left: 10vw;
+}
+
 .coordinates-table tr{
 	border-bottom: 1px solid #707070;
 
@@ -1189,7 +1236,8 @@ h2{
 }
 
 .team-row{
-	padding-top:4em;
+  padding-top:4em;
+  margin-left: -8vh !important;
 }
 
 .team-name, .team-position{
@@ -1215,6 +1263,13 @@ h2{
 .team-container{
 	text-align: center;
 	margin-right:3em !important;
+}
+
+.mobile-press-info{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  height: 23vh;
+  width: 10vw;
 }
 
 @media(min-width: 768px) and (max-width:1096px) {
@@ -1320,7 +1375,7 @@ h2{
 	}
 
 	.mobile-press-width{
-		width:90%;
+		width: 115vh;
     padding-bottom: 1.6em !important;
     position: absolute;
 	}
@@ -1493,7 +1548,9 @@ h2{
 
 	.mobile-press-info{
 		padding-left: 0 !important;
-    	padding-right: 0 !important;
+    padding-right: 0 !important;
+    height: 23vh;
+    width: 10vw;
 	}
 
 	.press-full-container{
@@ -1524,9 +1581,8 @@ h2{
 
 .ps-outer-contain{
   position: absolute;
-  padding-bottom:2em;
-  width:90%;
-  padding-top: 30em;
+  bottom: 4em;
+  width: 90%;
 }
 
 
