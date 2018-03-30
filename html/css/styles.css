@@ -12,12 +12,28 @@ body{
 	font-family: 'proxima-nova', sans-serif;
 	position:fixed;
 	overflow-x: hidden;
-	overflow-y: hidden;
-	width:101%;
+	overflow-y: scroll;
+	width:100 %;
 	height:auto;
 	background-color: #212322 !important;
 }
 
+#mobile-history-show-1{
+  display: none;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+.contact-list:hover {
+  cursor: pointer;
+}
+
+#contact-submit:hover{
+  cursor: pointer;
+}
 
 .historySelect{
 	background: rgba(0,0,0,0);
@@ -47,6 +63,10 @@ body{
   display: none;
 }
 
+.hamburger-col{
+  display: none;
+}
+
 .content-buffer-mobile{
 	padding-top:5.5em;
 	padding-bottom: 5.5em;
@@ -61,6 +81,10 @@ body{
 .innerMobileRow{
 	height:50%;
 	width:100%;
+}
+
+.explore-click:hover, .engage-click:hover{
+  cursor: pointer;
 }
 
 #explore-mobile{
@@ -119,10 +143,6 @@ body{
 #engage:hover{
   background-image: url('/img/right-background.jpg'); 
 }
-
-/* #explore:hover{
-  background-image: url('/img/left-background.jpg'); 
-} */
 
 .top-home-row {
 	height:75%;
@@ -201,6 +221,14 @@ body{
 	padding-right:2em !important;
 }
 
+#row4{
+  min-height: 740px;
+}
+
+.heightfix-redl2{
+  min-height: 1200px !important;
+}
+
 .text-link{
     color: #fe2246;
     display: inline-block;
@@ -217,7 +245,9 @@ body{
 }
 
 .text-link:hover{
-	color: #fe2246;
+  background-color: #fe2246;
+  color: white;
+  transition: 0.5s;
 }
 
 .engage-link, .explore-link {
@@ -290,14 +320,18 @@ body{
 	cursor:pointer;
 }
 
-.explore-row-bottom:hover, .engage-row-bottom:hover{
+.outline-item:hover{
+  cursor: pointer;
+}
+
+.explore-row-bottom-left:hover, .engage-row-bottom-left:hover, .explore-row-bottom-right:hover, .engage-row-bottom-right:hover{
 	cursor:pointer;
 }
 
 .contact-x{
 	position: absolute;
 	top:1.3em;
-	right:1.3em;
+	right:2.3em;
 	width:1.3em;
 	height:1.3em;
 	cursor:pointer;
@@ -365,12 +399,12 @@ body{
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform-origin: left top 0;
-    font-size: 0.3em;
+    font-size: 0.2em;
     letter-spacing: 0.1em;
-    padding-left: 0.5em;
-    margin-left: 1.6em;
+    padding-left: 1.5em;
+    margin-left: 2em;
     display: none;
-    width: 6em;
+    width: 7em;
     font-weight: 600;
 }
 
@@ -500,7 +534,7 @@ a.red-arrow-link:hover{
 }
 
 .in-content-ul{
-	font-weight:600;
+	font-weight:400;
 	width:70%;
 	margin-left:2em;
 }
@@ -604,7 +638,9 @@ h2{
 }
 
 .history-menu-contain{
-	min-width:400px;
+  min-width:400px;
+  position: absolute !important;
+  right: 0;
 }
 
 .history-menu {
@@ -692,7 +728,43 @@ h2{
   height: 33vh;
 	color:#fff;
 	padding:3em;
-	font-weight: bold;
+  font-weight: bold;
+  display: none;
+}
+
+.parallax::after {
+    /* Display and position the pseudo-element */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Move the pseudo-element back away from the camera,
+     * then scale it back up to fill the viewport.
+     * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+    transform: translateZ(-1px) scale(1.5);
+    /* Force the background image to fill the whole element. */
+    background-size: 100%;
+    /* Keep the image from overlapping sibling elements. */ 
+    z-index: -1;
+  }
+
+.instagram-pic:hover .tweet-content{
+  display: inline-block;
+}
+
+.instagram-pic:hover .instagram-mask{
+  display: inline-block;
+}
+
+.instagram-mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
 .tw-date {
@@ -774,7 +846,6 @@ h2{
 .advocacy-img-right {
 	width:100% !important;
   position:relative;
-  padding-right: 0 !important;
 }
 
 .advocacy-mobile{
@@ -817,7 +888,7 @@ h2{
     border-bottom: 1px solid;
     border-color: #fe2246 !important;
     margin-bottom: 2em;
-    display: inline-block;
+    display: none;
     font-weight: 500;
     margin-top:1em;
     cursor: pointer;
@@ -901,7 +972,8 @@ h2{
 }
 
 .history-active {
-	display:block !important;
+  display:block !important;
+  width: 70vw;
 }
 
 .history-content{
@@ -1110,7 +1182,7 @@ h2{
 }
 
 .modal-hr{
-	width:13%;
+	width: 4vw;
 	background-color: #fe2246;
 }
 
@@ -1179,7 +1251,15 @@ h2{
 	top:0;
 	width:100%;
 	height:100%;
+  display: none;
+}
 
+.speech-container:hover .speech-mask{
+  display: block;
+}
+
+.speech-container:hover .watch-speech{
+  display: inline-block;
 }
 
 .history-p-width{
@@ -1237,7 +1317,7 @@ h2{
 
 .team-row{
   padding-top:4em;
-  margin-left: -8vh !important;
+  margin-left: -2vh !important;
 }
 
 .team-name, .team-position{
@@ -1440,7 +1520,13 @@ h2{
 	    width: 100% !important;
 	    max-width: 100% !important;
 	    flex: 100% !important;
-	}
+  }
+  
+
+
+  .history-body-mobile{
+    display: none;
+  }
 
 	.mobile-expedition-img{
 		padding-right: 0;
@@ -1597,7 +1683,7 @@ h2{
     }
   
     .redl{
-      width:12% !important;
+      width:5% !important;
     }
   }
 

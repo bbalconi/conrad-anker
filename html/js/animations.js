@@ -1,3 +1,89 @@
+function exploreScrollClicks() {
+  $('#about-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row1").offset().top - 49
+    }, 500);
+  });
+  $('#achievements-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row2").offset().top - 49
+    }, 500);
+  });
+  $('#expeditions-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row3").offset().top - 49
+    }, 500);
+  });
+  $('#history-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row4").offset().top - 49
+    }, 500);
+  });
+  $('#tools-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row5").offset().top - 49
+    }, 500);
+  });
+  $('#press-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row6").offset().top - 49
+    }, 500);
+  });
+}
+
+function contactOptions() {
+  $('.contact-option').on('click', function () {
+    $(this).attr('type', 'circle');
+    if ($(this).index() === 0) {
+      $('#co1').removeAttr('type')
+      $('#co2').removeAttr('type')
+    } if ($(this).index() === 1) {
+      $('#co0').removeAttr('type')
+      $('#co2').removeAttr('type')
+    } if ($(this).index() === 2) {
+      $('#co0').removeAttr('type')
+      $('#co1').removeAttr('type')
+    }
+  });
+};
+
+function engageScrollClicks() {
+  $('#about2-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row1a").offset().top - 49
+    }, 500);
+  });
+  $('#advocacy-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row2a").offset().top - 49
+    }, 500);
+  });
+  $('#speaking-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row3a").offset().top - 49
+    }, 500);
+  });
+  $('#filler-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row4a").offset().top - 49
+    }, 500);
+  });
+  $('#testimonials-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row5a").offset().top - 49
+    }, 500);
+  });
+  $('#coordinates-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row6a").offset().top - 49
+    }, 500);
+  });
+  $('#team-outline').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $("#row7a").offset().top - 49
+    }, 500);
+  });
+}
 
 function initializeContactPanel() {
   $("#contact-link").click(function () {
@@ -13,31 +99,31 @@ function initializeContactPanel() {
 }
 
 function hoverFix() {
-  $('#explore').hover(function() {
+  $('#explore').hover(function () {
     $('#explore').css('background-image', 'url(/img/left-background.jpg)');
-  }, function() {
+  }, function () {
     $('#explore').css('background-image', 'url(/img/left-background-grayscale.jpg)');
   });
-  $('.explore-row').hover(function() {
+  $('.explore-row').hover(function () {
     $('#explore').css('background-image', 'url(/img/left-background.jpg)');
-  }, function() {
+  }, function () {
     $('#explore').css('background-image', 'url(/img/left-background-grayscale.jpg)');
   });
-  $('#engage').hover(function() {
+  $('#engage').hover(function () {
     $('#engage').css('background-image', 'url(/img/right-background.jpg)');
-  }, function() {
+  }, function () {
     $('#engage').css('background-image', 'url(/img/right-background-grayscale.jpg)');
   });
-  $('.engage-row').hover(function() {
+  $('.engage-row').hover(function () {
     $('#engage').css('background-image', 'url(/img/right-background.jpg)');
-  }, function() {
+  }, function () {
     $('#engage').css('background-image', 'url(/img/right-background-grayscale.jpg)');
   });
 };
 
 
 function initializePanelClicks() {
-  $(".engage-row").click(function () {
+  $(".engage-click").click(function () {
     $("#explore").animate({ width: "0%" }, 500);
     $(".resize-bottom-explore").css({ position: 'absolute' });
     $(".resize-bottom-explore").animate({ width: "0" }, 500);
@@ -53,36 +139,12 @@ function initializePanelClicks() {
       $("body").css({ height: "0px" });
       $("body").css("overflow-y", "scroll");
     });
-
     $("#engage-rot-text").fadeIn();
     $(".engage-row .redl").addClass("redl-active");
     $("#engage").css({ "background-image": "url('/img/right-background.jpg')" });
   });
 
-    $(".engage-row-bottom").click(function () {
-    $("#explore").animate({ width: "0%" }, 500);
-    $(".resize-bottom-explore").css({ position: 'absolute' });
-    $(".resize-bottom-explore").animate({ width: "0" }, 500);
-    $(".explore-text .redl-active").css({ width: '0.5em !important' }, 500);
-    $(".explore-row").fadeOut();
-    $("#engage").animate({ width: "100%" }, 500, function () {
-      $("#explore").css({ height: "0" });
-      $("#explore").hide();
-      $(".exploreSection").hide();
-      $(".engageSection").show();
-      $("body").css({ position: "static" });
-      $("body").css({ top: "0px" });
-      $("body").css({ height: "0px" });
-      $("body").css("overflow-y", "scroll");
-    });
-
-    $("#engage-rot-text").fadeIn();
-    $(".engage-row .redl").addClass("redl-active");
-    $("#engage").css({ "background-image": "url('/img/right-background.jpg')" });
-  });
-
-
-  $(".explore-row").click(function () {
+  $(".explore-click").click(function () {
     $("#engage").animate({ width: "0%" }, 500);
     $(".resize-bottom-engage").animate({ width: "0%" }, 500);
     $(".engage-row").fadeOut();
@@ -101,26 +163,20 @@ function initializePanelClicks() {
     $("#explore").css({ "background-image": "url('/img/left-background.jpg')" });
   });
 
-  $('.explore-row-bottom').click(function(){
-    console.log('scroll')
-    $('html, body').animate({ scrollTop: 0 }, 600);
-    return false;
- });
-
   $("#engage-mobile-click").click(function () {
     $("#engage-rot-text-mobile").fadeIn();
     $("#explore-mobile-click .redl").addClass("redl-active");
     $("#explore-mobile-row").animate({ height: "0%" }, 500);
     $("#explore-mobile .redl").fadeOut();
     $("#explore-mobile .explore-text").fadeOut();
-    $("#engage-mobile-row").animate({ height: "100%" }, 500, function () {
+    $("#engage-mobile-row").animate({ height: "101%" }, 500, function () {
       $(".exploreSection").hide();
       $(".engageSection").show();
       $("body").css({ position: "static" });
       $("body").css("overflow-y", "scroll");
+      $("body").css("-webkit-overflow-scrolling", "touch")
     });
     $("#engage-mobile").css({ "background-image": "url('/img/right-background.jpg')" });
-
   });
 
   $("#explore-mobile-click").click(function () {
@@ -129,15 +185,99 @@ function initializePanelClicks() {
     $("#engage-mobile-row").animate({ height: "0%" }, 500);
     $("#engage-mobile .redl").fadeOut();
     $("#engage-mobile .explore-text").fadeOut();
-    $("#explore-mobile-row").animate({ height: "100%" }, 500, function () {
+    $("#explore-mobile-row").animate({ height: "101%" }, 500, function () {
       $(".engageSection").hide();
       $(".exploreSection").show();
       $("body").css({ position: "static" });
       $("body").css("overflow-y", "scroll");
+      $("body").css("-webkit-overflow-scrolling", "touch")
     });
     $("#explore-mobile").css({ "background-image": "url('/img/left-background.jpg')" });
-
   });
+}
+
+function bottomPanelClicks() {
+  $('.explore-row-bottom-left').click(function () {
+    $('html, body').animate({ scrollTop: 0 }, 600);
+    setTimeout(function(){
+      $('#engage').animate({width: "50%"}, 500);
+      $(".resize-bottom-engage").animate({ width: "50%" }, 500);
+      $(".engage-row").fadeIn();
+      $("#explore").animate({ width: "50%" }, 500, function () {
+        $('.rot-text-container').hide();
+        $('#engage').css( {height: "100%" })
+        $("#engage").show();
+        $(".exploreSection").hide();
+        $("body").css({ position: "static" });
+        $("body").css({ top: "0px" });
+        $("body").css({ height: "0px" });
+        $("body").css("overflow-y", "scroll");
+      });  
+    }, 601)
+  });
+
+  $('.engage-row-bottom-left').click(function () {
+    $('html, body').animate({ scrollTop: 0 }, 600);
+    setTimeout(function(){
+      $('#engage').animate({width: "100%"}, 500);
+      $(".resize-bottom-engage").animate({ width: "50%" }, 500);
+      $(".engage-row").fadeIn();
+      $('.explore-row').hide();
+      $("#explore").animate({ width: "0%" }, 500, function () {
+        $('.rot-text-container').hide();
+        $('#engage').css( {height: "100%" })
+        $("#engage").show();
+        $(".exploreSection").hide();
+        $('.engageSection').show();
+        $("body").css({ position: "static" });
+        $("body").css({ top: "0px" });
+        $("body").css({ height: "0px" });
+        $("body").css("overflow-y", "scroll");
+      });  
+    }, 601)  
+  });
+
+  $('.explore-row-bottom-right').click(function () {
+    $('html, body').animate({ scrollTop: 0 }, 600);
+    setTimeout(function(){
+      $('#explore').animate({width: "100%"}, 500);
+      $(".resize-bottom-explore").animate({ width: "50%" }, 500);
+      $(".explore-row").fadeIn();
+      $('.engage-row').hide();
+      $("#engage").animate({ width: "0%" }, 500, function () {
+        $('.rot-text-container').hide();
+        $('#explore').css( {height: "100%" })
+        $("#explore").show();
+        $(".engageSection").hide();
+        $('.exploreSection').show();
+        $("body").css({ position: "static" });
+        $("body").css({ top: "0px" });
+        $("body").css({ height: "0px" });
+        $("body").css("overflow-y", "scroll");
+      });  
+    }, 601)  
+  });
+
+  $('.engage-row-bottom-right').click(function () {
+    $('html, body').animate({ scrollTop: 0 }, 600);
+    setTimeout(function(){
+      $('#explore').animate({width: "50%"}, 500);
+      $(".resize-bottom-explore").animate({ width: "50%" }, 500);
+      $(".explore-row").fadeIn();
+      $("#engage").animate({ width: "50%" }, 500, function () {
+        $('.rot-text-container').hide();
+        $('#explore').css( {height: "100%" })
+        $("#explore").show();
+        $(".engageSection").hide();
+        $("body").css({ position: "static" });
+        $("body").css({ top: "0px" });
+        $("body").css({ height: "0px" });
+        $("body").css("overflow-y", "scroll");
+      });  
+    }, 601)
+  });
+
+
 
 }
 
@@ -256,7 +396,16 @@ function initHistorySection() {
     var newEventDescription = $(".history-content:eq(" + selectedIndex + ")");
     newEventDescription.addClass("history-active");
   });
+}
 
+function initHistorySectionMobile() {
+  if ($(window).width() <= 1096) {
+    $('#mobile-history-show-1').show();
+  }
+  $('.mobile-history-select').change(function () {
+    $('.history-content-mobile').hide();
+    $('#' + $(this).val()).show();
+  })
 }
 
 function pressChange(itemIdx) {
@@ -341,10 +490,39 @@ function modalPopover() {
   });
 }
 
+function mobileMenuToggle() {
+  $('.menu-toggle').on('click', function () {
+    $(".menu-toggle").css("pointer-events", "none");
+    $("span.s1").hide();
+    $("span.s2").hide();
+    $("span.s3").hide();
+    $('.side-nav').width('100vw');
+  })
+  $("#mobilex-a").on('click', function () {
+    $('.side-nav').width('0');
+    $("span.s1").show();
+    $("span.s2").show();
+    $("span.s3").show();
+    $(".menu-toggle").css("pointer-events", "auto");
+  })
+}
+
+function slideupContact() {
+  $('.drawer-contact-button').on('click', function () {
+    $("#mobilex-a").css("pointer-events", "none");
+    $('.slideup-contact').height('100vh');
+    $('.drawer-send-button').height('9vh')
+  });
+  $("#mobilex-b").on('click', function () {
+    $("#mobilex-a").css("pointer-events", "auto");
+    $(".slideup-contact").css("height", "0");
+    $('.drawer-send-button').height('0')
+  });
+}
+
 function instagramAjaxCall() {
   var instagramApiUrl = "https://api.instagram.com/v1/users/self/media/recent?access_token=5562156653.6593813.7563f42e72704bfc9f90c306f4b15c0e"
   $.get(instagramApiUrl, (data, status) => {
-    console.log(data);
     if (status === "success") {
       instagramWebFormat(data);
       instagramMobileFormat(data);
@@ -353,44 +531,63 @@ function instagramAjaxCall() {
 }
 
 function instagramWebFormat(data) {
-  let createdTimeOfPost = parseInt(data.data[5].created_time);
-  let dateCreated = new Date(createdTimeOfPost * 1000);
-  let day = dateCreated.getDate();
-  let month = dateCreated.getMonth() + 1;
-  let year = dateCreated.getFullYear().toString().substr(-2);
-  if (day < 10) {
-    day = "0" + day
-  }
-  let formattedDate = `${month}/${day}/${year}`
   var firstRow = "";
   var secondRow = "";
   var thirdRow = "";
   for (i = 0; i < 3; i++) {
-    let imgUrl = data.data[i].images.standard_resolution.url;
-    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image:url(${imgUrl});width:33vw;height:58vh;"></div>`;
-    firstRow += toAdd
-  } for (i = 3; i < 5; i++) {
-    let imgUrl = data.data[i].images.standard_resolution.url;
-    var toAdd = `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:33vw;height:58vh;"></div>`;
-    secondRow += toAdd
-  } for (i = 5; i < 6; i++) {
+    let createdTimeOfPost = parseInt(data.data[i].created_time);
+    let dateCreated = new Date(createdTimeOfPost * 1000);
+    let day = dateCreated.getDate();
+    let month = dateCreated.getMonth() + 1;
+    let year = dateCreated.getFullYear().toString().substr(-2);
+    if (day < 10) {
+      day = "0" + day
+    }
+    let formattedDate = `${month}.${day}.${year}`
+  
     let caption = data.data[i].caption.text
     let imgUrl = data.data[i].images.standard_resolution.url;
     var toAdd =
       `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:33vw;height:58vh;">
+      <div class="instagram-mask">
     <div class="tweet-content">
       <span class="tw-date">${formattedDate}</span>
       <span class="tw-handle">@conrad_anker</span>
       <p class="tw-text">${caption}</p> 
       <a target="_blank" href="https://www.instagram.com/conrad_anker/?hl=en" class="red-arrow-link">SEE MORE &rarr;</a>
     </div> 
+    </div>
     </div>`;
-    thirdRow += toAdd
+    firstRow += toAdd
+  } for (i = 3; i < 6; i++) {
+    let createdTimeOfPost = parseInt(data.data[i].created_time);
+    let dateCreated = new Date(createdTimeOfPost * 1000);
+    let day = dateCreated.getDate();
+    let month = dateCreated.getMonth() + 1;
+    let year = dateCreated.getFullYear().toString().substr(-2);
+    if (day < 10) {
+      day = "0" + day
+    }
+    let formattedDate = `${month}.${day}.${year}`
+    let caption = data.data[i].caption.text
+    let imgUrl = data.data[i].images.standard_resolution.url;
+    var toAdd =
+      `<div class="col-sm-4 instagram-pic" style="background-image: url(${imgUrl});width:33vw;height:58vh;">
+      <div class="instagram-mask">
+    <div class="tweet-content">
+      <span class="tw-date">${formattedDate}</span>
+      <span class="tw-handle">@conrad_anker</span>
+      <p class="tw-text">${caption}</p> 
+      <a target="_blank" href="https://www.instagram.com/conrad_anker/?hl=en" class="red-arrow-link">SEE MORE &rarr;</a>
+    </div> 
+    </div>
+    </div>`;
+    secondRow += toAdd
   }
   document.getElementById("engage-instagram").innerHTML = firstRow;
-  document.getElementById("engage-instagram-second-row").innerHTML = secondRow + thirdRow;
+  document.getElementById("engage-instagram-second-row").innerHTML = secondRow;
   document.getElementById("explore-instagram").innerHTML = firstRow;
-  document.getElementById("explore-instagram-second-row").innerHTML = secondRow + thirdRow;
+  document.getElementById("explore-instagram-second-row").innerHTML = secondRow;
 }
 
 function instagramMobileFormat(data) {
@@ -405,14 +602,21 @@ function instagramMobileFormat(data) {
 }
 
 $(document).ready(() => {
+  exploreScrollClicks();
+  engageScrollClicks();
   instagramAjaxCall();
   initializePanelClicks();
+  bottomPanelClicks();
   initializeContactPanel();
   stickyOutline();
   initHistorySection();
+  initHistorySectionMobile();
   initPressScroller();
   modalPopover();
   hoverFix();
+  mobileMenuToggle();
+  slideupContact();
+  contactOptions();
   $(window).on('beforeunload', function () {
     $(window).scrollTop(0);
   });

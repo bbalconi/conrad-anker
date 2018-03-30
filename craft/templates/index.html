@@ -35,13 +35,13 @@
 
   <div class="row nav-container remove-15-row">
     <div class="col social-container">
-      <a href="https://www.instagram.com/conrad_anker/" target="_blank">
+      <a style="text-decoration: none !important;" href="https://www.instagram.com/conrad_anker/" target="_blank">
         <img src="img/social_instagram.png">
       </a>
-      <a href="https://twitter.com/conradanker" target="_blank">
+      <a style="text-decoration: none !important;" href="https://twitter.com/conradanker" target="_blank">
         <img src="img/social_twitter.png">
       </a>
-      <a href="https://www.facebook.com/ConradAnkerOfficial/" target="_blank">
+      <a style="text-decoration: none !important;" href="https://www.facebook.com/ConradAnkerOfficial/" target="_blank">
         <img src="img/social_facebook.png">
       </a>
 
@@ -50,6 +50,67 @@
       <a href="/">
         <img class="logo" src="img/logo.png">
       </a>
+    </div>
+    <div class="col hamburger-col" id="close-hamburger">
+      <div id="menuToggle" class="menu-toggle">
+        <div class="hamburger">
+          <span class="s1"></span>
+          <span class="s2"></span>
+          <span class="s3"></span>
+        </div>
+      </div>
+      <div class="side-nav">
+        <img class="contact-x-mobile" id="mobilex-a" src="img/x-close.png">
+        <div class="explore-nav-container">
+          <div class="mobile-nav-redl"></div>
+          <span class="explore-nav-link">Explore</span>
+        </div>
+        <div class="engage-nav-container">
+          <div class="mobile-nav-redl"></div>
+          <span class="engage-nav-link">Engage</span>
+        </div>
+        <div class="col social-container-drawer">
+          <div>
+            <a href="https://www.instagram.com/conrad_anker/" target="_blank">
+              <img src="img/social_instagram.png">
+            </a>
+          </div>
+          <div>
+            <a href="https://twitter.com/conradanker" target="_blank">
+              <img src="img/social_twitter.png">
+            </a>
+          </div>
+          <div>
+            <a href="https://www.facebook.com/ConradAnkerOfficial/" target="_blank">
+              <img src="img/social_facebook.png">
+            </a>
+          </div>
+        </div>
+        <div class="drawer-contact-button">
+          <div class="contact-fix">
+            <h2 style="color: white !important;">CONTACT</h2>
+          </div>
+        </div>
+        <div class="slideup-contact">
+          <img class="contact-x-mobile" id="mobilex-b" src="img/x-close.png">
+          <h1 class="contact-title" style="margin-bottom:1.2em;">Contact</h1>
+          <ul>
+            <li id="contact1" type="circle">Speaking Engagement</li>
+            <li id="contact2">Endorsement</li>
+            <li id="contact3">General Inquiry</li>
+          </ul>
+          <form id="contact-form">
+            <input type="text" name="email" id="contact-email" placeholder="Your email" />
+            <input type="text" name="subject" id="contact-subject" placeholder="Subject" />
+            <textarea name="message" class="message-box"></textarea>
+            </form>
+          <div class="drawer-send-button">
+            <div class="contact-fix">
+              <h2 style="color: white !important;">SEND</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col text-right contact-container">
       <a id="contact-link" class="text-link" href="#">CONTACT</a>
@@ -97,11 +158,11 @@
   <div class="row" id="home-row">
 
 
-    <div class="col" id="explore">
+    <div class="col explore-click" id="explore">
       <div class="row top-home-row remove-15-row"></div>
 
     </div>
-    <div class="col" id="engage">
+    <div class="col engage-click" id="engage">
       <div class="row top-home-row remove-15-row"></div>
 
     </div>
@@ -111,16 +172,16 @@
 
       <h1 class="contact-title" style="margin-bottom:1.2em;">Contact</h1>
 
-      <ul>
-        <li type="circle">Speaking Engagement</li>
-        <li>Endorsement</li>
-        <li>General Inquiry</li>
+      <ul class="contact-list">
+        <li class="contact-option" id="co0">Speaking Engagement</li>
+        <li class="contact-option" id="co1">Endorsement</li>
+        <li class="contact-option" id="co2">General Inquiry</li>
       </ul>
 
       <form id="contact-form">
         <input type="text" name="email" id="contact-email" placeholder="Your email" />
         <input type="text" name="subject" id="contact-subject" placeholder="Subject" />
-        <textarea name="message" class="message-box"></textarea>
+        <textarea name="message" class="message-box" placeholder="Message"></textarea>
       </form>
 
       <input type="submit" id="contact-submit" value="SEND" />
@@ -138,7 +199,7 @@
         </div>
 
         <div class="col-sm-10 explore-text align-items-center">
-          <span class="explore-link">EXPLORE</span>
+          <span class="explore-link explore-click">EXPLORE</span>
         </div>
       </div>
     </div>
@@ -147,7 +208,7 @@
       <div class="row bottom-home-row remove-15-row engage-row">
 
         <div class="col-sm-10 explore-text align-items-center">
-          <span class="engage-link">ENGAGE</span>
+          <span class="engage-link engage-click">ENGAGE</span>
         </div>
 
 
@@ -163,7 +224,7 @@
 
   <div class="row content-2 exploreSection" id="row1">
     <div class="col-sm-2 remove-15-row remove-15-padding float-redline">
-      <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+      <div class="col-sm-2 remove-15-row remove-15-padding redl2 heightfix-redl2"></div>
     </div>
 
     <div class="col-sm-2">
@@ -203,11 +264,11 @@
     </div>
 
     <div class="col-sm-10 content-buffer content-buffer-mobile">
-      <h1 style="margin-top: 1.2em;">Find Alpine Adventure</h1>
+      <h1 class="alpine-header" style="margin-top: 1.2em;">Find Alpine Adventure</h1>
       {{entry.findAlpineAdventureBodyCopy}}
 
       <p>
-        <a target="_blank" href="#" class="red-arrow-link dl-bio">DOWNLOAD FULL CONRAD BIO &rarr;</a>
+        <a target="_blank" href="#" class="red-arrow-link dl-bio">CONRAD'S FULL BIO &rarr;</a>
       </p>
     </div>
   </div>
@@ -220,7 +281,7 @@
     <div class="col-sm-10 content-buffer-mobile">
       <div class="row">
         <div class="col">
-          <img src="img/achievements1.jpeg" class="achievements-1 remove-mobile">
+          <img src="img/conrad_quote_explore.jpg" class="achievements-1 remove-mobile">
           <div class="shift-text-content">
             <h1 class="ac-h1">Achievements</h1>
             <div class="in-content-ul">
@@ -230,7 +291,7 @@
         </div>
 
         <div class="col remove-mobile">
-          <img src="img/achievements2.jpeg" class="achievements-2">
+          <img src="img/Conrad_quote_image_explore.jpg" class="achievements-2 parallax">
         </div>
       </div>
     </div>
@@ -244,8 +305,8 @@
     <div class="col-sm-10 content-buffer-fix">
       <div class="row expedition-intro-row">
         <div class="col top-row-watch">
-          <h2 class="ex-h2">Recent Expeditions</h2>
-          <h1 class="modify-bp">Watch Conrad</h1>
+          <!-- <h2 class="ex-h2">Recent Expeditions</h2> -->
+          <h1 class="modify-bp">Expeditions</h1>
           <p class="ex-p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt leo eget tellus finibus elementum. Aliquam scelerisque
             cursus magna in elementum. Integer blandit laoreet nibh, a porta erat. Integer ultricies viverra pharetra. Phasellus
@@ -312,7 +373,7 @@
 
         <div class="col expedition-info v-center dropdown-col exp-mobile-col">
           <div class="v-center">
-            <h2 style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
+            <h2 class="expedition-header" style="color:#fff !important;">{{expedition.nameOfExpedition}}</h2>
             <p>
               {{expedition.expeditionDescription}}
             </p>
@@ -337,18 +398,13 @@
 
   <div class="row history content-2 exploreSection historyMobile" id="row4" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url({{doc.url}}) no-repeat center left fixed;">
     <div class="col-sm-2 remove-15-row remove-15-padding mobileSide">
-      <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
+      <div class="col-sm-2 remove-15-row remove-15-padding redl2 heightfix-redl2"></div>
     </div>
 
-    <div class="col-sm-10 content-buffer">
-      <div class="row history-row-mobile-2">
+    <div class="col-sm-10 content-buffer history-margin">
+      <div class="row row-mobile-2">
         <div class="col">
           <h1 class="modify-bp">History</h1>
-          <select class="historySelect">
-            {% for event in entry.history %}
-            <option value="{{event.nameOfEvent}}">{{event.nameOfEvent}}</option>
-            {% endfor %}
-          </select>
         </div>
       </div>
 
@@ -369,6 +425,34 @@
           </div>
 
           {% endfor %}
+        </div>
+
+        <div class="col-sm-7 history-body-mobile">
+          {% for event in entry.history %} {% if loop.first %}
+          <div class="history-content-mobile" id="mobile-history-show-{{loop.index}}">
+            <h2 style="color:#fff !important;">{{event.nameOfEvent}}</h2>
+            <p class="history-p-width">
+              {{event.eventDescription}}
+            </p>
+            <p>
+              <a target="_blank" href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+              <a target="_blank" href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+            </p>
+
+          </div>
+          {% else %}
+          <div style="display:none" class="history-content-mobile" id="mobile-history-show-{{loop.index}}">
+            <h2 style="color:#fff !important;">{{event.nameOfEvent}}</h2>
+            <p class="history-p-width">
+              {{event.eventDescription}}
+            </p>
+            <p>
+              <a target="_blank" href="#" class="red-arrow-link" style="margin-right:2em;">SEE GALLERY &rarr;</a>
+              <a target="_blank" href="#" class="red-arrow-link">SEE VIDEO &rarr;</a>
+            </p>
+
+          </div>
+          {% endif %} {% endfor %}
         </div>
 
         <div class="col-sm-5 remove-15-padding history-menu-contain">
@@ -392,12 +476,13 @@
           <div class="history-menu-mobile">
             <select class="mobile-history-select">
               {% for event in entry.history %}
-              <option class="history-menu-item-mobile{% if loop.first %} hm-active{% endif %}">
-                <span>{{event.nameOfEvent}}></span>
+              <option value="mobile-history-show-{{loop.index}}" class="history-menu-item-mobile{% if loop.first %} hm-active{% endif %}">
+                <span>{{event.nameOfEvent}}</span>
               </option>
           </div>
           {% endfor %}
           </select>
+          <!-- <span class="history-arrow">&#9660;</span> -->
         </div>
       </div>
     </div>
@@ -412,7 +497,7 @@
   <div class="col-sm-10 content-buffer-fix">
     <div class="row"></div>
     <h1 class="mobileh1">Tools</h1>
-    <p>
+    <p class="tools-body">
       {{entry.theGearRoomBody}}
     </p>
     <div class="row vertical-align remove-15-row remove-15-padding">
@@ -428,7 +513,7 @@
 
   <div class="col-sm-10 content-buffer-fix">
     <div class="row remove-15-padding remove-15-row press-modify">
-      <h1 class="modify-bp">Press</h1>
+      <h1 class="modify-bp-press">Press</h1>
     </div>
 
     <div class="row remove-15-padding remove-15-row mobile-press-width">
@@ -441,10 +526,12 @@
         <div class="col-sm-8 expedition-info v-center dropdown-col flex-modify mobile-press-info">
           <div class="v-center">
             <h2 style="color:#fff !important;">{{pressItem.publication}}</h2>
-            <p>
-              <span style="font-weight:bold;">{{pressItem.articleTitle}}</span>
-              <br> {{pressItem.description}}
-            </p>
+            <div class="press-p">
+              <p>
+                <span style="font-weight:bold;">{{pressItem.articleTitle}}</span>
+                <br> {{pressItem.description}}
+              </p>
+            </div>
             <p>
               <a target="_blank" href="{{pressItem.seeMoreLink}}" class="red-arrow-link">SEE MORE &rarr;</a>
             </p>
@@ -494,7 +581,7 @@
   <div class="col-sm-2 mobileSide"></div>
 
   <div class="col-sm-10 content-buffer center-logos" style="padding-right: 6em;">
-    <div class="row logo-row">
+    <div class="row logo-row logo-row-left">
       {% set counter = 0 %} {% for company in companySponsors.sponsors %} {% if counter
       < 4 %} {% set doc=company.logo.first() %} {% if doc %} <div class="col-sm-3 logo-col vertical-align horiz-align">
         <a href="{{company.urlToWebsite}}" target="_blank">
@@ -525,7 +612,7 @@
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
 
       <div class="col-sm-10 explore-text align-items-center pad-mod">
-        <span class="explore-row-bottom explore-link final-ex-en pad-mod-left">EXPLORE</span>
+        <span class="explore-row-bottom-left explore-link final-ex-en pad-mod-left">EXPLORE</span>
       </div>
     </div>
   </div>
@@ -536,7 +623,7 @@
     <div class="row"></div>
     <div class="row" id="bottom-row" style="font-size:4em;">
       <div class="col-sm-10 remove-15-row remove-15-padding">
-        <span class="engage-row-bottom explore-link final-ex-en pad-mod-2">ENGAGE</span>
+        <span class="engage-row-bottom-left explore-link final-ex-en pad-mod-2">ENGAGE</span>
       </div>
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
 
@@ -593,8 +680,8 @@
 
   </div>
 
-  <div class="col-sm-10 content-buffer">
-    <div class="be-good">
+  <div class="col-sm-10 content-buffer be-good">
+    <div class="good-header">
       <h1 style="margin-top: 1.2em;">Be Good. Be Kind. Be Happy.</h1>
     </div>
     {{entry.beGoodBeKindBeHappyBodyCopy}}
@@ -681,7 +768,6 @@
       </div>
     </div>
     {% endfor %}
-
   </div>
 </div>
 
@@ -690,7 +776,7 @@
     <div class="col-sm-2 remove-15-row remove-15-padding redl2"></div>
   </div>
 
-  <div class="col-sm-2"></div>
+  <div class="col-sm-2 speaking-column-left"></div>
 
   <div class="col-sm-10 content-buffer speaking-body" style="padding-right: 6em;">
     <div class="speaking-header">
@@ -735,7 +821,7 @@
   <div class="col-sm-10 content-buffer quote-content">
     <div class="row">
       <div class="col">
-        <img src="img/achievements1.jpeg" class="achievements-1">
+        <img src="img/Conrad_quote_image_engage.jpg" class="achievements-1">
         <div class="speaking-div">
           {{entry.conradQuote}}
 
@@ -745,7 +831,7 @@
       </div>
 
       <div class="col">
-        <img src="img/achievements2.jpeg" class="achievements-2">
+        <img src="img/conrad_quote_image.jpg" class="achievements-2">
       </div>
     </div>
   </div>
@@ -911,7 +997,7 @@
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
 
       <div class="col-sm-10 explore-text align-items-center pad-mod">
-        <span class="explore-link final-ex-en pad-mod-left">EXPLORE</span>
+        <span class="explore-row-bottom-right explore-link final-ex-en pad-mod-left">EXPLORE</span>
       </div>
     </div>
   </div>
@@ -922,7 +1008,7 @@
     <div class="row"></div>
     <div class="row" id="bottom-row" style="font-size:4em;">
       <div class="col-sm-10 remove-15-row remove-15-padding">
-        <span class="explore-link final-ex-en pad-mod-2">ENGAGE</span>
+        <span class="engage-row-bottom-right explore-link final-ex-en pad-mod-2">ENGAGE</span>
       </div>
       <div class="col-sm-2 remove-15-row remove-15-padding redl-engage-bottom"></div>
 
