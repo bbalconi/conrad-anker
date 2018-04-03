@@ -4,7 +4,6 @@
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
   }
 
   h1{
@@ -179,6 +178,11 @@
   letter-spacing: 2px;
 }
 
+.mobile-press-width{
+  padding-top: 12em;
+
+}
+
 .contact-fix{
   margin-top: 2.2vh;
 }
@@ -256,7 +260,7 @@
   }
 
   .modify-bp{
-    margin-left: -3vw;
+    margin-left: 1vw;
   }
 
   .speech-flex{
@@ -478,7 +482,7 @@
   }
 
   .ex-p{
-    margin-left: -0.3em;
+    margin-bottom: 2.5em;
   }
 
   .redl{
@@ -540,9 +544,9 @@
   }
 
   .content-buffer{
-		margin-left: -1em;
-		padding-top:1.5em;
-		padding-bottom: 5.5em;
+		margin-left: 0em;
+		padding-top:2.5em;
+		padding-bottom: 2.5em;
   }
 
   .shift-text-content{
@@ -559,8 +563,8 @@
 }
 
   .content-buffer-mobile{
-		padding-top:1.5em;
-		padding-bottom: 1.5em;
+    padding-top: 3.5em;
+    padding-bottom: 3.5em;
   }
   
   .mobileRow{
@@ -595,6 +599,14 @@
     margin-left: -5vw;
   }
 
+  .exp-mobile-body{
+    padding-bottom: 2em;
+  }
+
+  .expedition-bottom-buffer{
+    padding-top: 19em !important;
+  }
+
   .instagram-pic{
     width: 50% !important;
     height: 33vh !important;
@@ -612,7 +624,8 @@
   }
 
   #row6{
-    height: 120vh !important;
+    height: 100vh !important;
+    min-height: 750px !important;
   }
 
   .tw-row{
@@ -652,8 +665,12 @@
   }
 
   .news-image{
-    margin-left: 15vw;
-  }
+    position: absolute;
+    top: -10em;
+    width: 90vw;
+    height: auto;
+    margin-left: 5vw !important;
+    }
 
   .press-scroller{
     width: 90vw !important;
@@ -662,6 +679,8 @@
   .ps-outer-contain{
     padding-top: 102vh !important;
     position: relative !important;
+    margin-left: -19vw !important;
+    bottom: 0em !important;
   }
 
   .tweet-content{
@@ -766,7 +785,7 @@
       width: 95vw !important;
       display: flex;
       padding-right: 0 !important;
-      margin-left: -5vw !important;
+      margin-left: -10vw !important;
       padding-bottom: 1.5em !important;
       padding-top: 5vh !important;
   }
@@ -788,10 +807,11 @@
 
   #row1a{
     height: 85vh;
+    min-height: 550px;
   }
 
   #row2a{
-    height: 200vh;
+    min-height: 200vh;
   }
 
   .coordinates-table{
@@ -886,6 +906,10 @@
     padding-top: 24vh;
   }
 
+  .testimonial-col{
+    margin-left: 5vw;
+  }
+
   .advocacy-remove{
     display: none !important;
   }
@@ -897,7 +921,7 @@
 
   .advocacy-image-wrapper{
     width: 100vw;
-    padding-left: 0 !important;
+    margin-left: -8vw !important;
   }
 
   .advocacy-web{
@@ -949,7 +973,10 @@
   }
 
   .achievements-2{
-    display: none !important;
+    width: 82%;
+    position: absolute;
+    bottom: -20.5em;
+    margin-left: -2vw;
   }
 
   .tools-body{

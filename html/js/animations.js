@@ -1,32 +1,32 @@
 function exploreScrollClicks() {
   $('#about-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row1").offset().top - 49
+      scrollTop: $("#row1").offset().top - 0
     }, 500);
   });
   $('#achievements-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row2").offset().top - 49
+      scrollTop: $("#row2").offset().top - 0
     }, 500);
   });
   $('#expeditions-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row3").offset().top - 49
+      scrollTop: $("#row3").offset().top - 1
     }, 500);
   });
   $('#history-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row4").offset().top - 49
+      scrollTop: $("#row4").offset().top - 0
     }, 500);
   });
   $('#tools-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row5").offset().top - 49
+      scrollTop: $("#row5").offset().top - 0
     }, 500);
   });
   $('#press-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row6").offset().top - 49
+      scrollTop: $("#row6").offset().top - 0
     }, 500);
   });
 }
@@ -50,37 +50,37 @@ function contactOptions() {
 function engageScrollClicks() {
   $('#about2-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row1a").offset().top - 49
+      scrollTop: $("#row1a").offset().top - 0
     }, 500);
   });
   $('#advocacy-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row2a").offset().top - 49
+      scrollTop: $("#row2a").offset().top - 0
     }, 500);
   });
   $('#speaking-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row3a").offset().top - 49
+      scrollTop: $("#row3a").offset().top - 0
     }, 500);
   });
   $('#filler-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row4a").offset().top - 49
+      scrollTop: $("#row4a").offset().top - 0
     }, 500);
   });
   $('#testimonials-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row5a").offset().top - 49
+      scrollTop: $("#row5a").offset().top - 0
     }, 500);
   });
   $('#coordinates-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row6a").offset().top - 49
+      scrollTop: $("#row6a").offset().top - 0
     }, 500);
   });
   $('#team-outline').on('click', function () {
     $('html, body').animate({
-      scrollTop: $("#row7a").offset().top - 49
+      scrollTop: $("#row7a").offset().top - 0
     }, 500);
   });
 }
@@ -88,13 +88,33 @@ function engageScrollClicks() {
 function initializeContactPanel() {
   $("#contact-link").click(function () {
     var currWidth = $(".contact-slide").width();
-
+    $(window).scroll(function () {
+      $('.contact-slide').css('top', $(this).scrollTop());
+    });
     $(".contact-slide").css({ "right": (0 - currWidth - 30) + "px" });
     $(".contact-slide").animate({ right: "0px" }, 500);
   });
 
   $(".contact-x").click(function () {
     $(".contact-slide").animate({ right: "-1000px" }, 1000);
+  });
+}
+
+function bookConrad() {
+  $('#book-conrad').click(function () {
+    $('.contact-slide').css('top', $(window).scrollTop());
+    var currWidth = $(".contact-slide").width();
+    $(".contact-slide").css({ "right": (0 - currWidth - 30) + "px" });
+    $(".contact-slide").animate({ right: "0px" }, 500);
+    setTimeout(() => {
+      $('#co0').attr('type', 'circle');
+    }, 501);
+  })
+}
+
+function contactScroll () {
+  $(window).scroll(function () {
+    $('.contact-slide').css('top', $(this).scrollTop());
   });
 }
 
@@ -129,6 +149,9 @@ function initializePanelClicks() {
     $(".resize-bottom-explore").animate({ width: "0" }, 500);
     $(".explore-text .redl-active").css({ width: '0.5em !important' }, 500);
     $(".explore-row").fadeOut();
+    $('.engage-link').hide()
+    $('.engage-link').css({float: "left"})
+    $('.engage-link').show()
     $("#engage").animate({ width: "100%" }, 500, function () {
       $("#explore").css({ height: "0" });
       $("#explore").hide();
@@ -140,7 +163,7 @@ function initializePanelClicks() {
       $("body").css("overflow-y", "scroll");
     });
     $("#engage-rot-text").fadeIn();
-    $(".engage-row .redl").addClass("redl-active");
+    $(".engage-row .redl").addClass("redl-e-active");
     $("#engage").css({ "background-image": "url('/img/right-background.jpg')" });
   });
 
@@ -169,7 +192,7 @@ function initializePanelClicks() {
     $("#explore-mobile-row").animate({ height: "0%" }, 500);
     $("#explore-mobile .redl").fadeOut();
     $("#explore-mobile .explore-text").fadeOut();
-    $("#engage-mobile-row").animate({ height: "101%" }, 500, function () {
+    $("#engage-mobile-row").animate({ height: "100%" }, 500, function () {
       $(".exploreSection").hide();
       $(".engageSection").show();
       $("body").css({ position: "static" });
@@ -185,7 +208,7 @@ function initializePanelClicks() {
     $("#engage-mobile-row").animate({ height: "0%" }, 500);
     $("#engage-mobile .redl").fadeOut();
     $("#engage-mobile .explore-text").fadeOut();
-    $("#explore-mobile-row").animate({ height: "101%" }, 500, function () {
+    $("#explore-mobile-row").animate({ height: "100%" }, 500, function () {
       $(".engageSection").hide();
       $(".exploreSection").show();
       $("body").css({ position: "static" });
@@ -199,86 +222,104 @@ function initializePanelClicks() {
 function bottomPanelClicks() {
   $('.explore-row-bottom-left').click(function () {
     $('html, body').animate({ scrollTop: 0 }, 600);
-    setTimeout(function(){
-      $('#engage').animate({width: "50%"}, 500);
+    setTimeout(function () {
+      $('#engage').animate({ width: "50%" }, 500);
+      $(".resize-bottom-explore").css({ position: 'relative' });
       $(".resize-bottom-engage").animate({ width: "50%" }, 500);
+      $(".resize-bottom-explore").css({float:"right"});
       $(".engage-row").fadeIn();
       $("#explore").animate({ width: "50%" }, 500, function () {
+        $(".explore-row .redl").removeClass("redl-active");
         $('.rot-text-container').hide();
-        $('#engage').css( {height: "100%" })
+        $('#engage').css({ height: "100%" })
         $("#engage").show();
         $(".exploreSection").hide();
         $("body").css({ position: "static" });
         $("body").css({ top: "0px" });
         $("body").css({ height: "0px" });
         $("body").css("overflow-y", "scroll");
-      });  
+      });
     }, 601)
   });
 
-  $('.engage-row-bottom-left').click(function () {
+  $('.explore-row-bottom-right').click(function () {
     $('html, body').animate({ scrollTop: 0 }, 600);
-    setTimeout(function(){
-      $('#engage').animate({width: "100%"}, 500);
+    setTimeout(function () {
+      $("#engage").css({ "background-image": "url('/img/new-right-background.jpg')", height: "100%" });
+      $('#engage').animate({ width: "100%" }, 500);
+      $(".resize-bottom-explore").animate({ width: "0" }, 500);
+      $(".resize-bottom-explore").hide();
+        $("#engage").show()
       $(".resize-bottom-engage").animate({ width: "50%" }, 500);
       $(".engage-row").fadeIn();
       $('.explore-row').hide();
+      $('.engage-link').hide()
+      $('.engage-link').css({float: "left"})
+      $('.engage-link').show()  
       $("#explore").animate({ width: "0%" }, 500, function () {
-        $('.rot-text-container').hide();
-        $('#engage').css( {height: "100%" })
-        $("#engage").show();
+        $(".explore-row .redl").removeClass("redl-active");
+        $(".engage-row .redl").addClass("redl-e-active");
+        $("#engage-rot-text").fadeIn();
+        $('.rot-text-container').show();
         $(".exploreSection").hide();
         $('.engageSection').show();
         $("body").css({ position: "static" });
         $("body").css({ top: "0px" });
         $("body").css({ height: "0px" });
         $("body").css("overflow-y", "scroll");
-      });  
-    }, 601)  
+      });
+    }, 601)
   });
 
-  $('.explore-row-bottom-right').click(function () {
+  $('.engage-row-bottom-left').click(function () {
     $('html, body').animate({ scrollTop: 0 }, 600);
-    setTimeout(function(){
-      $('#explore').animate({width: "100%"}, 500);
+    setTimeout(function () {
+      $("#explore").css({ "background-image": "url('/img/new-left-background.jpg')", height: "100%" });
+      $('#explore').animate({ width: "100%" }, 500);
+      $(".resize-bottom-engage").animate({ width: "0" }, 500);
+        $("#explore").show()
       $(".resize-bottom-explore").animate({ width: "50%" }, 500);
       $(".explore-row").fadeIn();
       $('.engage-row').hide();
       $("#engage").animate({ width: "0%" }, 500, function () {
-        $('.rot-text-container').hide();
-        $('#explore').css( {height: "100%" })
-        $("#explore").show();
+        $(".engage-row .redl").removeClass("redl-active");
+        $(".explore-row .redl").addClass("redl-active");
+        $("#explore-rot-text").fadeIn();
+        $('.rot-text-container').show();
         $(".engageSection").hide();
         $('.exploreSection').show();
         $("body").css({ position: "static" });
         $("body").css({ top: "0px" });
         $("body").css({ height: "0px" });
         $("body").css("overflow-y", "scroll");
-      });  
-    }, 601)  
+      });
+    }, 601)
   });
 
   $('.engage-row-bottom-right').click(function () {
     $('html, body').animate({ scrollTop: 0 }, 600);
-    setTimeout(function(){
-      $('#explore').animate({width: "50%"}, 500);
+    setTimeout(function () {
+      $('#explore').animate({ width: "50%" }, 500);
+      $(".resize-bottom-explore").css({ position: 'relative' });
       $(".resize-bottom-explore").animate({ width: "50%" }, 500);
-      $(".explore-row").fadeIn();
+      $(".resize-bottom-explore").show();
+      $('.engage-link').hide()
+      $('.engage-link').css({float: "right"})
+      $('.engage-link').show()
+        $(".explore-row").fadeIn();
       $("#engage").animate({ width: "50%" }, 500, function () {
+        $(".engage-row .redl").removeClass("redl-e-active");
         $('.rot-text-container').hide();
-        $('#explore').css( {height: "100%" })
+        $('#explore').css({ height: "100%" })
         $("#explore").show();
         $(".engageSection").hide();
         $("body").css({ position: "static" });
         $("body").css({ top: "0px" });
         $("body").css({ height: "0px" });
         $("body").css("overflow-y", "scroll");
-      });  
+      });
     }, 601)
   });
-
-
-
 }
 
 function clearActive() {
@@ -366,11 +407,11 @@ function engageHighlights() {
     $("#testimonials-outline .circle-item").addClass("circle-active");
     $("#testimonials-outline .outline-item-text").addClass("oi-active");
     $("#testimonials-outline .outline-item-text").addClass("oi-active-light");
-  } else if (window.pageYOffset >= $("#row4a").offset().top - 50) {
+  } else if (window.pageYOffset >= $("#row4a").offset().top - 130) {
     clearActive();
-    $("#filler-outline .circle-item").addClass("circle-active");
-    $("#filler-outline .outline-item-text").addClass("oi-active");
-    $("#filler-outline .outline-item-text").addClass("oi-active-dark");
+    $("#speaking-outline .circle-item").addClass("circle-active");
+    $("#speaking-outline .outline-item-text").addClass("oi-active");
+    $("#speaking-outline .outline-item-text").addClass("oi-active-dark");
   } else if (window.pageYOffset >= $("#row3a").offset().top - 50) {
     clearActive();
     $("#speaking-outline .circle-item").addClass("circle-active");
@@ -467,8 +508,8 @@ function initPressScroller() {
 
 function initModal(videoId, h1, paragraph) {
   var modalWidth = $(".modalCA").width();
-  var adjustedW = modalWidth * 0.8;
-  var adjustedH = adjustedW / 1.9;
+  var adjustedW = modalWidth * 0.85;
+  var adjustedH = adjustedW / 1.63;
 
   var iframe = document.createElement('iframe');
   iframe.src = videoId;
@@ -544,7 +585,7 @@ function instagramWebFormat(data) {
       day = "0" + day
     }
     let formattedDate = `${month}.${day}.${year}`
-  
+
     let caption = data.data[i].caption.text
     let imgUrl = data.data[i].images.standard_resolution.url;
     var toAdd =
@@ -617,6 +658,8 @@ $(document).ready(() => {
   mobileMenuToggle();
   slideupContact();
   contactOptions();
+  bookConrad();
+  contactScroll();
   $(window).on('beforeunload', function () {
     $(window).scrollTop(0);
   });
